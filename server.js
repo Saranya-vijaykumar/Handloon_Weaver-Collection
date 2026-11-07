@@ -79,19 +79,24 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`=======================================================`);
-  console.log(`  Handloom Weavers Collective Web Application`);
-  console.log(`  Live at: http://localhost:${PORT}`);
-  console.log(`=======================================================`);
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`=======================================================`);
+    console.log(`  Handloom Weavers Collective Web Application`);
+    console.log(`  Live at: http://localhost:${PORT}`);
+    console.log(`=======================================================`);
+  });
 
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    const nextPort = Number(PORT) + 1;
-    console.log(`Port ${PORT} is in use, trying port ${nextPort}...`);
-    server.listen(nextPort);
-  } else {
-    console.error('Server error:', err);
-  }
-});
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      const nextPort = Number(PORT) + 1;
+      console.log(`Port ${PORT} is in use, trying port ${nextPort}...`);
+      server.listen(nextPort);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+}
+
+module.exports = server;
+
