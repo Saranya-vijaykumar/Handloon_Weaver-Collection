@@ -82,10 +82,10 @@ const HWC_Shared = (function() {
       const isThisActive = (current === 'index.html' && (route === 'index.html' || route === '/')) ||
                            (current === 'home-2.html' && (route === 'home-2.html' || route === 'index-2.html'));
       if (isThisActive) {
-        link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
+        link.classList.add('bg-primary/10', 'dark:bg-[#fed65b]/15', 'text-primary', 'dark:text-[#fed65b]', 'font-bold');
         link.classList.remove('text-on-surface');
       } else {
-        link.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
+        link.classList.remove('bg-primary/10', 'dark:bg-[#fed65b]/15', 'text-primary', 'dark:text-[#fed65b]', 'font-bold');
         link.classList.add('text-on-surface');
       }
     });
@@ -95,9 +95,9 @@ const HWC_Shared = (function() {
       const route = link.getAttribute('data-route') || link.getAttribute('href');
       if (route === current) {
         link.classList.remove('text-on-surface-variant');
-        link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+        link.classList.add('text-primary', 'dark:text-[#fed65b]', 'font-bold', 'border-b-2', 'border-primary', 'dark:border-[#fed65b]');
       } else {
-        link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+        link.classList.remove('text-primary', 'dark:text-[#fed65b]', 'font-bold', 'border-b-2', 'border-primary', 'dark:border-[#fed65b]');
         link.classList.add('text-on-surface-variant');
       }
     });

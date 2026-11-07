@@ -324,3 +324,238 @@ input[type=range].hwc-slider::-webkit-slider-thumb:hover {
   font-weight: 700 !important;
   font-size: 11px !important;
 }
+
+
+/* =========================================================
+   COMPREHENSIVE DARK THEME TYPOGRAPHY & VISIBILITY OVERRIDES
+   Ensures 100% crystal-clear visibility across ALL pages
+   ========================================================= */
+
+/* Brand Logo in Dark Mode: Luminous royal gold */
+html.dark header a[href="index.html"],
+html.dark header a[href="index.html"] .material-symbols-outlined,
+html.dark header a[href="index.html"] span,
+html.dark header a[title="Handloom Weavers Collective"],
+html.dark header a[title="Handloom Weavers Collective"] span,
+html.dark a.font-headline-md.text-primary,
+html.dark .font-headline-md.text-primary {
+  color: #fed65b !important;
+}
+
+/* Active & Inactive Desktop Navigation Links */
+html.dark #desktop-main-nav a.nav-item.text-primary,
+html.dark #desktop-main-nav .nav-item.text-primary,
+html.dark .nav-item.text-primary,
+html.dark a.nav-item.text-primary {
+  color: #fed65b !important;
+  border-bottom-color: #fed65b !important;
+  font-weight: 700 !important;
+}
+
+html.dark #desktop-main-nav a.nav-item:not(.text-primary),
+html.dark #desktop-main-nav button:not(.text-primary),
+html.dark .nav-item:not(.text-primary) {
+  color: #ded7ce !important;
+}
+
+html.dark #desktop-main-nav a.nav-item:hover,
+html.dark #desktop-main-nav button:hover,
+html.dark .nav-item:hover {
+  color: #fed65b !important;
+}
+
+/* Home Dropdown in Dark Mode */
+html.dark #home-dropdown-menu > div {
+  background-color: #241e22 !important;
+  border-color: rgba(254, 214, 91, 0.25) !important;
+}
+
+html.dark #home-dropdown-menu a.home-option {
+  color: #f7f4ee !important;
+}
+
+html.dark #home-dropdown-menu a.home-option .title-span {
+  color: #f7f4ee !important;
+}
+
+html.dark #home-dropdown-menu a.home-option:hover {
+  background-color: rgba(254, 214, 91, 0.12) !important;
+  color: #fed65b !important;
+}
+
+html.dark #home-dropdown-menu a.home-option.text-primary {
+  color: #fed65b !important;
+  background-color: rgba(254, 214, 91, 0.15) !important;
+}
+
+/* Mobile Drawer in Dark Mode */
+html.dark #mobile-menu-drawer,
+html.dark #mobile-menu-drawer > div {
+  background-color: #1a1618 !important;
+  color: #f7f4ee !important;
+}
+
+html.dark #mobile-menu-drawer a.text-primary,
+html.dark #mobile-home-submenu a.text-primary,
+html.dark #mobile-home-toggle.text-primary {
+  color: #fed65b !important;
+  background-color: rgba(254, 214, 91, 0.15) !important;
+}
+
+html.dark #mobile-menu-drawer a:not(.text-primary) {
+  color: #f7f4ee !important;
+}
+
+/* Global text-primary, links & accents in Dark Mode */
+html.dark .text-primary,
+html.dark a.text-primary,
+html.dark span.text-primary,
+html.dark button.text-primary,
+html.dark p.text-primary,
+html.dark i.text-primary,
+html.dark .hover\:text-primary:hover,
+html.dark span.font-bold.text-primary,
+html.dark span.font-semibold.text-primary {
+  color: #ffd67a !important;
+}
+
+/* Headings in Dark Mode */
+html.dark h1:not(.text-white):not([class*="text-"]),
+html.dark h2:not(.text-white):not([class*="text-"]),
+html.dark h3:not(.text-white):not([class*="text-"]),
+html.dark h4:not(.text-white):not([class*="text-"]),
+html.dark .font-headline-xl,
+html.dark .font-headline-lg,
+html.dark .font-headline-md,
+html.dark .font-headline-sm {
+  color: #f7f4ee !important;
+}
+
+html.dark h1.text-primary,
+html.dark h2.text-primary,
+html.dark h3.text-primary,
+html.dark h4.text-primary,
+html.dark .font-headline-xl.text-primary,
+html.dark .font-headline-lg.text-primary,
+html.dark .font-headline-md.text-primary,
+html.dark .font-headline-sm.text-primary {
+  color: #ffd67a !important;
+}
+
+/* Product Prices in Dark Mode */
+html.dark .product-price,
+html.dark span.product-price,
+html.dark .product-price.text-primary {
+  color: #fed65b !important;
+}
+
+html.dark .product-usd {
+  color: #cfc5bf !important;
+}
+
+/* Badges & Chips in Dark Mode */
+html.dark .bg-primary\/10,
+html.dark .bg-primary\/15,
+html.dark .bg-primary\/20 {
+  background-color: rgba(254, 214, 91, 0.15) !important;
+  color: #fed65b !important;
+  border: 1px solid rgba(254, 214, 91, 0.3) !important;
+}
+
+html.dark .badge-cluster {
+  background-color: #2e262a !important;
+  color: #ffd67a !important;
+  border: 1px solid rgba(254, 214, 91, 0.25) !important;
+}
+
+html.dark .badge-fabric {
+  background-color: #3f222b !important;
+  color: #ffb1c2 !important;
+  border: 1px solid rgba(255, 177, 194, 0.3) !important;
+}
+
+/* Active Borders & Rings in Dark Mode */
+html.dark .border-primary {
+  border-color: #fed65b !important;
+}
+html.dark .ring-primary {
+  --tw-ring-color: #fed65b !important;
+}
+
+/* Body text & Paragraphs in Dark Mode */
+html.dark p,
+html.dark .text-on-surface-variant {
+  color: #d6ccc7 !important;
+}
+html.dark .text-stone-700,
+html.dark .text-stone-600,
+html.dark .text-stone-500 {
+  color: #d0c7c1 !important;
+}
+html.dark .text-stone-900,
+html.dark .text-stone-800,
+html.dark .text-on-surface {
+  color: #f7f4ee !important;
+}
+
+/* Solid Buttons in Dark Mode */
+html.dark .bg-primary.text-on-primary,
+html.dark button.bg-primary,
+html.dark a.bg-primary {
+  background-color: #702237 !important;
+  color: #ffffff !important;
+}
+html.dark .bg-primary.text-on-primary:hover,
+html.dark button.bg-primary:hover,
+html.dark a.bg-primary:hover {
+  background-color: #882b44 !important;
+  color: #ffffff !important;
+}
+
+html.dark .bg-secondary-container {
+  background-color: #fed65b !important;
+  color: #241a00 !important;
+}
+
+/* Header utility buttons (Search, Theme, Dir, Cart) */
+html.dark .bg-surface-container-high {
+  background-color: #292226 !important;
+  color: #f7f4ee !important;
+  border-color: rgba(254, 214, 91, 0.2) !important;
+}
+
+html.dark #cart-badge {
+  background-color: #fed65b !important;
+  color: #241a00 !important;
+  font-weight: 800 !important;
+}
+
+/* Footer in Dark Mode */
+html.dark footer {
+  background-color: #141113 !important;
+  border-top-color: rgba(254, 214, 91, 0.15) !important;
+}
+html.dark footer h4 {
+  color: #fed65b !important;
+}
+html.dark footer a:hover {
+  color: #fed65b !important;
+}
+html.dark footer p,
+html.dark footer span,
+html.dark footer a {
+  color: #cfc5bf !important;
+}
+
+/* Forms & Inputs in Dark Mode */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #231c20 !important;
+  color: #f7f4ee !important;
+  border-color: rgba(215, 193, 196, 0.3) !important;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #a09296 !important;
+}
