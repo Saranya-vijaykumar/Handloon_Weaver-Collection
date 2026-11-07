@@ -251,18 +251,39 @@
 <h1 class="font-headline-xl text-on-primary max-w-4xl text-4xl md:text-6xl font-normal leading-tight tracking-tight">The Hands Behind the Heritage</h1>
 <p class="font-body-lg text-on-primary-container max-w-2xl text-base md:text-lg font-light">Discover the master artisans preserving centuries-old weaving traditions across Varanasi, Bengal, Kashmir, and Pochampally.</p>
 <!-- Search & Filter Bar -->
-<div class="w-full max-w-3xl mt-8 flex flex-col md:flex-row gap-3 items-center bg-surface-container-low dark:bg-[#1f1e1c] p-3 rounded-2xl border border-outline-variant/30 shadow-sm">
-<div class="flex items-center gap-3 w-full px-3 py-2 bg-surface dark:bg-[#151412] rounded-xl border border-outline-variant/20">
-<span class="material-symbols-outlined text-primary dark:text-tertiary-fixed-dim">search</span>
-<input class="w-full bg-transparent border-none focus:outline-none text-body-md text-stone-900 dark:text-stone-100 placeholder:text-stone-500" id="artisan-search" placeholder="Search by artisan name, craft, or town..." type="text"/>
-</div>
-<div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
-<button class="region-filter px-4 py-2 rounded-xl text-label-md bg-primary text-on-primary dark:bg-tertiary-fixed dark:text-on-tertiary-fixed shrink-0 transition-all font-semibold flex items-center gap-1.5" data-region="all"><span class="material-symbols-outlined text-sm">grid_view</span> All Regions</button>
-<button class="region-filter px-4 py-2 rounded-xl text-label-md bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary shrink-0 transition-all font-semibold border border-outline-variant/20 flex items-center gap-1.5" data-region="varanasi"><span class="material-symbols-outlined text-sm">location_on</span> Varanasi</button>
-<button class="region-filter px-4 py-2 rounded-xl text-label-md bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary shrink-0 transition-all font-semibold border border-outline-variant/20" data-region="bengal"><span class="material-symbols-outlined text-sm">location_on</span> Bengal</button>
-<button class="region-filter px-4 py-2 rounded-xl text-label-md bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary shrink-0 transition-all font-semibold border border-outline-variant/20" data-region="kashmir"><span class="material-symbols-outlined text-sm">location_on</span> Kashmir</button>
-<button class="region-filter px-4 py-2 rounded-xl text-label-md bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary shrink-0 transition-all font-semibold border border-outline-variant/20" data-region="telangana"><span class="material-symbols-outlined text-sm">location_on</span> Telangana</button>
-</div>
+<div class="w-full max-w-4xl mt-8 mx-auto flex flex-col gap-3.5 bg-surface-container-low/95 dark:bg-[#1f1e1c]/95 p-4 sm:p-5 rounded-2xl border border-outline-variant/30 shadow-lg backdrop-blur-md">
+  <!-- Top: Full Width Live Search Input -->
+  <div class="flex items-center gap-3 w-full px-4 py-2.5 bg-surface dark:bg-[#151412] rounded-xl border border-outline-variant/30 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+    <span class="material-symbols-outlined text-primary dark:text-[#fed65b] text-xl">search</span>
+    <input class="w-full bg-transparent border-none focus:outline-none text-body-md text-stone-900 dark:text-stone-100 placeholder:text-stone-400 text-sm" id="artisan-search" placeholder="Search by master artisan name, craft, or town (e.g. Ramkishan, Jamdani, Varanasi, Pashmina)..." type="text"/>
+    <button id="clear-artisan-search" class="hidden text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors" title="Clear Search">
+      <span class="material-symbols-outlined text-lg">close</span>
+    </button>
+  </div>
+
+  <!-- Bottom: Region Filter Chips (Wrap gracefully, never truncate!) -->
+  <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+    <div class="flex flex-wrap items-center gap-2" id="region-buttons-container">
+      <button class="region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] transition-all shadow-sm flex items-center gap-1.5" data-region="all">
+        <span class="material-symbols-outlined text-sm">grid_view</span> All Regions
+      </button>
+      <button class="region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] transition-all border border-outline-variant/25 flex items-center gap-1.5" data-region="varanasi">
+        <span class="material-symbols-outlined text-sm">location_on</span> Varanasi
+      </button>
+      <button class="region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] transition-all border border-outline-variant/25 flex items-center gap-1.5" data-region="bengal">
+        <span class="material-symbols-outlined text-sm">location_on</span> Bengal
+      </button>
+      <button class="region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] transition-all border border-outline-variant/25 flex items-center gap-1.5" data-region="kashmir">
+        <span class="material-symbols-outlined text-sm">location_on</span> Kashmir
+      </button>
+      <button class="region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] transition-all border border-outline-variant/25 flex items-center gap-1.5" data-region="telangana">
+        <span class="material-symbols-outlined text-sm">location_on</span> Telangana
+      </button>
+    </div>
+    <span id="artisan-count-badge" class="text-xs text-on-surface-variant font-serif italic">
+      Showing 6 Master Artisans
+    </span>
+  </div>
 </div>
 </div>
 </section>
@@ -736,22 +757,32 @@
     }
 
     // 5. Region Filtering & Live Search
-    function filterArtisans(region, query) {
+    let currentArtisanRegion = 'all';
+    let currentArtisanQuery = '';
+
+    function filterArtisans() {
       const cards = document.querySelectorAll('.artisan-card');
-      const q = (query || '').toLowerCase().trim();
+      const countBadge = document.getElementById('artisan-count-badge');
+      let visibleCount = 0;
 
       cards.forEach(card => {
-        const cardRegion = card.getAttribute('data-region') || '';
-        const text = card.textContent.toLowerCase();
-        const matchesRegion = (region === 'all' || cardRegion === region);
-        const matchesSearch = !q || text.includes(q);
+        const cardRegion = (card.getAttribute('data-region') || '').toLowerCase();
+        const cardText = card.textContent.toLowerCase();
+
+        const matchesRegion = (currentArtisanRegion === 'all' || cardRegion === currentArtisanRegion);
+        const matchesSearch = !currentArtisanQuery || cardText.includes(currentArtisanQuery);
 
         if (matchesRegion && matchesSearch) {
           card.style.display = 'flex';
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
+
+      if (countBadge) {
+        countBadge.textContent = `Showing ${visibleCount} Master Artisan${visibleCount === 1 ? '' : 's'}`;
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -766,30 +797,47 @@
       // Region Filter Buttons
       const regionBtns = document.querySelectorAll('.region-filter');
       const searchInput = document.getElementById('artisan-search');
+      const clearSearchBtn = document.getElementById('clear-artisan-search');
 
       regionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          regionBtns.forEach(b => {
-            b.classList.remove('bg-primary', 'text-on-primary', 'dark:bg-tertiary-fixed', 'dark:text-on-tertiary-fixed');
-            b.classList.add('bg-surface', 'dark:bg-[#2a2926]', 'text-stone-700', 'dark:text-stone-300');
-          });
-          btn.classList.remove('bg-surface', 'dark:bg-[#2a2926]', 'text-stone-700', 'dark:text-stone-300');
-          btn.classList.add('bg-primary', 'text-on-primary', 'dark:bg-tertiary-fixed', 'dark:text-on-tertiary-fixed');
+          currentArtisanRegion = (btn.getAttribute('data-region') || 'all').toLowerCase();
 
-          const region = btn.getAttribute('data-region') || 'all';
-          const query = searchInput ? searchInput.value : '';
-          filterArtisans(region, query);
+          // Reset all buttons
+          regionBtns.forEach(b => {
+            b.className = 'region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-surface dark:bg-[#2a2926] text-stone-700 dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] transition-all border border-outline-variant/25 flex items-center gap-1.5';
+          });
+
+          // Highlight clicked button
+          btn.className = 'region-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] transition-all shadow-sm flex items-center gap-1.5';
+
+          filterArtisans();
         });
       });
 
       // Search input live filtering
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
-          const activeBtn = document.querySelector('.region-filter.bg-primary, .region-filter.dark\\:bg-tertiary-fixed');
-          const region = activeBtn ? (activeBtn.getAttribute('data-region') || 'all') : 'all';
-          filterArtisans(region, e.target.value);
+          currentArtisanQuery = e.target.value.trim().toLowerCase();
+          if (clearSearchBtn) {
+            clearSearchBtn.style.display = currentArtisanQuery ? 'block' : 'none';
+          }
+          filterArtisans();
         });
       }
+
+      if (clearSearchBtn && searchInput) {
+        clearSearchBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          currentArtisanQuery = '';
+          clearSearchBtn.style.display = 'none';
+          filterArtisans();
+          searchInput.focus();
+        });
+      }
+
+      // Initial filter calculation
+      filterArtisans();
 
       // Backdrop clicks & Escape key to close modals
       const journalModal = document.getElementById('journal-modal');

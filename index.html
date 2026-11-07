@@ -332,11 +332,11 @@
 <h2 class="font-headline-lg text-4xl text-on-surface mt-2 tracking-tight">The Heirloom Catalog</h2>
 </div>
 <!-- Category Filters -->
-<div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filter-container">
-<button class="filter-btn bg-primary text-on-primary px-5 py-2.5 rounded-xl text-label-md transition-all shadow-sm tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">grid_view</span>All Masterpieces</button>
-<button class="filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">fiber_manual_record</span>Pure Silks</button>
-<button class="filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">texture</span>Jamdani &amp; Handspun</button>
-<button class="filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">dry</span>Pashmina &amp; Wool</button>
+<div class="flex flex-wrap items-center gap-2.5 mt-6 md:mt-0" id="filter-container">
+<button class="filter-btn bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm tracking-wide flex items-center gap-1.5" data-cat="all"><span class="material-symbols-outlined text-sm">grid_view</span>All Masterpieces</button>
+<button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:text-primary px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all border border-outline-variant/30 tracking-wide flex items-center gap-1.5" data-cat="silk"><span class="material-symbols-outlined text-sm">diamond</span>Pure Silks</button>
+<button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:text-primary px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all border border-outline-variant/30 tracking-wide flex items-center gap-1.5" data-cat="cotton"><span class="material-symbols-outlined text-sm">spa</span>Jamdani &amp; Cotton</button>
+<button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:text-primary px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all border border-outline-variant/30 tracking-wide flex items-center gap-1.5" data-cat="wool"><span class="material-symbols-outlined text-sm">dry</span>Pashmina &amp; Wool</button>
 </div>
 </div>
 <!-- Product Grid -->
@@ -647,22 +647,23 @@
       
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => {
-            b.className = 'filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2';
-          });
-          btn.className = 'filter-btn bg-primary text-on-primary px-5 py-2.5 rounded-xl text-label-md transition-all shadow-sm tracking-wider flex items-center gap-2';
+          const cat = btn.getAttribute('data-cat') || 'all';
 
-          const text = btn.textContent.toLowerCase();
+          filterBtns.forEach(b => {
+            b.className = 'filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:text-primary px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all border border-outline-variant/30 tracking-wide flex items-center gap-1.5';
+          });
+          btn.className = 'filter-btn bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm tracking-wide flex items-center gap-1.5';
+
           cards.forEach(card => {
-            const cat = (card.getAttribute('data-category') || '').toLowerCase();
-            if (text.includes('all')) {
-              card.style.display = '';
-            } else if (text.includes('silk') && cat === 'silk') {
-              card.style.display = '';
-            } else if (text.includes('jamdani') && cat === 'jamdani') {
-              card.style.display = '';
-            } else if (text.includes('pashmina') && cat === 'pashmina') {
-              card.style.display = '';
+            const cardCat = (card.getAttribute('data-category') || '').toLowerCase();
+            if (cat === 'all') {
+              card.style.display = 'flex';
+            } else if (cat === 'silk' && (cardCat === 'silk' || cardCat.includes('silk'))) {
+              card.style.display = 'flex';
+            } else if (cat === 'cotton' && (cardCat === 'cotton' || cardCat === 'jamdani' || cardCat.includes('cotton'))) {
+              card.style.display = 'flex';
+            } else if (cat === 'wool' && (cardCat === 'wool' || cardCat === 'pashmina' || cardCat.includes('wool'))) {
+              card.style.display = 'flex';
             } else {
               card.style.display = 'none';
             }

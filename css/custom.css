@@ -512,6 +512,17 @@ html.dark a.bg-primary:hover {
   color: #ffffff !important;
 }
 
+/* Active Filter Chips & Pills in Dark Mode (High visibility gold) */
+html.dark .filter-btn.bg-primary,
+html.dark .region-filter.bg-primary,
+html.dark .price-pill.bg-primary,
+html.dark #filter-buttons button.bg-primary {
+  background-color: #fed65b !important;
+  color: #241a00 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(254, 214, 91, 0.25) !important;
+}
+
 html.dark .bg-secondary-container {
   background-color: #fed65b !important;
   color: #241a00 !important;
