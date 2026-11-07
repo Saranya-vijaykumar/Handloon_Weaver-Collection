@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Home | Handloom Weavers Collective</title>
+  <meta content="web_standard" name="shell-type"/>
+  <style>
+    @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+    body {
+      background-color: #fbf9f5;
+      background-image: radial-gradient(#8c4a5a 0.45px, transparent 0.45px), radial-gradient(#8c4a5a 0.45px, #fbf9f5 0.45px);
+      background-size: 18px 18px;
+      background-position: 0 0, 9px 9px;
+      background-blend-mode: overlay;
+      background-opacity: 0.03;
+    }
+    .bg-surface, .bg-surface-container-low, .bg-surface-container, .bg-surface-container-high {
+      background-image: inherit;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#e7c17e",
+            "on-background": "#1b1c1a",
+            "on-secondary-fixed": "#241a00",
+            "on-tertiary-fixed": "#271900",
+            "tertiary-container": "#372500",
+            "secondary-fixed": "#ffe088",
+            "on-secondary-container": "#745c00",
+            "on-surface-variant": "#524346",
+            "inverse-surface": "#30312e",
+            "surface-dim": "#dbdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#ffb1c2",
+            "inverse-primary": "#ffb1c2",
+            "secondary-fixed-dim": "#e9c349",
+            "outline-variant": "#d7c1c4",
+            "on-error": "#ffffff",
+            "surface": "#fbf9f5",
+            "surface-bright": "#fbf9f5",
+            "surface-container-low": "#f5f3ef",
+            "tertiary-fixed": "#ffdea8",
+            "on-primary-fixed-variant": "#703343",
+            "primary-container": "#4a1525",
+            "tertiary": "#1d1200",
+            "on-primary": "#ffffff",
+            "surface-tint": "#8c4a5a",
+            "on-tertiary-container": "#ac8a4d",
+            "inverse-on-surface": "#f2f0ed",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container": "#efeeea",
+            "on-tertiary-fixed-variant": "#5c420b",
+            "primary-fixed": "#ffd9df",
+            "error": "#ba1a1a",
+            "surface-container-high": "#eae8e4",
+            "on-secondary-fixed-variant": "#574500",
+            "secondary-container": "#fed65b",
+            "surface-container-highest": "#e4e2de",
+            "outline": "#847375",
+            "secondary": "#735c00",
+            "background": "#fbf9f5",
+            "primary": "#4a1525",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#c57a8b",
+            "on-surface": "#1b1c1a",
+            "surface-variant": "#e4e2de",
+            "on-primary-fixed": "#3a0819"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "6rem",
+            "space-xs": "0.375rem",
+            "space-lg": "3rem",
+            "margin": "1.5rem",
+            "gutter": "2rem",
+            "space-md": "1.5rem",
+            "space-sm": "0.75rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Cormorant Garamond", "Playfair Display", "serif"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Cormorant Garamond", "Playfair Display", "serif"],
+            "headline-lg": ["Cormorant Garamond", "Playfair Display", "serif"],
+            "headline-xl": ["Cormorant Garamond", "Playfair Display", "serif"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "500"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-md": ["13px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+            "headline-md": ["30px", {"lineHeight": "38px", "fontWeight": "600", "letterSpacing": "-0.01em"}],
+            "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600", "letterSpacing": "-0.01em"}],
+            "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+            "headline-xl": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.025em", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    .font-headline-lg, .font-headline-sm, .font-headline-xl, span.font-bold.text-primary, span.font-semibold.text-primary, #cart-badge { 
+      font-family: 'Playfair Display', Georgia, serif !important; 
+      font-variant-numeric: tabular-nums; 
+      letter-spacing: 0.05em; 
+      font-weight: 600; 
+      color: #4a1525; 
+    }
+  </style>
+  <link rel="stylesheet" href="css/custom.css">
+</head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-[#1e191c]/90 backdrop-blur-xl border-b border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.02)] transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="font-headline-md text-primary font-bold text-xl sm:text-2xl tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2 flex-shrink-0" title="Handloom Weavers Collective">
+      <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl">texture</span>
+      <span class="font-serif tracking-tight">Weavers Collective</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-5 xl:gap-7 mx-auto" id="desktop-main-nav">
+        <!-- Home Dropdown -->
+        <div class="relative group" id="home-dropdown-wrapper">
+          <button type="button" class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide flex items-center gap-1 py-1 cursor-pointer focus:outline-none" id="home-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            <span class="material-symbols-outlined text-base">home</span>
+            <span>Home</span>
+            <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180" id="home-dropdown-chevron">expand_more</span>
+          </button>
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-2 w-64 hidden group-hover:block group-focus-within:block transition-all duration-200 z-50 dropdown-menu" id="home-dropdown-menu">
+            <div class="bg-surface/95 dark:bg-[#231b1e]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-outline-variant/30 py-2.5 px-2">
+              <a href="index.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" data-route="index.html">
+                <span class="material-symbols-outlined text-lg text-primary">cottage</span>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-on-surface title-span">Home 1</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold uppercase tracking-wider">Heritage</span>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant font-normal">Living Pit Looms Collective</div>
+                </div>
+              </a>
+              <a href="home-2.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors mt-1" data-route="home-2.html">
+                <span class="material-symbols-outlined text-lg text-primary">auto_stories</span>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-on-surface title-span">Home 2</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-wider">Atelier</span>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant font-normal">Slow Craft Modern Elegance</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Page (Immediately Next!) -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="about.html" data-route="about.html">
+          <span class="material-symbols-outlined text-base">history_edu</span>About
+        </a>
+
+        <!-- Products -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="products.html" data-route="products.html">
+          <span class="material-symbols-outlined text-base">checkroom</span>Products
+        </a>
+
+        <!-- Artisans -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="artisans.html" data-route="artisans.html">
+          <span class="material-symbols-outlined text-base">engineering</span>Artisans
+        </a>
+
+        <!-- Varanasi Silk -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="craft-silk.html" data-route="craft-silk.html">
+          <span class="material-symbols-outlined text-base">auto_awesome</span>Varanasi Silk
+        </a>
+
+        <!-- Fair Trade -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="fair-trade.html" data-route="fair-trade.html">
+          <span class="material-symbols-outlined text-base">eco</span>Fair Trade
+        </a>
+
+        <!-- Contact -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="contact.html" data-route="contact.html">
+          <span class="material-symbols-outlined text-base">mail</span>Contact
+        </a>
+      </nav>
+
+    <!-- Header Utility Action Buttons -->
+    <div class="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+      <!-- Search Trigger Button -->
+      <button class="open-search-trigger bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Search Heirlooms (Ctrl+K)">
+        <span class="material-symbols-outlined text-lg sm:text-xl">search</span>
+      </button>
+
+      <!-- Theme Toggle (Dark/Light) -->
+      <button id="theme-toggle" class="bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Toggle Dark/Light Mode">
+        <span class="material-symbols-outlined text-lg sm:text-xl theme-toggle-icon">dark_mode</span>
+      </button>
+
+      <!-- RTL/LTR Toggle -->
+      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold" title="Toggle Layout Direction (LTR/RTL)">
+        <span class="material-symbols-outlined text-lg sm:text-xl">swap_horiz</span>
+      </button>
+
+      <!-- Cart Button with Live Badge -->
+      <button id="open-cart-btn" class="relative bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="View Cart">
+        <span class="material-symbols-outlined text-lg sm:text-xl">shopping_bag</span>
+        <span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden shadow-sm">0</span>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-trigger lg:hidden bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Open Navigation Menu">
+        <span class="material-symbols-outlined text-lg sm:text-xl">menu</span>
+      </button>
+    </div>
+  </div>
+</header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full min-h-[870px] flex items-center justify-center overflow-hidden bg-primary-container text-on-primary -mt-20 pt-20">
+<div class="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity pointer-events-none" data-alt="A macro cinematic shot of a master weaver's hands gracefully interlacing antique gold zari threads with deep royal maroon silk on a wooden handloom. Warm ethereal studio lighting catches the shimmering threads, evoking an atmosphere of refined luxury and slow artisanal craft." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKWYm_9y3UnSbclBBXWNfX2QsMSOcBmVU9qzEiTXxyHzq8mmHPx85IGlvKzDcVhiqwFJbQxxzU1fpfs5clCH6c4GxovjrzP1vxoY0oiGLHqU_waZ5IZ9_G1GsrL-tCzlCgslzoUAEK0og1G9cGXX7lCpr29jhgrGBlCnY6aq3rXYFJLfkkZHA_-FWGtTKN6F0IBykgy7QMZ6KNQ2ldz1jKNip-vILCe_Jnl5WeJW4");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-primary-container/60 pointer-events-none"></div>
+<div class="relative max-w-7xl mx-auto px-8 lg:px-12 py-24 flex flex-col items-center text-center z-10 w-full">
+<span class="text-label-sm uppercase tracking-[0.2em] text-tertiary-fixed-dim mb-4 px-5 py-2 rounded-full bg-surface/10 backdrop-blur-md flex items-center gap-2"><span class="material-symbols-outlined text-sm">auto_awesome</span>Ancestral Mastery • Heirloom Collection</span>
+<h1 class="font-headline-xl text-5xl md:text-7xl font-normal tracking-tight max-w-4xl mb-6 leading-[1.1]">
+        The Living Poetry of <span class="italic font-light text-tertiary-fixed-dim">Indian Handlooms</span>
+</h1>
+<p class="font-body-lg text-on-primary-container max-w-2xl mb-10 text-lg md:text-xl font-light tracking-wide max-w-3xl">
+        Preserving centuries of intricate weaving traditions through ethical collaboration with master artisans across sacred cultural clusters.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<a class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl text-label-md font-bold tracking-widest hover:bg-secondary-fixed transition-all shadow-lg flex items-center gap-2" href="products.html">
+<span class="material-symbols-outlined text-sm">explore</span>
+<span class="">Explore Collections</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="bg-surface/10 backdrop-blur-md text-on-primary border border-tertiary-fixed-dim/30 px-8 py-4 rounded-xl text-label-md font-medium tracking-widest hover:bg-surface/20 transition-all flex items-center gap-2" href="about.html">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+          Our Heritage Story
+        </a>
+</div>
+</div>
+<!-- Floating Metric Ribbon -->
+<div class="absolute bottom-0 inset-x-0 bg-surface/95 backdrop-blur-xl border-t border-tertiary-fixed-dim/20 py-6 hidden md:block">
+<div class="max-w-7xl mx-auto px-8 lg:px-12 grid grid-cols-4 gap-8 text-center text-on-surface">
+<div>
+<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">groups</span>1,400+</span>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Master Weavers</span>
+</div>
+<div>
+<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">domain</span>12</span>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Heritage Clusters</span>
+</div>
+<div>
+<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">spa</span>100%</span>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Organic Natural Fibers</span>
+</div>
+<div>
+<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">payments</span>₹4.2Cr</span>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Direct Artisan Earnings</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Heritage Introduction -->
+<section class="py-24 max-w-7xl mx-auto px-8 lg:px-12 w-full" id="heritage">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="text-label-sm text-primary uppercase font-bold tracking-[0.2em] flex items-center gap-2"><span class="material-symbols-outlined text-sm">history</span>A Legacy Woven in Time</span>
+<h2 class="font-headline-lg text-4xl md:text-5xl text-on-surface leading-[1.15] font-normal tracking-tight">
+          Where every single thread carries the soul of generations.
+        </h2>
+<p class="font-body-md text-on-surface-variant text-lg leading-relaxed">
+          The Weavers Collective was founded on a simple yet profound premise: to restore dignity, economic independence, and artistic freedom to India's master weavers. Far from industrial production, our textiles are born of slow, meditative rhythms—where wooden shafts click like clockwork and pure mulberry silk meets real gold zari.
+        </p>
+<div class="pt-4 flex items-center gap-6">
+<div class="flex -space-x-4">
+<div class="w-12 h-12 rounded-full bg-cover bg-center border-2 border-surface" data-alt="Portrait of an elderly Indian master weaver with gentle wise eyes and traditional headscarf, smiling warmly in natural daylight against a textured mudbrick wall." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiLZRpgDSbzToAX4aZEJcnQH3O807rDr-aIkXMgidG0JRfirlkIwt49ds6ImRLJmFjZKX0OmWmZgKIf5VKUhNAxxfwgeKDFnIwGnAd5WslgvfXqiI_1w7i0cgwWo_LVzS1lZCKxuiOAAKtYWP9wr5xhTiZ5R3klw4uT14__IZYCGjqpedGe5FgvKRyNwVAGyH1tSlViMpr97pvBXqPk1N5gUuhyN87ca6_Y3U3Kaw");'></div>
+<div class="w-12 h-12 rounded-full bg-cover bg-center border-2 border-surface" data-alt="Portrait of a female artisan meticulously inspecting fine mulberry silk threads under warm window light in a Varanasi workshop." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTZSwQNYgTtZMTzBSTlepsJBJoMCBmJn1OPdncxn_YZuxPDNL1oVnRXhKeVco4ZhQloZZgIJLzrXLiQdZYKj5Ctm6fmP31U26FzRXcezRqTiuRnMwwF0QL80OLZTv7iTL5q5756nthVfqw9GoR7koqMGsguIXkueUkoumIYflDj8EWKkRmB0NNiPradDZLi32vozt3Xj1b4SS_ynXyws7YN6opK9GjZ9Fw1_J9zrA");'></div>
+<div class="w-12 h-12 rounded-full bg-cover bg-center border-2 border-surface" data-alt="Portrait of a skilled handloom artisan holding a finished Jamdani textile with intricate floral motifs." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0-g8432NRDAf0NXcnJDYfr5AY1HmqSc6dlzGAOAS4zCzXfWg-Aixhu8FGtC778gaqzk8irvOFyxaZL_EP-tByRRDz1biualfGt26I2Zs_kC0aoZYtJ9uPu2nEi5L7T4Qo9R6-BTrZ940Jk9fIFTrIAc7LowwgkP-WdGXU005oDDUyFXtRVFiilNyx-HEV8gYFMV9201fr4G9mWIsSzkmy5swrDlh4Zyt5RORhEd0");'></div>
+</div>
+<div>
+<span class="block font-bold text-on-surface tracking-wide flex items-center gap-1.5"><span class="material-symbols-outlined text-base text-primary">verified</span>Trusted by Connoisseurs</span>
+<span class="text-xs text-on-surface-variant tracking-wide">Over 40 countries delivered with care</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<div class="h-80 rounded-xl bg-cover bg-center shadow-lg" data-alt="Close up of a wooden traditional handloom shuttle moving swiftly across warp threads of deep maroon and antique gold silk." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKjDYxUHx9p8Fg54bd08m0usrqJiZ1eMZjUklYpZrdfki7nnsqgA9ZZgdQVoovT9w_4DFQy6kabbeRojDPmDhKCGIXJpW5sWs_kEcwkkjAHgj5U8CtLzKsexKihkODlORaMlBKBa26TmGCj7ZhxqvR3rKHl_xbC8tpgqrIEpoxl2QBn8luMsVeptUd8jkQ90eqTrcMaR5IdnKS5QWT45F8H7eo3MmrBBHbAvz5enM");'></div>
+<div class="h-48 rounded-xl bg-cover bg-center shadow-lg" data-alt="Natural organic cotton hanks drying in the sun after being dyed with turmeric, madder root, and indigo in a rural artisan village." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2BiwxPLU7AivxibnMsYWqqkCt4gGcJkfhjZDtpZ4DU8CcgpN_2nRgkxkaPBbOKk-ChIoZ8NTtEQZ2nHx4nrfIeAWvE3c273goweqsxPAYnDutJ-UBvrwSupifFkwQS0JJYyN7QwSikfelnCHDOkc_F6AYiT7zKoKoNpTuai3qnGMK6FzeW97UdXmCHE8LSqkXpQr9mfJ-TvDPOsJACRvBqntZDfmviLkMocXgRYo");'></div>
+</div>
+<div class="space-y-4 pt-12">
+<div class="h-48 rounded-xl bg-cover bg-center shadow-lg" data-alt="A delicate Kantha hand-embroidery stitch in progress, showing colorful cotton threads weaving through pristine ivory organic linen fabric." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA65WCNdBSLy1PC1fdqU5NBuImYm2cuLjwxuYrDP1t-GO_5dCBNYuL2jlSQLLSTaWdTIDlPttTASmxDdTqJR3kAz0EFuDGrkdaIb-u3ubmSziHRALLgLpDpol5p4bep_gngEzDVbZXgpjH_28qrOsLDuc2xHCSEVoERC66p_7CO7Laxa4lW_nT3vb9dKQIqgHnVRakzPUZsb5vNTzNAxfUtB5BIcLN-HxHum8dd0Ng");'></div>
+<div class="h-80 rounded-xl bg-cover bg-center shadow-lg" data-alt="A magnificent Kanjeevaram silk saree draped elegantly over a weathered teak wood chair in a sunlit heritage room." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADf-zEnCuP504stW4WxYAlQ_twD7VuiRr_StJVZhwxjzSs90vKNG_IpTsiYyQULsX9-PW-O3GNlodUMMGkziOXJQa-tIPcC41d-jFo4Xd-uzbLIIqNbAOQsymc7OWv2vnUcrBenAm8vZLhW1h2GhcfTW7-Z7V-WbdPArGj0bdox1ot6zQVMyYyvPXoERgHVb1pbCbk_kDVJfvY3Xf3Vx0nNHCvlj3Ya9snHL3leBE");'></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Handcrafted Collections -->
+<section class="py-24 bg-surface-container-low w-full" id="collections">
+<div class="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="text-label-sm text-primary uppercase font-bold tracking-[0.2em] flex items-center gap-2"><span class="material-symbols-outlined text-sm">diamond</span>Curated Masterpieces</span>
+<h2 class="font-headline-lg text-4xl text-on-surface mt-2 tracking-tight">The Heirloom Catalog</h2>
+</div>
+<!-- Category Filters -->
+<div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filter-container">
+<button class="filter-btn bg-primary text-on-primary px-5 py-2.5 rounded-xl text-label-md transition-all shadow-sm tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">grid_view</span>All Masterpieces</button>
+<button class="filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">fiber_manual_record</span>Pure Silks</button>
+<button class="filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">texture</span>Jamdani &amp; Handspun</button>
+<button class="filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2"><span class="material-symbols-outlined text-sm">dry</span>Pashmina &amp; Wool</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+<!-- Product 1 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/20 zoom-card cursor-pointer" data-category="silk" data-date="2024-03-01" data-price="48000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-1'">
+<a href="product-detail.html?id=prod-1" class="block relative h-96 overflow-hidden cursor-pointer group/img" title="View Mayur-Bahar Gold Brocade Saree">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An opulent crimson Kanjeevaram pure silk saree featuring intricate pure gold zari brocade peacocks and floral vine motifs along the rich pallu." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgr58X6x7XcFpoKKmy3CWnIrAMB8JAGhxWfRg_Yyk6hivah4LqJ9k1K7HeP-hKyKrIHY5A6UP4d-clLwuJtqkZilctgF6deHELOD1XLXVdft2T90-jmwkgu4kNR4IvN4jY5JNpTWv7Uv7RaWMSeMOB85jWiS55fplyakV7uCzWpZBYkzP3F9UnJ_tMp82e0en6PNSuhZlmwXjdhg2MS8UFcdNC-c-TB8qJud2cM8I"/>
+<span class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none"><span class="material-symbols-outlined text-xs">location_on</span>Varanasi Cluster</span>
+</a>
+<div class="p-6 flex flex-col flex-1 justify-between">
+<div>
+<span class="text-[11px] text-on-surface-variant uppercase font-semibold tracking-wider flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">badge</span>Master Weaver: Pandit Ramkishan</span>
+<h3 class="font-headline-md text-on-surface text-xl font-semibold mt-1 group-hover:text-primary transition-colors tracking-tight">Mayur-Bahar Gold Brocade Saree</h3>
+<p class="font-body-sm text-on-surface-variant mt-2 line-clamp-2">Woven over 120 days using certified mulberry silk and genuine 24-karat gold dipped silver zari threads.</p>
+</div>
+<div class="flex items-center justify-between mt-6 pt-4 border-t border-outline-variant/20">
+<span class="font-headline-sm text-primary font-bold text-lg tracking-tight">₹48,000 / $620</span>
+<button onclick="event.stopPropagation(); HWC_Cart.addToCart({ id: 'prod-1', title: 'Mayur-Bahar Gold Brocade Saree', price: 48000, priceFormatted: '₹48,000', cluster: 'Varanasi Silk', imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCgr58X6x7XcFpoKKmy3CWnIrAMB8JAGhxWfRg_Yyk6hivah4LqJ9k1K7HeP-hKyKrIHY5A6UP4d-clLwuJtqkZilctgF6deHELOD1XLXVdft2T90-jmwkgu4kNR4IvN4jY5JNpTWv7Uv7RaWMSeMOB85jWiS55fplyakV7uCzWpZBYkzP3F9UnJ_tMp82e0en6PNSuhZlmwXjdhg2MS8UFcdNC-c-TB8qJud2cM8I', quantity: 1 })" class="add-to-cart-btn bg-primary text-on-primary px-4 py-2.5 rounded-xl text-label-md hover:bg-surface-tint transition-all flex items-center gap-2 tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/20 zoom-card cursor-pointer" data-category="jamdani" data-date="2024-03-05" data-price="28000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-2'">
+<a href="product-detail.html?id=prod-2" class="block relative h-96 overflow-hidden cursor-pointer group/img" title="View Meghdoot Handspun Jamdani">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sheer ivory Bengal Jamdani handloom cotton saree adorned with gossamer-thin geometric floral motifs floating gracefully across the drape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-M7ZnEiUCUIZ-IBRtQxgiEdhxrmuvU8K1_4Qr-ktYxfucYjLquUhbN0iG2le9aNWoKmkjnbWNs3Mb9ip_3TJw93gEu43cJ4qqNaEKRJODm7ji3L_4TROhiDF7klFHCYIMhNS6LiNNZRZly0e5Tc6xjYdKDzepYZZ_EB_ZmfturFQ3jlXC6YEUSHQiE7zPgS-NIMuXEtqSY790kjI0_4V0LxVPIvnn-0ZmEPWElGo"/>
+<span class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none"><span class="material-symbols-outlined text-xs">location_on</span>Bengal Cluster</span>
+</a>
+<div class="p-6 flex flex-col flex-1 justify-between">
+<div>
+<span class="text-[11px] text-on-surface-variant uppercase font-semibold tracking-wider flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">badge</span>Master Weaver: Ananya Das</span>
+<h3 class="font-headline-md text-on-surface text-xl font-semibold mt-1 group-hover:text-primary transition-colors tracking-tight">Meghdoot Handspun Jamdani</h3>
+<p class="font-body-sm text-on-surface-variant mt-2 line-clamp-2">Exquisitely hand-inserted supplementary weft motifs on ultra-fine khadi cotton spun on traditional charkhas.</p>
+</div>
+<div class="flex items-center justify-between mt-6 pt-4 border-t border-outline-variant/20">
+<span class="font-headline-sm text-primary font-bold text-lg tracking-tight">₹28,000 / $360</span>
+<button onclick="event.stopPropagation(); HWC_Cart.addToCart({ id: 'prod-2', title: 'Meghdoot Handspun Jamdani', price: 28000, priceFormatted: '₹28,000', cluster: 'Bengal Jamdani', imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-M7ZnEiUCUIZ-IBRtQxgiEdhxrmuvU8K1_4Qr-ktYxfucYjLquUhbN0iG2le9aNWoKmkjnbWNs3Mb9ip_3TJw93gEu43cJ4qqNaEKRJODm7ji3L_4TROhiDF7klFHCYIMhNS6LiNNZRZly0e5Tc6xjYdKDzepYZZ_EB_ZmfturFQ3jlXC6YEUSHQiE7zPgS-NIMuXEtqSY790kjI0_4V0LxVPIvnn-0ZmEPWElGo', quantity: 1 })" class="add-to-cart-btn bg-primary text-on-primary px-4 py-2.5 rounded-xl text-label-md hover:bg-surface-tint transition-all flex items-center gap-2 tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/20 zoom-card cursor-pointer" data-category="pashmina" data-date="2024-02-20" data-price="65000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-3'">
+<a href="product-detail.html?id=prod-3" class="block relative h-96 overflow-hidden cursor-pointer group/img" title="View Chinar Leaf Hand-Embroidered Pashmina">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious natural ivory Ladakhi Pashmina shawl featuring hand-embroidered Sozni needlework in subtle earthy tones of walnut and olive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Q9CBWxPE7t61Gg1bSE-CVEGx3V06-Q8ZtJoreEFnPiVaEJyjrytqDpwVMcGWViNXYXY1tB2B2wj1mBesMTg_HX7VO-pWYfkr0uWzYvCXumomo7o80vDiipw_AZgkKa_usDzIbMpZA5IbpQT__Gd9NvvGh6UAS7uOWozEGGU7VlxbNykOlhhNSeK3WuZUbGUpj6R5hSIiDUtkaV1XtR53KkHYzryapKcyC1TpBzc"/>
+<span class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none"><span class="material-symbols-outlined text-xs">location_on</span>Kashmir Cluster</span>
+</a>
+<div class="p-6 flex flex-col flex-1 justify-between">
+<div>
+<span class="text-[11px] text-on-surface-variant uppercase font-semibold tracking-wider flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">badge</span>Master Artisan: Ghulam Hassan</span>
+<h3 class="font-headline-md text-on-surface text-xl font-semibold mt-1 group-hover:text-primary transition-colors tracking-tight">Chinar Leaf Hand-Embroidered Pashmina</h3>
+<p class="font-body-sm text-on-surface-variant mt-2 line-clamp-2">Hand-combed grade-A Cashmere wool adorned with painstaking Sozni needlework taking over 300 artisan hours.</p>
+</div>
+<div class="flex items-center justify-between mt-6 pt-4 border-t border-outline-variant/20">
+<span class="font-headline-sm text-primary font-bold text-lg tracking-tight">₹65,000 / $840</span>
+<button onclick="event.stopPropagation(); HWC_Cart.addToCart({ id: 'prod-3', title: 'Chinar Leaf Hand-Embroidered Pashmina', price: 65000, priceFormatted: '₹65,000', cluster: 'Kashmir Pashmina', imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0Q9CBWxPE7t61Gg1bSE-CVEGx3V06-Q8ZtJoreEFnPiVaEJyjrytqDpwVMcGWViNXYXY1tB2B2wj1mBesMTg_HX7VO-pWYfkr0uWzYvCXumomo7o80vDiipw_AZgkKa_usDzIbMpZA5IbpQT__Gd9NvvGh6UAS7uOWozEGGU7VlxbNykOlhhNSeK3WuZUbGUpj6R5hSIiDUtkaV1XtR53KkHYzryapKcyC1TpBzc', quantity: 1 })" class="add-to-cart-btn bg-primary text-on-primary px-4 py-2.5 rounded-xl text-label-md hover:bg-surface-tint transition-all flex items-center gap-2 tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Artisan Spotlight / Weaver Stories -->
+<section class="py-24 max-w-7xl mx-auto px-8 lg:px-12 w-full">
+<div class="bg-primary-container text-on-primary rounded-3xl overflow-hidden shadow-2xl relative">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay" data-alt="Close-up portrait of master weaver Ustad Ahmed in his traditional workshop in Varanasi, smiling proudly as he inspects a shuttle of vibrant silk yarn." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtdJUXfkugkVMmnVUYskCdFAJTgAJlsMap-6rdMak1zViOyo6iP7orBTjNb9-NdG_OT3Pqcc3MrTujwh27QaZ34p0BtqIVZCsvI0QZ00jJ1V4ZgV3cMVl9e8ITrpd5iQLVsbytv5299sy6WueeZ9xb79vzoc9sMG2TyJhrkzyGl22pgxEf6MM9hfbGUk71Z1gOR1nsvsXy9qm0RrdpQ4n8ofzk4Ls-TR5606tcYos");'></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-20 items-center">
+<div class="lg:col-span-7 space-y-6">
+<span class="text-label-sm text-tertiary-fixed-dim uppercase tracking-[0.2em] font-bold flex items-center gap-2"><span class="material-symbols-outlined text-sm">psychology</span>Artisan Spotlight</span>
+<h2 class="font-headline-xl text-4xl md:text-5xl font-light leading-[1.2] tracking-tight italic">
+            "We do not merely weave cloth; we preserve the heartbeat of our ancestors."
+          </h2>
+<p class="font-body-lg text-on-primary-container text-lg tracking-wide max-w-3xl">
+            — Ustad Ahmed, Master Weaver of Varanasi with 45 years at the wooden pit loom.
+          </p>
+<p class="font-body-md text-on-primary-container/80 leading-relaxed">
+            For four generations, Ustad Ahmed’s family has kept alive the complex geometric Brocade techniques once commissioned by royal courts. Through the Weavers Collective, his intricate creations reach patrons worldwide, ensuring fair wages and the transmission of sacred knowledge to the younger generation.
+          </p>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl text-label-md font-bold tracking-widest hover:bg-secondary-fixed transition-all shadow-md" href="artisans.html">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="">Meet All Master Artisans</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-5 flex justify-center">
+<div class="relative w-full max-w-md h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-tertiary-fixed-dim/30">
+<img class="w-full h-full object-cover" data-alt="Portrait of master weaver Ustad Ahmed working skillfully at his wooden pit loom in Varanasi, surrounded by cascading spools of jewel-toned silk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2MkeeyZ18Epeps0ABCCd-qFhEcpkfdYfhkPtklP6J3vMQahWaeH0RR4k6-DekXGeL9oBGe9pe9T3l9Ev8onPE4QPUsr4rzc5987NZwyOQi4mGdGBBOlkCfqzgUSyYlc6UEVv8kEBm7V9DBEmySARV9jqwcaIbQ5sNxIW7NYyu4Uo_RmZ5_u7RtUB62AOkAZRahE9-h6FrzToMVXGR1mus488FfS9dlbWcsCrputM"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sustainability Commitment -->
+<section class="py-24 bg-surface-container-high relative overflow-hidden w-full">
+<div class="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-label-sm text-primary uppercase font-bold tracking-[0.2em] flex items-center justify-center gap-2"><span class="material-symbols-outlined text-sm">eco</span>Earth Conscious Luxury</span>
+<h2 class="font-headline-lg text-4xl md:text-5xl text-on-surface mt-2 tracking-tight">Rooted in Sustainability</h2>
+<p class="font-body-md text-on-surface-variant text-lg mt-4 leading-relaxed">
+          True luxury is zero-impact, cruelty-free, and profoundly respectful of the living earth that provides our raw fibers.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-2xl">eco</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-2xl font-semibold mb-3 tracking-tight">Botanical Dyes</h3>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+              We exclusively utilize natural dyes extracted from madder root, indigo leaves, turmeric, pomegranate rinds, and iron water—ensuring pristine river ecosystems and skin-safe garments.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/20 flex items-center gap-2 text-primary font-bold text-sm tracking-wide">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="">100% Chemical-Free</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-2xl font-semibold mb-3 tracking-tight">Zero Carbon Footprint</h3>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Every textile is woven entirely by human kinetic energy without electricity. Our looms run on sunlight and ancestral skill, generating zero carbon emissions during production.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/20 flex items-center gap-2 text-primary font-bold text-sm tracking-wide">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="">100% Handloom Powered</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface p-8 rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-2xl">handshake</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-2xl font-semibold mb-3 tracking-tight">Fair Trade &amp; Direct Wages</h3>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">
+              We eliminate middlemen entirely. Artisans receive 65% of the retail value upfront, empowering family cooperatives, healthcare funds, and children's education in rural clusters.
+            </p>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/20 flex items-center gap-2 text-primary font-bold text-sm tracking-wide">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="">Living Wage Assured</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Signup -->
+<section class="py-24 max-w-7xl mx-auto px-8 lg:px-12 w-full">
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden shadow-xl max-w-5xl mx-auto">
+<div class="max-w-2xl mx-auto space-y-6 relative z-10">
+<span class="text-label-sm text-primary uppercase font-bold tracking-[0.2em] flex items-center justify-center gap-2"><span class="material-symbols-outlined text-sm">mark_email_read</span>Join The Private Salon</span>
+<h2 class="font-headline-xl text-3xl md:text-4xl text-on-surface font-light tracking-tight">
+          Receive Invitations to Rare Drop Releases
+        </h2>
+<p class="font-body-md text-on-surface-variant text-base">
+          Subscribers receive early access to limited artisanal masterworks, weaver journals, and private virtual studio tours directly from our craft clusters.
+        </p>
+<form class="flex flex-col sm:flex-row gap-3 pt-4" onsubmit="event.preventDefault(); alert('Thank you for subscribing to the Weavers Collective journal.');">
+<input class="flex-1 bg-surface border border-outline-variant px-6 py-4 rounded-xl text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary" placeholder="Enter your email address" required="" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl text-label-md font-bold tracking-widest hover:bg-primary-container transition-all shadow-md flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-sm">send</span>
+            Request Invitation
+          </button>
+</form>
+<span class="block text-xs text-on-surface-variant/70 tracking-wide">We respect your privacy. Unsubscribe at any time.</span>
+</div>
+</div>
+</section>
+</div></div></main>
+<footer class="w-full bg-surface-container-low py-space-xl border-t border-outline-variant/20">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10 sm:gap-12 mb-12">
+    <!-- Col 1: Brand & Mission -->
+    <div class="space-y-4">
+      <a href="index.html" class="font-headline-sm font-semibold text-primary text-xl tracking-tight flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">texture</span>
+        <span class="font-serif">Weavers Collective</span>
+      </a>
+      <p class="text-body-sm text-on-surface-variant font-light leading-relaxed">
+        Preserving ancestral handloom traditions and empowering master artisan families across 18 craft clusters with radical wage transparency.
+      </p>
+      <div class="flex items-center gap-3 pt-2">
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">photo_camera</span>
+        </a>
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">public</span>
+        </a>
+        <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">play_arrow</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Col 2: Quick Links / Collections -->
+    <div>
+      <h4 class="font-headline-sm text-on-surface font-semibold text-lg mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-base">link</span>Quick Links
+      </h4>
+      <ul class="space-y-2.5 text-body-sm text-on-surface-variant">
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="index.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Home
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="products.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Products &amp; Collections
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="artisans.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Master Artisans
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="craft-silk.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Varanasi Silk Craft
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="fair-trade.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Fair Trade Impact
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Customer Care & Heritage -->
+    <div>
+      <h4 class="font-headline-sm text-on-surface font-semibold text-lg mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-base">support_agent</span>Customer Care
+      </h4>
+      <ul class="space-y-2.5 text-body-sm text-on-surface-variant">
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="about.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Our Heritage &amp; Story
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="contact.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Contact &amp; Custom Orders
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="craft-silk.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Care &amp; Preservation
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="contact.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>FAQs &amp; Loom Visits
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Newsletter & Direct Updates -->
+    <div>
+      <h4 class="font-headline-sm text-on-surface font-semibold text-lg mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-base">mail</span>Stay Connected
+      </h4>
+      <p class="font-body-sm text-on-surface-variant mb-4 leading-relaxed">
+        Subscribe for rare heirloom releases, weaver audio journals, and collective drops.
+      </p>
+      <form class="space-y-2.5 newsletter-form">
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-sm text-on-surface-variant">alternate_email</span>
+          <input class="w-full bg-surface text-on-surface pl-9 pr-4 py-2.5 rounded-xl text-body-sm border border-outline-variant/40 focus:outline-none focus:ring-1 focus:ring-primary text-xs" placeholder="Enter your email" required type="email"/>
+        </div>
+        <button class="w-full bg-primary text-on-primary py-2.5 rounded-xl text-label-md font-bold tracking-wider hover:bg-surface-tint transition-all flex items-center justify-center gap-2 shadow-sm text-xs uppercase" type="submit">
+          <span class="material-symbols-outlined text-sm">send</span>Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center text-on-surface-variant text-body-sm gap-4 w-full">
+    <p class="text-xs">© 2026 Handloom Weavers Collective. All rights reserved. 100% Handwoven &amp; Fair Trade Certified.</p>
+    <div class="flex gap-6 text-xs">
+      <a class="hover:text-primary transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-xs">shield</span>Privacy Policy</a>
+      <a class="hover:text-primary transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-xs">description</span>Terms of Service</a>
+    </div>
+  </div>
+</footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Wire Category Filter Buttons on Home
+      const filterBtns = document.querySelectorAll('#filter-container .filter-btn');
+      const cards = document.querySelectorAll('#product-grid > div');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.className = 'filter-btn bg-surface text-on-surface-variant hover:text-on-surface px-5 py-2.5 rounded-xl text-label-md transition-all border border-outline-variant/30 tracking-wider flex items-center gap-2';
+          });
+          btn.className = 'filter-btn bg-primary text-on-primary px-5 py-2.5 rounded-xl text-label-md transition-all shadow-sm tracking-wider flex items-center gap-2';
+
+          const text = btn.textContent.toLowerCase();
+          cards.forEach(card => {
+            const cat = (card.getAttribute('data-category') || '').toLowerCase();
+            if (text.includes('all')) {
+              card.style.display = '';
+            } else if (text.includes('silk') && cat === 'silk') {
+              card.style.display = '';
+            } else if (text.includes('jamdani') && cat === 'jamdani') {
+              card.style.display = '';
+            } else if (text.includes('pashmina') && cat === 'pashmina') {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Newsletter form submission with real toast
+      const salonForm = document.querySelector('section form[onsubmit]');
+      if (salonForm) {
+        salonForm.onsubmit = (e) => {
+          e.preventDefault();
+          const emailInput = salonForm.querySelector('input[type="email"]');
+          const email = emailInput ? emailInput.value : '';
+          if (window.HWC_Shared) {
+            window.HWC_Shared.showToast(`Invitation sent to ${email}! Welcome to the Private Salon.`, 'mark_email_read');
+          }
+          salonForm.reset();
+        };
+      }
+    });
+  </script>
+
+  <!-- Master Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/shared.js"></script>
+</body></html>

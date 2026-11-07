@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Home 2 | Handloom Weavers Collective — Modern Slow Craft Atelier</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#501e27",
+            "primary-container": "#69333d",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffd9dc",
+            "secondary": "#745733",
+            "secondary-container": "#f6dcb7",
+            "on-secondary": "#ffffff",
+            "tertiary": "#553a71",
+            "tertiary-container": "#6e518b",
+            "tertiary-fixed": "#f0dbff",
+            "tertiary-fixed-dim": "#e7c17e",
+            "on-tertiary": "#ffffff",
+            "surface": "#fcf9f2",
+            "surface-dim": "#ded9d1",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f3ec",
+            "surface-container": "#f0ede6",
+            "surface-container-high": "#eae7e0",
+            "surface-container-highest": "#e5e2db",
+            "on-surface": "#1b1c1a",
+            "on-surface-variant": "#524346",
+            "outline": "#857376",
+            "outline-variant": "#d7c1c4",
+            "inverse-surface": "#30302e",
+            "inverse-on-surface": "#f3f0e9"
+          },
+          fontFamily: {
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "serif": ["Playfair Display", "serif"],
+            "sans": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          spacing: {
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px",
+            "space-2xl": "48px",
+            "space-3xl": "64px"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #fcf9f2;
+      background-image: radial-gradient(#d7c1c4 0.5px, transparent 0.5px), radial-gradient(#d7c1c4 0.5px, #fcf9f2 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+    .dark body {
+      background-color: #151412;
+      background-image: radial-gradient(#3a3834 0.5px, transparent 0.5px), radial-gradient(#3a3834 0.5px, #151412 0.5px);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    if (localStorage.getItem('dir') === 'rtl') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen selection:bg-secondary-container selection:text-on-secondary-container antialiased relative">
+
+  <!-- Universal Header Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+        <span class="material-symbols-outlined text-primary text-2xl sm:text-3xl">texture</span>
+        <span class="font-serif font-bold text-lg sm:text-2xl tracking-tight text-primary">Weavers Collective</span>
+      </a>
+
+      <!-- Desktop Navigation Bar -->
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-7 mx-auto" id="desktop-main-nav">
+        <!-- Home Dropdown -->
+        <div class="relative group" id="home-dropdown-wrapper">
+          <button type="button" class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide flex items-center gap-1 py-1 cursor-pointer focus:outline-none" id="home-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+            <span class="material-symbols-outlined text-base">home</span>
+            <span>Home</span>
+            <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180" id="home-dropdown-chevron">expand_more</span>
+          </button>
+          <!-- Dropdown Menu -->
+          <div class="absolute left-0 top-full pt-2 w-64 hidden group-hover:block group-focus-within:block transition-all duration-200 z-50 dropdown-menu" id="home-dropdown-menu">
+            <div class="bg-surface/95 dark:bg-[#231b1e]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-outline-variant/30 py-2.5 px-2">
+              <a href="index.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" data-route="index.html">
+                <span class="material-symbols-outlined text-lg text-primary">cottage</span>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-on-surface title-span">Home 1</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold uppercase tracking-wider">Heritage</span>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant font-normal">Living Pit Looms Collective</div>
+                </div>
+              </a>
+              <a href="home-2.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors mt-1" data-route="home-2.html">
+                <span class="material-symbols-outlined text-lg text-primary">auto_stories</span>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-on-surface title-span">Home 2</span>
+                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-wider">Atelier</span>
+                  </div>
+                  <div class="text-[11px] text-on-surface-variant font-normal">Slow Craft Modern Elegance</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Page (Immediately Next!) -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="about.html" data-route="about.html">
+          <span class="material-symbols-outlined text-base">history_edu</span>About
+        </a>
+
+        <!-- Products -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="products.html" data-route="products.html">
+          <span class="material-symbols-outlined text-base">checkroom</span>Products
+        </a>
+
+        <!-- Artisans -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="artisans.html" data-route="artisans.html">
+          <span class="material-symbols-outlined text-base">engineering</span>Artisans
+        </a>
+
+        <!-- Varanasi Silk -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="craft-silk.html" data-route="craft-silk.html">
+          <span class="material-symbols-outlined text-base">auto_awesome</span>Varanasi Silk
+        </a>
+
+        <!-- Fair Trade -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="fair-trade.html" data-route="fair-trade.html">
+          <span class="material-symbols-outlined text-base">eco</span>Fair Trade
+        </a>
+
+        <!-- Contact -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="contact.html" data-route="contact.html">
+          <span class="material-symbols-outlined text-base">mail</span>Contact
+        </a>
+      </nav>
+
+      <!-- Utility Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+        <!-- Search Trigger Button -->
+        <button class="open-search-trigger bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Search Heirlooms (Ctrl+K)">
+          <span class="material-symbols-outlined text-lg sm:text-xl">search</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Toggle Dark/Light Mode">
+          <span class="material-symbols-outlined text-lg sm:text-xl theme-toggle-icon">dark_mode</span>
+        </button>
+
+        <!-- RTL/LTR Toggle -->
+        <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold" title="Toggle Layout Direction">
+          <span class="material-symbols-outlined text-lg sm:text-xl">swap_horiz</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button id="open-cart-btn" class="relative bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="View Cart">
+          <span class="material-symbols-outlined text-lg sm:text-xl">shopping_bag</span>
+          <span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden shadow-sm">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" class="mobile-menu-trigger lg:hidden bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Open Navigation Menu">
+          <span class="material-symbols-outlined text-lg sm:text-xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="w-full pt-20">
+    <!-- Section 1: Hero Section -->
+    <section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center bg-primary text-on-primary overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-luminosity pointer-events-none" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9bDLpyOuXsyQzZQtGO8JQPShW8kq5cN0-JbZEApnl_CzN3H_5r3mmHH3MJ3xKRcQY6PTaRxY1pk9g79v6SCL0wz58AHBwONKiZtFMiQIwb8VJFYe82bXYmvX9Q4UN92ZMN8b4R7hbSIVGQyt3H1SngH3f9N8Jzwr3uhJvHAH1muZI--839qMpifYCRygYtmaFRJSk5nimuvdT0rCM5IVQzzIocmbPHOAJki-viQ0");'></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent pointer-events-none"></div>
+      <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#e7c17e_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-16 lg:py-24">
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container text-tertiary-fixed-dim text-xs uppercase tracking-widest border border-tertiary-fixed-dim/30 font-semibold">
+            <span class="material-symbols-outlined text-sm">flare</span>
+            <span>Heritage Haute Couture Collection</span>
+          </div>
+          <h1 class="font-headline text-4xl sm:text-5xl lg:text-6xl text-on-primary font-normal leading-[1.15] tracking-tight">
+            Where Centuries of Loom Craft Meet Modern Elegance
+          </h1>
+          <p class="font-body text-primary-fixed-dim text-base sm:text-lg max-w-xl leading-relaxed font-light">
+            Immerse yourself in the world of rare handloom textiles, where master artisans breathe life into every golden thread, creating bespoke masterpieces for the discerning patron.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="products.html" class="bg-tertiary-fixed-dim text-primary px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-surface hover:text-primary transition-all shadow-lg flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">palette</span>Explore Collections
+            </a>
+            <button onclick="openVideoModal()" class="text-on-primary hover:text-tertiary-fixed-dim text-sm font-semibold flex items-center gap-2 transition-colors px-4 py-3 border border-tertiary-fixed-dim/30 rounded-xl hover:bg-white/10">
+              <span class="material-symbols-outlined text-xl">play_circle</span>Watch Artisan Film
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative w-full h-[420px] sm:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-tertiary-fixed-dim/30 group">
+            <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9bDLpyOuXsyQzZQtGO8JQPShW8kq5cN0-JbZEApnl_CzN3H_5r3mmHH3MJ3xKRcQY6PTaRxY1pk9g79v6SCL0wz58AHBwONKiZtFMiQIwb8VJFYe82bXYmvX9Q4UN92ZMN8b4R7hbSIVGQyt3H1SngH3f9N8Jzwr3uhJvHAH1muZI--839qMpifYCRygYtmaFRJSk5nimuvdT0rCM5IVQzzIocmbPHOAJki-viQ0');"></div>
+            <div class="absolute bottom-4 left-4 right-4 p-4 bg-primary/85 backdrop-blur-md rounded-xl border border-tertiary-fixed-dim/30 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-tertiary-fixed-dim uppercase tracking-wider block font-bold">Featured Master Weaver</span>
+                <span class="font-serif font-bold text-base sm:text-lg text-on-primary">Ustad Hamid &amp; Sons, Varanasi</span>
+              </div>
+              <span class="material-symbols-outlined text-tertiary-fixed-dim text-2xl">verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Quick Stats & Trust Bar -->
+    <section class="bg-surface-container-low py-10 border-b border-outline-variant/20">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="space-y-1">
+          <span class="font-headline text-3xl sm:text-4xl text-primary font-bold">100%</span>
+          <p class="text-xs sm:text-sm text-on-surface-variant uppercase tracking-wider font-semibold">Handcrafted Authentic</p>
+        </div>
+        <div class="space-y-1">
+          <span class="font-headline text-3xl sm:text-4xl text-primary font-bold">45+</span>
+          <p class="text-xs sm:text-sm text-on-surface-variant uppercase tracking-wider font-semibold">Master Pit Looms</p>
+        </div>
+        <div class="space-y-1">
+          <span class="font-headline text-3xl sm:text-4xl text-primary font-bold">68%</span>
+          <p class="text-xs sm:text-sm text-on-surface-variant uppercase tracking-wider font-semibold">Living Wage Direct</p>
+        </div>
+        <div class="space-y-1">
+          <span class="font-headline text-3xl sm:text-4xl text-primary font-bold">18</span>
+          <p class="text-xs sm:text-sm text-on-surface-variant uppercase tracking-wider font-semibold">Heritage Clusters</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: The Rhythm of the Shuttle & The Soul of the Loom -->
+    <section class="py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full" id="artisan-story">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">spa</span>Living Heritage
+          </span>
+          <h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl text-on-surface tracking-tight font-normal">
+            The Rhythm of the Shuttle &amp; The Soul of the Loom
+          </h2>
+          <p class="font-body text-on-surface-variant text-sm sm:text-base leading-relaxed">
+            Every yard of fabric tells a story passed down through generations. Our master weavers spend weeks—sometimes months—interlacing pure silk, organic cotton, and metallic Zari threads to achieve an unmatched drape and luminosity.
+          </p>
+          <blockquote class="border-l-2 border-primary pl-4 my-4 italic font-serif text-lg sm:text-xl text-primary">
+            "We do not merely weave textiles; we preserve the breathing pulse of our ancestors in every single motif."
+          </blockquote>
+          <div class="flex items-center gap-4 pt-2">
+            <div class="w-14 h-14 rounded-full bg-cover bg-center border border-outline-variant/40 shadow-md" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWv8sWQhIx6zYx2U0WtGfJmwhuP--y2Lu4MahcDwkIpMJJkkyIFkljgWLTXjdP9iauvoJrJ376MuBTUgsywBTnAwhRGY0hp6WlnvDPJRcfTyYARVk6B0ehVYBG3mN3ImUsi4FfRAE-JBaMhZd_RaE0MYVwfnO_v5GrS5mS4zGWQSwdmXXvs8aMZ6o_gqVmtAJhQq747hGVqR5XfOwf56LWcWwaAERMlxe-EvNN3-A');"></div>
+            <div>
+              <h4 class="font-serif font-bold text-base text-on-surface">Pandit Ramswaroop</h4>
+              <span class="text-xs text-on-surface-variant">Master Weaver • 34 Years Experience, Chanderi Cluster</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative group cursor-pointer" onclick="openVideoModal()">
+          <div class="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30">
+            <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBt8fluQOM8l_DMrh3WZ8S4Zt40V915Nqe-mWlqo_HPX0OQattif6jy5q8Tn_i08mzeV63N3ODaQhgVeRk-bgii7PPeNXk_mVgz9qEkn43E8rIcOLsORFqBknHygO2JUbg6vTLJ2lAhqsoCQIHozHVynL3OLDLEsuVmdudvs6xU3gVsUnrPuvcCzVbdUzVOGiSAe4LzP4sEAeuYJTbExYu2dKTh52BIcFuRQ3aVGMc');"></div>
+            <div class="absolute inset-0 bg-primary/30 backdrop-blur-[1px] flex items-center justify-center">
+              <div class="w-20 h-20 rounded-full bg-surface/90 text-primary flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Curated Masterpieces -->
+    <section class="py-16 sm:py-24 bg-surface-container-low/60 border-t border-b border-outline-variant/20" id="products">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">diamond</span>Exquisite Selection
+            </span>
+            <h2 class="font-headline text-3xl sm:text-4xl text-on-surface mt-1">Curated Masterpieces</h2>
+          </div>
+          <!-- Quick Filters -->
+          <div class="flex flex-wrap gap-2" id="filter-buttons">
+            <button class="px-4 py-2 rounded-xl text-xs sm:text-sm bg-primary text-on-primary transition-all font-semibold shadow-sm" data-filter="all">All Clusters</button>
+            <button class="px-4 py-2 rounded-xl text-xs sm:text-sm bg-surface text-on-surface hover:bg-surface-container-high transition-all font-medium border border-outline-variant/30" data-filter="varanasi">Varanasi Silk</button>
+            <button class="px-4 py-2 rounded-xl text-xs sm:text-sm bg-surface text-on-surface hover:bg-surface-container-high transition-all font-medium border border-outline-variant/30" data-filter="kanchipuram">Kanchipuram</button>
+            <button class="px-4 py-2 rounded-xl text-xs sm:text-sm bg-surface text-on-surface hover:bg-surface-container-high transition-all font-medium border border-outline-variant/30" data-filter="chanderi">Chanderi</button>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+          <!-- Card 1: Royal Maroon Zari Katan Silk Saree -->
+          <div class="group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col cursor-pointer zoom-card" data-category="varanasi" data-product-id="prod-1" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-1'">
+            <a href="product-detail.html?id=prod-1" class="block relative h-80 overflow-hidden cursor-pointer group/img" title="View Royal Maroon Zari Katan Silk Saree">
+              <img class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500" data-alt="Luxurious Royal Maroon Banarasi Katan Silk Saree featuring intricate gold zari floral brocade weaving across the pallu and body" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRBZzikPC_qXoVvm0w7M2qEv-D89GJA3ehfWsYLYMbLXAkqzAVu4KLi9wLqCkGUVh9xQxRldWispo99--IbaU7bjCrxqo8atS9cm_2-lgwANfB4YBLKSp1gPaPcPeeNw4FlTAfSIHdJGUrqRxR6ydk5TL4zh3yUpgO7TEx1YhjDoXrNsCfwgVy6CmFTFHJLiCUe1rpl9u6EOIq6BIB3OF_hOnxQBCAHL_SwrVxorc"/>
+              <span class="absolute top-4 left-4 bg-primary text-on-primary text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest shadow-sm pointer-events-none">Bestseller</span>
+            </a>
+            <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+              <div>
+                <span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Varanasi Silk Cluster</span>
+                <h3 class="font-serif font-bold text-xl text-on-surface mt-1 group-hover:text-primary transition-colors">Royal Maroon Zari Katan Silk Saree</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 line-clamp-2 leading-relaxed">Handwoven pure katan silk with dense antique gold zari work and traditional konark motifs.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                <span class="font-serif font-bold text-primary text-xl">₹28,500 <span class="text-xs font-sans text-on-surface-variant font-normal">($360)</span></span>
+                <button type="button" onclick="event.preventDefault(); event.stopPropagation(); HWC_Cart.addToCart({ id: 'prod-1', title: 'Royal Maroon Zari Katan Silk Saree', price: 28500, priceFormatted: '₹28,500', cluster: 'Varanasi Silk', imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDRBZzikPC_qXoVvm0w7M2qEv-D89GJA3ehfWsYLYMbLXAkqzAVu4KLi9wLqCkGUVh9xQxRldWispo99--IbaU7bjCrxqo8atS9cm_2-lgwANfB4YBLKSp1gPaPcPeeNw4FlTAfSIHdJGUrqRxR6ydk5TL4zh3yUpgO7TEx1YhjDoXrNsCfwgVy6CmFTFHJLiCUe1rpl9u6EOIq6BIB3OF_hOnxQBCAHL_SwrVxorc', quantity: 1 });" class="add-to-cart-btn bg-primary text-on-primary px-4 py-2.5 rounded-xl text-xs font-semibold hover:opacity-95 transition-all shadow-sm flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm">shopping_bag</span>Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Temple Border Mulberry Silk Saree -->
+          <div class="group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col cursor-pointer zoom-card" data-category="kanchipuram" data-product-id="prod-2" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-2'">
+            <a href="product-detail.html?id=prod-2" class="block relative h-80 overflow-hidden cursor-pointer group/img" title="View Temple Border Mulberry Silk Saree">
+              <img class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500" data-alt="Traditional Kanchipuram pure mulberry silk saree in deep jewel tones with contrasting heavy gold temple border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMf7Abaon5Izc2lh8dMEEHQ_LyhgNb28Wf5ftWdwijLSR-YUAfT44wAR_Z54RSQJf-iZZVV89_4K8Snz2bdH-7hfrufSGUXG2A3TmU2L6yejgBLg-kTqu547UtBT7n2xsnY9Wz06FAyUt-eoDX0QdXB-K1hecV6nTA5hrU5atXpZIMF7B_lFwKU07DRV7YFnUZ6rVBO6qAXLyuY1tsCJFDehtbvyPyDCHw2StWwQc"/>
+              <span class="absolute top-4 left-4 bg-primary text-on-primary text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest shadow-sm pointer-events-none">Limited Edition</span>
+            </a>
+            <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+              <div>
+                <span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Kanchipuram Cluster</span>
+                <h3 class="font-serif font-bold text-xl text-on-surface mt-1 group-hover:text-primary transition-colors">Temple Border Mulberry Silk Saree</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 line-clamp-2 leading-relaxed">Exquisite pure mulberry silk featuring pure gold zari interlocking korvai borders.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                <span class="font-serif font-bold text-primary text-xl">₹34,000 <span class="text-xs font-sans text-on-surface-variant font-normal">($420)</span></span>
+                <button type="button" onclick="event.preventDefault(); event.stopPropagation(); HWC_Cart.addToCart({ id: 'prod-2', title: 'Temple Border Mulberry Silk Saree', price: 34000, priceFormatted: '₹34,000', cluster: 'Kanchipuram Silk', imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDMf7Abaon5Izc2lh8dMEEHQ_LyhgNb28Wf5ftWdwijLSR-YUAfT44wAR_Z54RSQJf-iZZVV89_4K8Snz2bdH-7hfrufSGUXG2A3TmU2L6yejgBLg-kTqu547UtBT7n2xsnY9Wz06FAyUt-eoDX0QdXB-K1hecV6nTA5hrU5atXpZIMF7B_lFwKU07DRV7YFnUZ6rVBO6qAXLyuY1tsCJFDehtbvyPyDCHw2StWwQc', quantity: 1 });" class="add-to-cart-btn bg-primary text-on-primary px-4 py-2.5 rounded-xl text-xs font-semibold hover:opacity-95 transition-all shadow-sm flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm">shopping_bag</span>Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Ethereal Silk-Cotton Chanderi Dupatta -->
+          <div class="group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col cursor-pointer zoom-card" data-category="chanderi" data-product-id="prod-4" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-4'">
+            <a href="product-detail.html?id=prod-4" class="block relative h-80 overflow-hidden cursor-pointer group/img" title="View Ethereal Silk-Cotton Chanderi Dupatta">
+              <img class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500" data-alt="Ethereal sheer Chanderi silk cotton fabric draped gracefully" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgIeNXmqCmoVqQKO1K-2vXLBAgzIAMafFGdzNT8DOdtEQjcE9C0bLsOjrvC8_b5-HTfO51wrLGGR7pth8m_OoqjvHyz-ZVpsYHHh8xHaRoXMEFczquZKBbcS5y8G9W98JMT8rW7JuVjPiG3s1Q1mUWxtEpcMp7cINfpJSRzspYEs35_-hL2nQrmMOG6tmb1pnZQK3apISeUxymuUx_mEdrSJ895C0EaNhFtnOpwao"/>
+              <span class="absolute top-4 left-4 bg-primary text-on-primary text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-widest shadow-sm pointer-events-none">New Arrival</span>
+            </a>
+            <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+              <div>
+                <span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Chanderi Cluster</span>
+                <h3 class="font-serif font-bold text-xl text-on-surface mt-1 group-hover:text-primary transition-colors">Ethereal Silk-Cotton Chanderi Dupatta</h3>
+                <p class="text-xs text-on-surface-variant mt-1.5 line-clamp-2 leading-relaxed">Feather-light handspun blend adorned with classic gold coin bootis and delicate tassels.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                <span class="font-serif font-bold text-primary text-xl">₹9,800 <span class="text-xs font-sans text-on-surface-variant font-normal">($125)</span></span>
+                <button type="button" onclick="event.preventDefault(); event.stopPropagation(); HWC_Cart.addToCart({ id: 'prod-4', title: 'Ethereal Silk-Cotton Chanderi Dupatta', price: 9800, priceFormatted: '₹9,800', cluster: 'Chanderi Cluster', imgSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAgIeNXmqCmoVqQKO1K-2vXLBAgzIAMafFGdzNT8DOdtEQjcE9C0bLsOjrvC8_b5-HTfO51wrLGGR7pth8m_OoqjvHyz-ZVpsYHHh8xHaRoXMEFczquZKBbcS5y8G9W98JMT8rW7JuVjPiG3s1Q1mUWxtEpcMp7cINfpJSRzspYEs35_-hL2nQrmMOG6tmb1pnZQK3apISeUxymuUx_mEdrSJ895C0EaNhFtnOpwao', quantity: 1 });" class="add-to-cart-btn bg-primary text-on-primary px-4 py-2.5 rounded-xl text-xs font-semibold hover:opacity-95 transition-all shadow-sm flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm">shopping_bag</span>Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Words from Connoisseurs -->
+    <section class="py-16 sm:py-24 bg-primary text-on-primary relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e7c17e_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 space-y-12 text-center">
+        <div class="max-w-xl mx-auto space-y-2">
+          <span class="text-xs text-tertiary-fixed-dim uppercase tracking-widest font-bold">Patron Stories</span>
+          <h2 class="font-headline text-3xl sm:text-4xl text-on-primary">Words from Connoisseurs</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
+          <!-- Testimonial 1 -->
+          <div class="bg-primary-container/60 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-tertiary-fixed-dim/20 space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-tertiary-fixed-dim">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="font-serif italic text-primary-fixed-dim text-sm sm:text-base leading-relaxed">"The drape and weight of the Banarasi silk saree is nothing short of royal museum-grade art. Wearing it felt like carrying centuries of living history."</p>
+            </div>
+            <div class="pt-2 border-t border-white/10">
+              <h4 class="font-serif font-bold text-on-primary text-sm">Dr. Alana Sen</h4>
+              <span class="text-xs text-primary-fixed-dim">Couture Collector, London</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-primary-container/60 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-tertiary-fixed-dim/20 space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-tertiary-fixed-dim">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="font-serif italic text-primary-fixed-dim text-sm sm:text-base leading-relaxed">"Knowing the artisan by name and supporting their generational craft directly adds an emotional depth no luxury brand can ever replicate."</p>
+            </div>
+            <div class="pt-2 border-t border-white/10">
+              <h4 class="font-serif font-bold text-on-primary text-sm">Vikramaditya Roy</h4>
+              <span class="text-xs text-primary-fixed-dim">Architect &amp; Patron, New Delhi</span>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-primary-container/60 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-tertiary-fixed-dim/20 space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-tertiary-fixed-dim">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="font-serif italic text-primary-fixed-dim text-sm sm:text-base leading-relaxed">"The packaging, handwritten artisan note, and absolute luminescence of the Kanchipuram silk surpassed all expectations. Truly breathtaking."</p>
+            </div>
+            <div class="pt-2 border-t border-white/10">
+              <h4 class="font-serif font-bold text-on-primary text-sm">Clara Dupont</h4>
+              <span class="text-xs text-primary-fixed-dim">Interior Stylist, Paris</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Become a Patron of Heritage Weaving -->
+    <section class="py-16 sm:py-24 bg-surface-container-low border-b border-outline-variant/20">
+      <div class="max-w-3xl mx-auto px-6 text-center space-y-6">
+        <span class="text-xs text-primary font-bold uppercase tracking-widest">Join the Circle</span>
+        <h2 class="font-headline text-3xl sm:text-4xl text-on-surface">Become a Patron of Heritage Weaving</h2>
+        <p class="font-body text-on-surface-variant text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          Receive private invitations to limited loom releases, artisan documentaries, and seasonal masterclass previews directly in your inbox.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2 newsletter-form">
+          <input class="flex-1 px-4 py-3 rounded-xl bg-surface border border-outline-variant/50 text-on-surface focus:outline-none focus:border-primary text-sm" placeholder="Enter your email address" required type="email"/>
+          <button class="bg-primary text-on-primary px-7 py-3 rounded-xl text-sm font-semibold hover:opacity-95 transition-all shadow-md shrink-0" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Video Lightbox Modal -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-md hidden" id="video-lightbox">
+    <div class="relative w-full max-w-4xl bg-surface dark:bg-[#1b1c1a] rounded-3xl overflow-hidden shadow-2xl border border-outline-variant/30 flex flex-col">
+      <button class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-surface/80 dark:bg-[#2a2926]/80 hover:bg-surface dark:hover:bg-[#2a2926] text-stone-900 dark:text-stone-100 flex items-center justify-center shadow-md transition-all" id="close-video-lightbox" onclick="closeVideoModal()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+        <video id="documentary-video" class="w-full h-full object-cover" controls src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"></video>
+      </div>
+      <div class="p-6 md:p-8 bg-surface dark:bg-[#1b1c1a] space-y-2">
+        <span class="text-xs text-primary dark:text-tertiary-fixed-dim font-bold uppercase tracking-widest flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs">location_on</span> Varanasi &amp; Chanderi Loom Workshops
+        </span>
+        <h3 class="font-headline text-stone-900 dark:text-stone-100 text-2xl font-bold">The Rhythm of the Shuttle &amp; The Soul of the Loom</h3>
+        <p class="font-body text-stone-700 dark:text-stone-300 text-sm">Witness the meditative rhythm and timeless grace of master weavers bringing sacred heritage textiles to life through slow artisanal craft and pure mulberry silk.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal 4-Column Footer -->
+  <footer class="w-full bg-surface-container-low py-space-xl border-t border-outline-variant/20">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10 sm:gap-12 mb-12">
+    <!-- Col 1: Brand & Mission -->
+    <div class="space-y-4">
+      <a href="index.html" class="font-headline-sm font-semibold text-primary text-xl tracking-tight flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">texture</span>
+        <span class="font-serif">Weavers Collective</span>
+      </a>
+      <p class="text-body-sm text-on-surface-variant font-light leading-relaxed">
+        Preserving ancestral handloom traditions and empowering master artisan families across 18 craft clusters with radical wage transparency.
+      </p>
+      <div class="flex items-center gap-3 pt-2">
+        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">photo_camera</span>
+        </a>
+        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">public</span>
+        </a>
+        <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-surface border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined text-sm">play_arrow</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Col 2: Quick Links / Collections -->
+    <div>
+      <h4 class="font-headline-sm text-on-surface font-semibold text-lg mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-base">link</span>Quick Links
+      </h4>
+      <ul class="space-y-2.5 text-body-sm text-on-surface-variant">
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="index.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Home
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="products.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Products &amp; Collections
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="artisans.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Master Artisans
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="craft-silk.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Varanasi Silk Craft
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="fair-trade.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Fair Trade Impact
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Customer Care & Heritage -->
+    <div>
+      <h4 class="font-headline-sm text-on-surface font-semibold text-lg mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-base">support_agent</span>Customer Care
+      </h4>
+      <ul class="space-y-2.5 text-body-sm text-on-surface-variant">
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="about.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Our Heritage &amp; Story
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="contact.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Contact &amp; Custom Orders
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="craft-silk.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>Care &amp; Preservation
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="contact.html">
+            <span class="material-symbols-outlined text-xs">chevron_right</span>FAQs &amp; Loom Visits
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Newsletter & Direct Updates -->
+    <div>
+      <h4 class="font-headline-sm text-on-surface font-semibold text-lg mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-base">mail</span>Stay Connected
+      </h4>
+      <p class="font-body-sm text-on-surface-variant mb-4 leading-relaxed">
+        Subscribe for rare heirloom releases, weaver audio journals, and collective drops.
+      </p>
+      <form class="space-y-2.5 newsletter-form">
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-sm text-on-surface-variant">alternate_email</span>
+          <input class="w-full bg-surface text-on-surface pl-9 pr-4 py-2.5 rounded-xl text-body-sm border border-outline-variant/40 focus:outline-none focus:ring-1 focus:ring-primary text-xs" placeholder="Enter your email" required type="email"/>
+        </div>
+        <button class="w-full bg-primary text-on-primary py-2.5 rounded-xl text-label-md font-bold tracking-wider hover:bg-surface-tint transition-all flex items-center justify-center gap-2 shadow-sm text-xs uppercase" type="submit">
+          <span class="material-symbols-outlined text-sm">send</span>Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center text-on-surface-variant text-body-sm gap-4 w-full">
+    <p class="text-xs">© 2026 Handloom Weavers Collective. All rights reserved. 100% Handwoven &amp; Fair Trade Certified.</p>
+    <div class="flex gap-6 text-xs">
+      <a class="hover:text-primary transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-xs">shield</span>Privacy Policy</a>
+      <a class="hover:text-primary transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-xs">description</span>Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Page Interactivity Script -->
+  <script>
+    function openVideoModal() {
+      const modal = document.getElementById('video-lightbox');
+      const video = document.getElementById('documentary-video');
+      if (modal) {
+        modal.classList.remove('hidden');
+        if (video) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        }
+      }
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-lightbox');
+      const video = document.getElementById('documentary-video');
+      if (modal) {
+        modal.classList.add('hidden');
+        if (video) video.pause();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter functionality for Curated Masterpieces
+      const filterBtns = document.querySelectorAll('#filter-buttons button');
+      const productCards = document.querySelectorAll('#product-grid > div');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-sm');
+            b.classList.add('bg-surface', 'text-on-surface', 'font-medium', 'border', 'border-outline-variant/30');
+          });
+          btn.classList.remove('bg-surface', 'text-on-surface', 'font-medium', 'border', 'border-outline-variant/30');
+          btn.classList.add('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-sm');
+
+          const filter = btn.getAttribute('data-filter');
+          productCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Video lightbox close handlers
+      const videoModal = document.getElementById('video-lightbox');
+      if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+          if (e.target === videoModal) closeVideoModal();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeVideoModal();
+      });
+    });
+  </script>
+
+  <!-- Master Shared Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/shared.js"></script>
+</body>
+</html>
