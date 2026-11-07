@@ -119,9 +119,8 @@ const HWC_PRODUCTS = [
       quote: "When the shuttle passes through the silk warp, it carries not just thread, but 600 years of songs and silence."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCgr58X6x7XcFpoKKmy3CWnIrAMB8JAGhxWfRg_Yyk6hivah4LqJ9k1K7HeP-hKyKrIHY5A6UP4d-clLwuJtqkZilctgF6deHELOD1XLXVdft2T90-jmwkgu4kNR4IvN4jY5JNpTWv7Uv7RaWMSeMOB85jWiS55fplyakV7uCzWpZBYkzP3F9UnJ_tMp82e0en6PNSuhZlmwXjdhg2MS8UFcdNC-c-TB8qJud2cM8I",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA9mcnz3xG4qtz0O8vS9esjNL_3O815pSiEoIIA7XXnYP99JP_8yaIIeBjTQ1tgkTuVq1Nt6kK18cBfMo-Q2I5Cc3ta901woi8Ec75eCcn9y13TCFbUG6L44-Zt5QQY1ddR2Gsa5gpllyrcr7dMFCpC2WvB0gjP4y4RE-wcyGABRDGKkcX_LrrttN1nnpSBKc8ettuYXWzv3ReC0KCz1Ho9pvbEj476Z8iADd7FHjM",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC56zQgx_k_YnGYRTw5tObhbJmXNFmqZHhj8Iy3b9vpQrdc9XgiaJB07AtTuY8H6Ffqyt4NDa0MddxDGZ5KPr-9FiBsGxpu83YDkXFpmbR6dEJPkCKj77LpETKgTJOHCV5NUN8Z4tZ7M6IB62y4pvt5Hi7ZSVWdxP1gaWQoWwcj38zYLbrqAnFTb0QoYv923ww6BK8Px4gTa4PoIb1TFTq2HuZ9qNfmwZfGrUhhZjM"
+      "images/products/prod-1-main.jpg",
+      "images/products/prod-1-detail.jpg"
     ],
     description: "An opulent crimson Kanjeevaram and Varanasi heritage silk saree featuring intricate pure gold zari brocade peacocks and floral vine motifs along the rich pallu. Woven over 120 days using certified mulberry silk and genuine 24-karat gold electroplated silver zari on a sunken wooden pit loom.",
     specs: {
@@ -153,8 +152,8 @@ const HWC_PRODUCTS = [
       quote: "True Jamdani cannot be hurried. It grows as slowly and gracefully as morning mist over the river."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB-M7ZnEiUCUIZ-IBRtQxgiEdhxrmuvU8K1_4Qr-ktYxfucYjLquUhbN0iG2le9aNWoKmkjnbWNs3Mb9ip_3TJw93gEu43cJ4qqNaEKRJODm7ji3L_4TROhiDF7klFHCYIMhNS6LiNNZRZly0e5Tc6xjYdKDzepYZZ_EB_ZmfturFQ3jlXC6YEUSHQiE7zPgS-NIMuXEtqSY790kjI0_4V0LxVPIvnn-0ZmEPWElGo",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAG6f2BKKilUKVNwVK5GSSq_NVUBI6CsEsT6Mlb-CLyKKzsGDEFThl5tmHSd3_qhWx6dvnfrnl7x_snN_kHRbFZhU0kSkxLH19lD9YS0YACAHMAJXQBheEreukn4fyQdzokyaJYxpb_THZCJODyxf9Vee5eOQd3bNJI6cWuShtIxmnvIzlE2PA_s43Q8J_lrIidzo8nCYJag2LHrvaHhak7crZyq7x7g09eg4upiHk"
+      "images/products/prod-2-main.jpg",
+      "images/products/prod-2-detail.jpg"
     ],
     description: "Exquisitely hand-inserted supplementary weft motifs on ultra-fine khadi cotton spun to ethereal sheer lightness. Feathery floral motifs float across unbleached ivory muslin, woven rhythmically with double shuttles on village frame looms.",
     specs: {
@@ -186,8 +185,8 @@ const HWC_PRODUCTS = [
       quote: "Pashmina is not merely fabric—it is the warm breath of the roof of the world."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB0Q9CBWxPE7t61Gg1bSE-CVEGx3V06-Q8ZtJoreEFnPiVaEJyjrytqDpwVMcGWViNXYXY1tB2B2wj1mBesMTg_HX7VO-pWYfkr0uWzYvCXumomo7o80vDiipw_AZgkKa_usDzIbMpZA5IbpQT__Gd9NvvGh6UAS7uOWozEGGU7VlxbNykOlhhNSeK3WuZUbGUpj6R5hSIiDUtkaV1XtR53KkHYzryapKcyC1TpBzc",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBdKROl1dRysAJVqyRGK-iTlLAkwLhcNjYZPKfmlW5-kNG9dqiGXyoZ20JaTjoWZvTvgLxaBwPaJkjomhWW7KtSAZiF9BU-YNKIABeOvzMrJPsBWsXNRSlK-Tqe_ZogF-71HLSC73J9kaHGg5d09-2MpmhdgtlQJvThVEVJFV3JARaqi8bRn14N9kaR22exKi7tz9C9JH5WJOHrIKhIrZuWo4nes53T9XwolPlbOA"
+      "images/products/prod-3-main.jpg",
+      "images/products/prod-3-detail.jpg"
     ],
     description: "Hand-combed grade-A Cashmere wool adorned with painstaking Sozni needlework in subtle earthy tones of walnut, olive, and terracotta. Spun from high-altitude Changthangi fleece on traditional wooden spindles for weightless warmth.",
     specs: {
@@ -219,8 +218,8 @@ const HWC_PRODUCTS = [
       quote: "Every thread is counted in my mind long before it touches the natural indigo or madder dye pot."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBScwsMPTW9M_sONONV2jQMnRPq0kOtCPCZzGG7UJJu_IMwNcODxoMkU2HcAjXUlxBUWVdithvMt7k4vaNAUFVRVfvDrSWv82uU1CjKjo--VjeGb3CNHL1q-Jg0fP92IcB5smYhrKQwnAKjd5fqrOjqQ86NdkAu8g7gSJwo2E1EdmJxtEc0uAwK3Zt9dC3sceBS0T3KQYVkom1ahZMZ9D0-OBfLrknp-efQ9tS_pK4",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAQR9LU0iJtioovWfnC3VNE0Wlpnln59r4cUDSd5a86RRQvfZnosPqG-p8FMdv4pgf0wTo4UAfib0Acc1Ln6FQtlsQQXb4JoTyy7KZa72RiEsphHF_tNnG86NfDU6RxaGDUVgsV8BrhzcRv4eLhqe4akg6v00_dD1jphnECeLGhy9z2RsOB1EC7wXFKUoVRXuPMFHUOEh_5yu_2zlhLsBhMpRX9Wqd1T36ayj2dvGw"
+      "images/products/prod-4-main.jpg",
+      "images/products/prod-4-detail.jpg"
     ],
     description: "Purely rain-fed, pesticide-free old-world cotton that breathes with natural organic resilience. Dyed using 100% plant-based organic indigo vats fermented with wild herbs in desert clay pots.",
     specs: {
@@ -252,8 +251,8 @@ const HWC_PRODUCTS = [
       quote: "Our borders reflect the sacred stone carvings that have stood unbroken through the centuries."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB7PjXwPQHc2Gtjru5VYusLh47w9W0ulUpR3XEtrv1iTO9psWlIUr3WuS8b4pEn1GcWo9h9N-OqeJSn8jBXdPT2O2XWs5YuL82PhkMUu1W_PdfB_Rq19tnAsi72DulYtPSyLN3HslKENHtTrQxHZTtBnPuF1DP9lC-PizHQxeN8g4winHVfHi9956H8LRRbs6m9aln8UOIRFPkHEp-R2S8zB3iCmf9bRQuqkEMLrbI",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD5eTGcZUSGjNUMDB2k_y5fJa6a_ZvlMVYi7lAe3d7HJoPIuXuiMLUyUeJ0ytPWhtO0BPY0BmVvOv4WhSSdRl4iBdOJD1piW3REKwX-N62RVV-MVuTgfhsMnjaEdVfUvCBi1eWsMJ5sqHVVVXJxMku5h3YV0P8g-SGpcBVLbwJdvReUrk4Gfk8F3_q74Jf-GD_DWtrsba737QwO-WcEoerfvJu-kHGtTCv3ngdvZrE"
+      "images/products/prod-5-main.jpg",
+      "images/products/prod-5-detail.jpg"
     ],
     description: "Crisp, airy organic flax linen with a tactile slub texture. Pre-washed with natural river stone tumble for supreme tactile softness against summer skin.",
     specs: {
@@ -285,8 +284,8 @@ const HWC_PRODUCTS = [
       quote: "Pashmina is not merely fabric—it is the warm breath of the roof of the world."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB8nNPemv89JNXmpOS3-3O2c_t-Gu5nrMzNO3VNxCnvBpf2gCV0dOMbVIk_UYEFoGGTju_PAlXDtwTNPP-marT-Ns7-6ylm63Uhfoenv19sSaeKPxx9HaHzDAImxLRK_6NZAAz31cR83786I3mvL32Wsf09I2r3FlKpdsuPtxHbtl0dx7xBiEBEcniHH4Ax2peII2Nb6bkZw0up0CSNuxozs6QYIYbBfABZ47ETZVQ",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBdKROl1dRysAJVqyRGK-iTlLAkwLhcNjYZPKfmlW5-kNG9dqiGXyoZ20JaTjoWZvTvgLxaBwPaJkjomhWW7KtSAZiF9BU-YNKIABeOvzMrJPsBWsXNRSlK-Tqe_ZogF-71HLSC73J9kaHGg5d09-2MpmhdgtlQJvThVEVJFV3JARaqi8bRn14N9kaR22exKi7tz9C9JH5WJOHrIKhIrZuWo4nes53T9XwolPlbOA"
+      "images/products/prod-6-main.jpg",
+      "images/products/prod-6-detail.jpg"
     ],
     description: "Thick, warm, and authentic nomadic wool blanket spun on traditional takli drop spindles by women pastoralists in Spiti Valley. Features raw undyed yarn tones in charcoal and oatmeal.",
     specs: {
@@ -318,8 +317,8 @@ const HWC_PRODUCTS = [
       quote: "When the shuttle passes through the silk warp, it carries not just thread, but 600 years of songs and silence."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDvxPukrgYxO6kSZ_Q_bgLyIT-cni9yr6_ANgFwfd-OjOFYeCAufJTlg8wv716I27GYK-Yu0cyGK2Byd5_PgHAPrNdz0iIYwSxUKoyaEUHsLpCUVjMr4yXthlFXKa6Dy3fwcV6ZCtgxOmYqAg4iswRE4TGc_8njpFPRP0QZt0qRGHHFfb0jcNcsg1rh07gs-wybsGgr_g4Pwhr3uGLZU-O-NSS2tCYH_8xK53DxkO4",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCgr58X6x7XcFpoKKmy3CWnIrAMB8JAGhxWfRg_Yyk6hivah4LqJ9k1K7HeP-hKyKrIHY5A6UP4d-clLwuJtqkZilctgF6deHELOD1XLXVdft2T90-jmwkgu4kNR4IvN4jY5JNpTWv7Uv7RaWMSeMOB85jWiS55fplyakV7uCzWpZBYkzP3F9UnJ_tMp82e0en6PNSuhZlmwXjdhg2MS8UFcdNC-c-TB8qJud2cM8I"
+      "images/products/prod-7-main.jpg",
+      "images/products/prod-7-detail.jpg"
     ],
     description: "Deep jewel-tone emerald green woven with delicate Persian-inspired floral vine borders and jewel-colored resham accents embedded seamlessly in metallic gold Zari.",
     specs: {
@@ -351,8 +350,8 @@ const HWC_PRODUCTS = [
       quote: "Every throw of the wooden shuttle is an act of devotion to our ancestors' patience."
     },
     images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAWX1DY1Nci1W7zs_fnNlQU85sxfX5NtxXSnid2Pt0r4Wgrkdr0ne8WGxO9fPU6k6aDuR3Y1_K6QSQYn52WsDDi9Wivc7xWBgXQhrRxTI3jjfCMLnpN6PIkRruqxtXVJwi4Q2dUaBwxHTpZa98PgTBN8S5828Y4AbfNg1VxCh7U-047rtoVYABm_nro30ytGdX1P1npesvgc5zXT7kN6LgP4IDNA240mt14o0Nitow",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB-M7ZnEiUCUIZ-IBRtQxgiEdhxrmuvU8K1_4Qr-ktYxfucYjLquUhbN0iG2le9aNWoKmkjnbWNs3Mb9ip_3TJw93gEu43cJ4qqNaEKRJODm7ji3L_4TROhiDF7klFHCYIMhNS6LiNNZRZly0e5Tc6xjYdKDzepYZZ_EB_ZmfturFQ3jlXC6YEUSHQiE7zPgS-NIMuXEtqSY790kjI0_4V0LxVPIvnn-0ZmEPWElGo"
+      "images/products/prod-8-main.jpg",
+      "images/products/prod-8-detail.jpg"
     ],
     description: "A translucent royal sapphire dupatta with shimmering gold bootis sprinkled across lightweight silk-cotton warp, finished with delicate scalloped gold fringes.",
     specs: {
