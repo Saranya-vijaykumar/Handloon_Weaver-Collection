@@ -267,3 +267,60 @@ input[type=range].hwc-slider::-webkit-slider-thumb:hover {
   pointer-events: auto;
   transform: translateY(0);
 }
+
+
+/* =========================================================
+   High Contrast & Text Visibility Engine for Dark & Hero Sections
+   Fixes visibility issues where dark text was blending into dark backgrounds
+   ========================================================= */
+
+/* Headings in dark containers must always be brilliant, crisp white */
+.bg-primary-container h1,
+.bg-primary-container h2,
+.bg-primary-container h3,
+.bg-primary-container h4,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary h4,
+[class*="bg-primary"] h1,
+[class*="bg-primary"] h2,
+[class*="bg-primary"] h3,
+[class*="bg-primary"] h4,
+.bg-primary .font-headline-xl,
+.bg-primary .font-headline-lg,
+.bg-primary .font-headline-md,
+.bg-primary .font-headline-sm,
+.bg-primary-container .font-headline-xl,
+.bg-primary-container .font-headline-lg,
+.bg-primary-container .font-headline-md,
+.bg-primary-container .font-headline-sm,
+.text-on-primary {
+  color: #ffffff !important;
+}
+
+/* Paragraphs & subtitles in dark containers must be clean, readable light cream */
+.bg-primary-container p,
+.bg-primary p,
+[class*="bg-primary"] p,
+.bg-primary-container .text-on-primary-container,
+.bg-primary .text-on-primary-container,
+[class*="bg-primary"] .text-on-primary-container {
+  color: #f7f3ee !important;
+}
+
+/* Gold badges, accents & italic highlights */
+.bg-primary-container .text-tertiary-fixed-dim,
+.bg-primary .text-tertiary-fixed-dim,
+[class*="bg-primary"] .text-tertiary-fixed-dim,
+.text-gold-accent {
+  color: #fed65b !important;
+}
+
+/* Cart live badge must have bright white text on red background */
+#cart-badge {
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+}
