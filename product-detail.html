@@ -279,9 +279,14 @@
 </div>
 <!-- Right Product Details -->
 <div class="lg:col-span-5 flex flex-col space-y-space-md">
+<div class="flex items-center gap-space-xs flex-wrap justify-between">
 <div class="flex items-center gap-space-xs">
 <span class="badge-cluster px-3 py-1 bg-surface-container-high text-on-surface text-label-sm uppercase rounded-full tracking-wider">Varanasi Cluster</span>
 <span class="badge-fabric px-3 py-1 bg-primary-container text-on-primary-container text-label-sm uppercase rounded-full tracking-wider">Varanasi Silk</span>
+</div>
+<a href="artisan-detail.html?id=art-1" class="product-artisan-byline text-xs font-serif italic text-primary hover:underline flex items-center gap-1 bg-surface-container-low px-3 py-1 rounded-full border border-outline-variant/30 transition-all hover:bg-surface-container">
+<span class="material-symbols-outlined text-sm">person</span> By Master Weaver <span class="product-artisan-name font-sans font-semibold not-italic">Pandit Ramkishan</span>
+</a>
 </div>
 <h1 class="font-headline-lg text-on-surface font-semibold tracking-tight product-title">Mayur-Bahar Gold Brocade Saree</h1>
 <div class="flex items-baseline gap-space-sm">
@@ -386,15 +391,21 @@
 <div class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-space-xl items-center" id="tab-artisan">
 <div class="space-y-space-md">
 <h3 class="font-headline-md text-on-surface tracking-tight artisan-tab-name">Master Weaver Pandit Ramkishan</h3>
-<p class="font-serif text-[18px] text-on-surface-variant leading-relaxed">
+<p class="font-serif text-[18px] text-on-surface-variant leading-relaxed artisan-tab-bio">
             Pandit Ramkishan has spent over four decades seated at the sunken pit loom in his ancestral home in Varanasi. Taught by his father at age twelve, he preserves rare brocade techniques that take upwards of 120 hours per masterpiece.
           </p>
-<blockquote class="border-l-4 border-primary pl-6 py-2 italic font-headline-md text-primary text-2xl tracking-wide">
+<blockquote class="border-l-4 border-primary pl-6 py-2 italic font-headline-md text-primary text-2xl tracking-wide artisan-tab-quote">
             "When the shuttle passes through the silk warp, it carries not just thread, but 600 years of songs and silence."
           </blockquote>
+<div class="pt-2">
+<a href="artisan-detail.html?id=art-1" id="artisan-profile-link" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white hover:opacity-90 shadow-sm transition-all font-sans font-medium text-sm">
+<span>View Artisan Profile &amp; Works</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
 </div>
-<div class="rounded-2xl overflow-hidden h-96 bg-surface-container-high shadow-lg">
-<img class="artisan-tab-photo w-full h-full object-cover" data-alt="Portrait of master weaver Pandit Ramkishan in Varanasi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2MkeeyZ18Epeps0ABCCd-qFhEcpkfdYfhkPtklP6J3vMQahWaeH0RR4k6-DekXGeL9oBGe9pe9T3l9Ev8onPE4QPUsr4rzc5987NZwyOQi4mGdGBBOlkCfqzgUSyYlc6UEVv8kEBm7V9DBEmySARV9jqwcaIbQ5sNxIW7NYyu4Uo_RmZ5_u7RtUB62AOkAZRahE9-h6FrzToMVXGR1mus488FfS9dlbWcsCrputM"/>
+</div>
+<div class="rounded-2xl overflow-hidden h-96 bg-surface-container-high shadow-lg border border-outline-variant/30 relative">
+<img class="artisan-tab-photo w-full h-full object-cover" data-alt="Portrait of master weaver Pandit Ramkishan in Varanasi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5UZzwyLuOjGQNdoW03UKrgc2K0ULAw5Ry2J535Bp6m8Xu6KVCXTplcIPaQvT9eBQc4RJgOPH7It4pj11-cTrIrlpjZeqe5v56HbhKiNCA3RF1Egtwm5wS8GJLwQqtK-67QF0FbkrbVt1Cue2UDMfzt42LGz0PrMz3-PgwTgKUyh_M7Wh6bDc4_JMZGDcvBXZRuT1hyoDXWbIL-wXRFtAixzdF9o_Uz_gXHbohE2I"/>
 </div>
 </div>
 </div>
@@ -729,14 +740,27 @@
       const descEl = document.querySelector('.product-description');
       if (descEl) descEl.textContent = product.description;
 
-      // Hydrate Artisan Tab
+      // Hydrate Artisan Tab & Byline
       const artName = document.querySelector('.artisan-tab-name');
-      if (artName && product.artisan) {
-        artName.textContent = `Master Weaver ${product.artisan.name}`;
-      }
+      const artBylineName = document.querySelector('.product-artisan-name');
+      const artBylineLink = document.querySelector('.product-artisan-byline');
+      const artBio = document.querySelector('.artisan-tab-bio');
+      const artQuote = document.querySelector('.artisan-tab-quote');
+      const artProfileLink = document.getElementById('artisan-profile-link');
       const artPhoto = document.querySelector('.artisan-tab-photo');
-      if (artPhoto && product.artisan && product.artisan.photo) {
-        artPhoto.src = product.artisan.photo;
+
+      if (product.artisan) {
+        if (artName) artName.textContent = `Master Weaver ${product.artisan.name}`;
+        if (artBylineName) artBylineName.textContent = product.artisan.name;
+        if (artBio && product.artisan.bio) artBio.textContent = product.artisan.bio;
+        if (artQuote && product.artisan.quote) artQuote.textContent = `"${product.artisan.quote}"`;
+        if (artPhoto && product.artisan.photo) {
+          artPhoto.src = product.artisan.photo;
+          artPhoto.alt = `Portrait of Master Weaver ${product.artisan.name} from ${product.artisan.cluster}`;
+        }
+        const profileUrl = `artisan-detail.html?id=${product.artisan.id || 'art-1'}`;
+        if (artBylineLink) artBylineLink.href = profileUrl;
+        if (artProfileLink) artProfileLink.href = profileUrl;
       }
 
       // Quantity Controls
