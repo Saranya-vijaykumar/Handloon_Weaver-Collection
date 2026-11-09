@@ -126,15 +126,15 @@ const HWC_Shared = (function() {
       }
     });
 
-    // Mobile other links
+    // Mobile nav links
     document.querySelectorAll('#mobile-nav > a').forEach(link => {
       const href = link.getAttribute('data-mobile-route') || link.getAttribute('href');
       if (href === current) {
-        link.classList.add('bg-primary/10', 'text-primary', 'font-bold');
-        link.classList.remove('text-on-surface');
+        link.classList.add('bg-primary/10', 'text-primary', 'dark:bg-[#fed65b]/20', 'dark:text-[#fed65b]', 'font-bold');
+        link.classList.remove('text-on-surface', 'dark:text-[#f3efe9]');
       } else {
-        link.classList.remove('bg-primary/10', 'text-primary', 'font-bold');
-        link.classList.add('text-on-surface');
+        link.classList.remove('bg-primary/10', 'text-primary', 'dark:bg-[#fed65b]/20', 'dark:text-[#fed65b]', 'font-bold');
+        link.classList.add('text-on-surface', 'dark:text-[#f3efe9]');
       }
     });
   }
@@ -191,71 +191,93 @@ const HWC_Shared = (function() {
     if (!drawer) {
       drawer = document.createElement('div');
       drawer.id = 'mobile-drawer';
-      drawer.className = 'fixed inset-0 z-50 hidden lg:hidden';
+      drawer.className = 'fixed inset-0 z-[9999] hidden lg:hidden';
       drawer.innerHTML = `
-        <div id="mobile-backdrop" class="fixed inset-0 bg-inverse-surface/60 backdrop-blur-sm transition-opacity opacity-0"></div>
-        <div id="mobile-panel" class="fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-surface p-6 shadow-2xl flex flex-col justify-between transform -translate-x-full transition-transform duration-300 border-r border-outline-variant/30">
+        <div id="mobile-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0 cursor-pointer"></div>
+        <div id="mobile-panel" class="fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-surface dark:bg-[#1e191c] text-on-surface dark:text-[#f3efe9] p-5 sm:p-6 shadow-2xl flex flex-col justify-between transform -translate-x-full transition-transform duration-300 border-r border-outline-variant/30 overflow-y-auto">
           <div>
-            <div class="flex justify-between items-center pb-4 border-b border-outline-variant/30 mb-6">
+            <!-- Header inside Drawer -->
+            <div class="flex justify-between items-center pb-4 border-b border-outline-variant/30 mb-5">
               <a href="index.html" class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-2xl">texture</span>
-                <span class="font-serif font-bold text-lg text-primary tracking-wide">Weavers Collective</span>
+                <span class="material-symbols-outlined text-primary dark:text-[#fed65b] text-2xl">texture</span>
+                <span class="font-serif font-bold text-lg text-primary dark:text-[#fed65b] tracking-wide">Weavers Collective</span>
               </a>
-              <button id="close-mobile-menu" class="p-2 text-on-surface-variant hover:text-primary rounded-full" title="Close Menu">
-                <span class="material-symbols-outlined">close</span>
+              <button id="close-mobile-menu" class="p-2 text-on-surface-variant dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] rounded-full cursor-pointer focus:outline-none" title="Close Menu" aria-label="Close Menu">
+                <span class="material-symbols-outlined text-2xl">close</span>
               </button>
             </div>
 
+            <!-- Mobile Navigation Links -->
             <nav id="mobile-nav" class="flex flex-col gap-1.5">
-              <!-- Mobile Home Dropdown Accordion -->
-              <div class="rounded-xl overflow-hidden bg-surface-container/50 border border-outline-variant/30 mb-1">
-                <button type="button" id="mobile-home-toggle" class="w-full flex items-center justify-between px-3.5 py-2.5 text-sm text-on-surface font-semibold hover:bg-surface-container transition-colors">
-                  <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-base text-primary">home</span>
-                    <span>Home Pages</span>
-                  </div>
-                  <span class="material-symbols-outlined text-sm transition-transform duration-200" id="mobile-home-chevron">expand_more</span>
-                </button>
-                <div id="mobile-home-submenu" class="px-2 pb-2 pt-1 flex flex-col gap-1">
-                  <a href="index.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors" data-mobile-route="index.html">
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">cottage</span>Home 1 (Heritage)</span>
-                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold">Classic</span>
-                  </a>
-                  <a href="home-2.html" class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-on-surface hover:bg-primary/10 hover:text-primary transition-colors" data-mobile-route="home-2.html">
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary">auto_stories</span>Home 2 (Slow Craft)</span>
-                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold">Atelier</span>
-                  </a>
-                </div>
-              </div>
+              <!-- Home 1 -->
+              <a href="index.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] transition-colors" data-mobile-route="index.html">
+                <span class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">cottage</span>
+                  <span>Home 1 (Heritage)</span>
+                </span>
+                <span class="text-[9px] px-2 py-0.5 rounded bg-primary/10 text-primary dark:bg-[#fed65b]/20 dark:text-[#fed65b] font-bold uppercase tracking-wider">Heritage</span>
+              </a>
 
-              <!-- About (Directly Next to Home!) -->
-              <a href="about.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface hover:bg-surface-container font-medium transition-colors" data-mobile-route="about.html">
-                <span class="material-symbols-outlined text-base">history_edu</span>About Our Heritage
+              <!-- Home 2 -->
+              <a href="home-2.html" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] transition-colors" data-mobile-route="home-2.html">
+                <span class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">auto_stories</span>
+                  <span>Home 2 (Slow Craft)</span>
+                </span>
+                <span class="text-[9px] px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container dark:bg-[#fed65b] dark:text-[#241a00] font-bold uppercase tracking-wider">Atelier</span>
               </a>
-              <a href="products.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface hover:bg-surface-container font-medium transition-colors" data-mobile-route="products.html">
-                <span class="material-symbols-outlined text-base">checkroom</span>Products &amp; Collections
+
+              <!-- About Our Heritage -->
+              <a href="about.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] font-medium transition-colors" data-mobile-route="about.html">
+                <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">history_edu</span>
+                <span>About Our Heritage</span>
               </a>
-              <a href="artisans.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface hover:bg-surface-container font-medium transition-colors" data-mobile-route="artisans.html">
-                <span class="material-symbols-outlined text-base">engineering</span>Artisans Directory
+
+              <!-- Products -->
+              <a href="products.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] font-medium transition-colors" data-mobile-route="products.html">
+                <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">checkroom</span>
+                <span>Products &amp; Collections</span>
               </a>
-              <a href="craft-silk.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface hover:bg-surface-container font-medium transition-colors" data-mobile-route="craft-silk.html">
-                <span class="material-symbols-outlined text-base">auto_awesome</span>Varanasi Silk Craft
+
+              <!-- Artisans -->
+              <a href="artisans.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] font-medium transition-colors" data-mobile-route="artisans.html">
+                <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">engineering</span>
+                <span>Artisans Directory</span>
               </a>
-              <a href="fair-trade.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface hover:bg-surface-container font-medium transition-colors" data-mobile-route="fair-trade.html">
-                <span class="material-symbols-outlined text-base">eco</span>Fair Trade &amp; Impact
+
+              <!-- Varanasi Silk -->
+              <a href="craft-silk.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] font-medium transition-colors" data-mobile-route="craft-silk.html">
+                <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">auto_awesome</span>
+                <span>Varanasi Silk Craft</span>
               </a>
-              <a href="contact.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface hover:bg-surface-container font-medium transition-colors" data-mobile-route="contact.html">
-                <span class="material-symbols-outlined text-base">mail</span>Contact &amp; Enquiries
+
+              <!-- Fair Trade -->
+              <a href="fair-trade.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] font-medium transition-colors" data-mobile-route="fair-trade.html">
+                <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">eco</span>
+                <span>Fair Trade &amp; Impact</span>
+              </a>
+
+              <!-- Contact -->
+              <a href="contact.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm text-on-surface dark:text-[#f3efe9] hover:bg-primary/10 hover:text-primary dark:hover:text-[#fed65b] font-medium transition-colors" data-mobile-route="contact.html">
+                <span class="material-symbols-outlined text-lg text-primary dark:text-[#fed65b]">mail</span>
+                <span>Contact &amp; Enquiries</span>
               </a>
             </nav>
           </div>
 
-          <div class="pt-6 border-t border-outline-variant/30 text-xs text-on-surface-variant space-y-2">
-            <div class="flex items-center gap-2 text-primary font-semibold">
+          <!-- Bottom Fair Trade Badge & Quick Actions in Mobile Drawer -->
+          <div class="pt-5 mt-4 border-t border-outline-variant/30 text-xs text-on-surface-variant dark:text-stone-300 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-primary dark:text-[#fed65b]">Curated Heirlooms</span>
+              <button type="button" class="open-search-trigger px-2.5 py-1 rounded-lg bg-surface-container dark:bg-stone-800 text-[11px] font-semibold text-on-surface dark:text-white flex items-center gap-1 cursor-pointer">
+                <span class="material-symbols-outlined text-xs">search</span> Search
+              </button>
+            </div>
+            <div class="flex items-center gap-2 text-primary dark:text-[#fed65b] font-semibold">
               <span class="material-symbols-outlined text-sm">verified</span>
               <span>100% Certified Fair Trade Weaves</span>
             </div>
-            <p class="leading-relaxed">Direct from artisan family pit looms across 18 craft clusters in India.</p>
+            <p class="leading-relaxed text-[11px]">Direct from artisan family pit looms across 18 craft clusters in India.</p>
           </div>
         </div>
       `;
@@ -268,12 +290,13 @@ const HWC_Shared = (function() {
 
     function openMobileMenu() {
       drawer.classList.remove('hidden');
-      setTimeout(() => {
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
         backdrop.classList.remove('opacity-0');
         backdrop.classList.add('opacity-100');
         panel.classList.remove('-translate-x-full');
         panel.classList.add('translate-x-0');
-      }, 10);
+      });
     }
 
     function closeMobileMenu() {
@@ -281,43 +304,50 @@ const HWC_Shared = (function() {
       backdrop.classList.add('opacity-0');
       panel.classList.remove('translate-x-0');
       panel.classList.add('-translate-x-full');
+      document.body.style.overflow = '';
       setTimeout(() => {
         drawer.classList.add('hidden');
       }, 300);
     }
 
+    // Bind triggers
     document.querySelectorAll('#mobile-menu-btn, .mobile-menu-trigger').forEach(btn => {
       btn.onclick = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         openMobileMenu();
       };
     });
 
-    if (closeBtn) closeBtn.onclick = closeMobileMenu;
-    if (backdrop) backdrop.onclick = closeMobileMenu;
-
-    // Mobile Home accordion toggle
-    const mobileHomeToggle = document.getElementById('mobile-home-toggle');
-    const mobileHomeSubmenu = document.getElementById('mobile-home-submenu');
-    const mobileHomeChevron = document.getElementById('mobile-home-chevron');
-    if (mobileHomeToggle && mobileHomeSubmenu) {
-      mobileHomeToggle.onclick = (e) => {
+    if (closeBtn) {
+      closeBtn.onclick = (e) => {
         e.preventDefault();
-        const isHidden = mobileHomeSubmenu.classList.contains('hidden');
-        if (isHidden) {
-          mobileHomeSubmenu.classList.remove('hidden');
-          if (mobileHomeChevron) mobileHomeChevron.style.transform = 'rotate(180deg)';
-        } else {
-          mobileHomeSubmenu.classList.add('hidden');
-          if (mobileHomeChevron) mobileHomeChevron.style.transform = 'rotate(0deg)';
-        }
+        closeMobileMenu();
       };
     }
 
-    drawer.querySelectorAll('nav a').forEach(a => {
-      a.onclick = () => {
+    if (backdrop) {
+      backdrop.onclick = (e) => {
+        e.preventDefault();
         closeMobileMenu();
       };
+    }
+
+    // Auto-close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.classList.contains('hidden')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close on navigation link click if same page hash
+    drawer.querySelectorAll('#mobile-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          closeMobileMenu();
+        }
+      });
     });
   }
 

@@ -136,38 +136,38 @@ html.dark header {
     z-index: 30 !important;
     pointer-events: auto !important;
   }
+}
 
-  /* Compact navigation for laptops (1024px to 1279px) */
-  @media (max-width: 1279px) {
-    #desktop-main-nav {
-      gap: 0.75rem !important;
-    }
-    #desktop-main-nav .nav-item {
-      font-size: 13px !important;
-      letter-spacing: 0.01em !important;
-      padding: 0.25rem 0.25rem !important;
-    }
-    /* Hide decorative nav icons on laptop screens so links fit comfortably without crowding */
-    #desktop-main-nav .material-symbols-outlined:not(#home-dropdown-chevron) {
-      display: none !important;
-    }
+/* Compact navigation for laptops (1024px to 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #desktop-main-nav {
+    gap: 0.6rem !important;
   }
-
-  /* Spacious luxury navigation for standard desktops (1280px+) */
-  @media (min-width: 1280px) {
-    #desktop-main-nav {
-      gap: 1.35rem !important;
-    }
-    #desktop-main-nav .nav-item {
-      font-size: 14px !important;
-    }
+  #desktop-main-nav .nav-item {
+    font-size: 13px !important;
+    letter-spacing: 0.01em !important;
+    padding: 0.2rem 0.2rem !important;
   }
+  /* Hide decorative nav icons on laptop screens so links fit comfortably without crowding */
+  #desktop-main-nav .material-symbols-outlined:not(#home-dropdown-chevron) {
+    display: none !important;
+  }
+}
 
-  /* Wide screens (1536px+) */
-  @media (min-width: 1536px) {
-    #desktop-main-nav {
-      gap: 1.75rem !important;
-    }
+/* Spacious luxury navigation for standard desktops (1280px+) */
+@media (min-width: 1280px) {
+  #desktop-main-nav {
+    gap: 1.35rem !important;
+  }
+  #desktop-main-nav .nav-item {
+    font-size: 14px !important;
+  }
+}
+
+/* Wide screens (1536px+) */
+@media (min-width: 1536px) {
+  #desktop-main-nav {
+    gap: 1.75rem !important;
   }
 }
 
@@ -175,6 +175,65 @@ html.dark header {
 [dir="rtl"] #desktop-main-nav #home-dropdown-menu {
   right: 0 !important;
   left: auto !important;
+}
+
+/* =========================================================
+   Mobile View Header & Action Buttons (Prevents Right Overflow)
+   Ensures logo, search, theme, cart, and hamburger menu fit 100%
+   inside screen without pushing right or causing horizontal scroll
+   ========================================================= */
+@media (max-width: 639px) {
+  header > div,
+  header .header-inner {
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+    gap: 0.35rem !important;
+  }
+
+  header a[href="index.html"] {
+    max-width: 165px !important;
+    gap: 0.35rem !important;
+  }
+
+  header a[href="index.html"] .material-symbols-outlined {
+    font-size: 1.4rem !important;
+  }
+
+  header a[href="index.html"] span.font-serif {
+    font-size: 0.95rem !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Utility Buttons Container on Mobile */
+  header > div > div:last-child,
+  header .header-inner > div:last-child {
+    gap: 0.3rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Individual Utility Buttons on Mobile */
+  header > div > div:last-child button,
+  header .header-inner > div:last-child button {
+    padding: 0.45rem !important;
+    border-radius: 0.6rem !important;
+  }
+
+  header > div > div:last-child button .material-symbols-outlined,
+  header .header-inner > div:last-child button .material-symbols-outlined {
+    font-size: 1.15rem !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  header > div,
+  header .header-inner {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    gap: 0.75rem !important;
+  }
 }
 
 /* Elegant Scrollbars */
@@ -474,20 +533,28 @@ html.dark #home-dropdown-menu a.home-option.text-primary {
 }
 
 /* Mobile Drawer in Dark Mode */
+html.dark #mobile-drawer,
 html.dark #mobile-menu-drawer,
-html.dark #mobile-menu-drawer > div {
+html.dark #mobile-panel {
   background-color: #1a1618 !important;
   color: #f7f4ee !important;
+  border-color: rgba(254, 214, 91, 0.2) !important;
 }
 
+html.dark #mobile-drawer a.text-primary,
 html.dark #mobile-menu-drawer a.text-primary,
+html.dark #mobile-nav a.text-primary,
 html.dark #mobile-home-submenu a.text-primary,
-html.dark #mobile-home-toggle.text-primary {
+html.dark #mobile-home-toggle.text-primary,
+html.dark #mobile-drawer a:hover,
+html.dark #mobile-nav a:hover {
   color: #fed65b !important;
   background-color: rgba(254, 214, 91, 0.15) !important;
 }
 
-html.dark #mobile-menu-drawer a:not(.text-primary) {
+html.dark #mobile-drawer a:not(.text-primary),
+html.dark #mobile-menu-drawer a:not(.text-primary),
+html.dark #mobile-nav a:not(.text-primary) {
   color: #f7f4ee !important;
 }
 

@@ -139,18 +139,18 @@
   <link rel="stylesheet" href="css/custom.css">
 </head><body class="bg-surface font-body-md text-on-surface">
 <header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-[#1e191c]/90 backdrop-blur-xl border-b border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.02)] transition-all duration-300">
-  <div class="header-inner relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4">
+  <div class="header-inner relative max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
     <!-- Brand Logo -->
-    <a href="index.html" class="font-headline-md text-primary dark:text-[#fed65b] font-bold text-xl sm:text-2xl tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2 flex-shrink-0 shrink-0 relative z-10" title="Handloom Weavers Collective">
-      <span class="material-symbols-outlined text-primary dark:text-[#fed65b] text-2xl sm:text-3xl">texture</span>
-      <span class="font-serif tracking-tight">Weavers Collective</span>
+    <a href="index.html" class="font-headline-md text-primary dark:text-[#fed65b] font-bold text-base sm:text-xl lg:text-2xl tracking-wider hover:opacity-90 transition-opacity flex items-center gap-1.5 sm:gap-2 flex-shrink-0 shrink-0 relative z-10 max-w-[160px] sm:max-w-none" title="Handloom Weavers Collective">
+      <span class="material-symbols-outlined text-primary dark:text-[#fed65b] text-xl sm:text-2xl lg:text-3xl">texture</span>
+      <span class="font-serif tracking-tight truncate">Weavers Collective</span>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-7" id="desktop-main-nav">
+    <nav class="hidden lg:flex items-center gap-2.5 xl:gap-5 2xl:gap-7" id="desktop-main-nav">
         <!-- Home Dropdown -->
         <div class="relative group" id="home-dropdown-wrapper">
-          <button type="button" class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors text-sm tracking-wide flex items-center gap-1 py-1 cursor-pointer focus:outline-none" id="home-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors text-xs xl:text-sm tracking-wide flex items-center gap-1 py-1 cursor-pointer focus:outline-none" id="home-dropdown-btn" aria-haspopup="true" aria-expanded="false">
             <span class="material-symbols-outlined text-base hidden xl:inline-block">home</span>
             <span>Home</span>
             <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180" id="home-dropdown-chevron">expand_more</span>
@@ -182,63 +182,63 @@
           </div>
         </div>
 
-        <!-- About Page (Immediately Next!) -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="about.html" data-route="about.html">
+        <!-- About Page -->
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="about.html" data-route="about.html">
           <span class="material-symbols-outlined text-base hidden xl:inline-block">history_edu</span><span>About</span>
         </a>
 
         <!-- Products -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="products.html" data-route="products.html">
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="products.html" data-route="products.html">
           <span class="material-symbols-outlined text-base hidden xl:inline-block">checkroom</span><span>Products</span>
         </a>
 
         <!-- Artisans -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="artisans.html" data-route="artisans.html">
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="artisans.html" data-route="artisans.html">
           <span class="material-symbols-outlined text-base hidden xl:inline-block">engineering</span><span>Artisans</span>
         </a>
 
         <!-- Varanasi Silk -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="craft-silk.html" data-route="craft-silk.html">
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="craft-silk.html" data-route="craft-silk.html">
           <span class="material-symbols-outlined text-base hidden xl:inline-block">auto_awesome</span><span>Varanasi Silk</span>
         </a>
 
         <!-- Fair Trade -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="fair-trade.html" data-route="fair-trade.html">
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="fair-trade.html" data-route="fair-trade.html">
           <span class="material-symbols-outlined text-base hidden xl:inline-block">eco</span><span>Fair Trade</span>
         </a>
 
         <!-- Contact -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-sm tracking-wide flex items-center gap-1.5 py-1" href="contact.html" data-route="contact.html">
+        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="contact.html" data-route="contact.html">
           <span class="material-symbols-outlined text-base hidden xl:inline-block">mail</span><span>Contact</span>
         </a>
       </nav>
 
-    <!-- Header Utility Action Buttons -->
-    <div class="flex items-center gap-2 sm:gap-2.5 flex-shrink-0 shrink-0 relative z-10">
+    <!-- Header Utility Action Buttons (Never Overflows on Mobile) -->
+    <div class="flex items-center gap-1 sm:gap-2 xl:gap-2.5 flex-shrink-0 shrink-0 relative z-10">
       <!-- Search Trigger Button -->
-      <button class="open-search-trigger bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Search Heirlooms (Ctrl+K)">
-        <span class="material-symbols-outlined text-lg sm:text-xl">search</span>
+      <button class="open-search-trigger bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30 cursor-pointer" title="Search Heirlooms (Ctrl+K)" aria-label="Search">
+        <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl">search</span>
       </button>
 
       <!-- Theme Toggle (Dark/Light) -->
-      <button id="theme-toggle" class="bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Toggle Dark/Light Mode">
-        <span class="material-symbols-outlined text-lg sm:text-xl theme-toggle-icon">dark_mode</span>
+      <button id="theme-toggle" class="bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30 cursor-pointer" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+        <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl theme-toggle-icon">dark_mode</span>
       </button>
 
-      <!-- RTL/LTR Toggle -->
-      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold" title="Toggle Layout Direction (LTR/RTL)">
-        <span class="material-symbols-outlined text-lg sm:text-xl">swap_horiz</span>
+      <!-- RTL/LTR Toggle (Hidden on mobile) -->
+      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold cursor-pointer" title="Toggle Layout Direction (LTR/RTL)" aria-label="Toggle Direction">
+        <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl">swap_horiz</span>
       </button>
 
       <!-- Cart Button with Live Badge -->
-      <button id="open-cart-btn" class="relative bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="View Cart">
-        <span class="material-symbols-outlined text-lg sm:text-xl">shopping_bag</span>
-        <span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden shadow-sm">0</span>
+      <button id="open-cart-btn" class="relative bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30 cursor-pointer" title="View Cart" aria-label="Cart">
+        <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl">shopping_bag</span>
+        <span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center font-bold hidden shadow-sm">0</span>
       </button>
 
-      <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="mobile-menu-trigger lg:hidden bg-surface-container-high text-on-surface p-2 sm:p-2.5 rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30" title="Open Navigation Menu">
-        <span class="material-symbols-outlined text-lg sm:text-xl">menu</span>
+      <!-- Mobile Hamburger Button (Fully visible, 100% accessible on mobile) -->
+      <button id="mobile-menu-btn" class="mobile-menu-trigger lg:hidden bg-primary/10 text-primary dark:bg-[#fed65b]/15 dark:text-[#fed65b] p-1.5 sm:p-2 rounded-lg sm:rounded-xl hover:bg-primary/20 transition-all flex items-center justify-center border border-primary/20 dark:border-[#fed65b]/30 cursor-pointer" title="Open Navigation Menu" aria-label="Open Navigation Menu">
+        <span class="material-symbols-outlined text-xl sm:text-2xl">menu</span>
       </button>
     </div>
   </div>
