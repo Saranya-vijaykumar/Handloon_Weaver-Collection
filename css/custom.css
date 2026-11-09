@@ -92,6 +92,91 @@ html.dark header {
   background-color: rgba(30, 25, 28, 0.92) !important;
 }
 
+/* =========================================================
+   Centered Desktop Navigation Bar & Responsive Alignment
+   Ensures #desktop-main-nav is mathematically dead-center
+   across all desktop viewports with balanced responsive spacing
+   ========================================================= */
+@media (min-width: 1024px) {
+  header > div,
+  header .header-inner {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* Left Anchor: Brand Logo */
+  header > div > a:first-child,
+  header .header-inner > a:first-child {
+    position: relative !important;
+    z-index: 20 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Right Anchor: Utility Action Buttons */
+  header > div > div:last-child,
+  header .header-inner > div:last-child {
+    position: relative !important;
+    z-index: 20 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Center: Absolute dead-center on header & screen */
+  #desktop-main-nav {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    z-index: 30 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Compact navigation for laptops (1024px to 1279px) */
+  @media (max-width: 1279px) {
+    #desktop-main-nav {
+      gap: 0.75rem !important;
+    }
+    #desktop-main-nav .nav-item {
+      font-size: 13px !important;
+      letter-spacing: 0.01em !important;
+      padding: 0.25rem 0.25rem !important;
+    }
+    /* Hide decorative nav icons on laptop screens so links fit comfortably without crowding */
+    #desktop-main-nav .material-symbols-outlined:not(#home-dropdown-chevron) {
+      display: none !important;
+    }
+  }
+
+  /* Spacious luxury navigation for standard desktops (1280px+) */
+  @media (min-width: 1280px) {
+    #desktop-main-nav {
+      gap: 1.35rem !important;
+    }
+    #desktop-main-nav .nav-item {
+      font-size: 14px !important;
+    }
+  }
+
+  /* Wide screens (1536px+) */
+  @media (min-width: 1536px) {
+    #desktop-main-nav {
+      gap: 1.75rem !important;
+    }
+  }
+}
+
+/* RTL Support for Dropdown */
+[dir="rtl"] #desktop-main-nav #home-dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+}
+
 /* Elegant Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
