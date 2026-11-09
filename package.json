@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Handloom Weavers Collective - Artisanal E-Commerce and Cultural Storytelling Web Application",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "serve": "node server.js"
   },
   "keywords": [
     "handloom",

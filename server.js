@@ -27,8 +27,21 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  if (pathname === '/') {
+  // Strip GitHub repository prefix if present (e.g. /Handloon_Weaver-Collection/)
+  pathname = pathname.replace(/^\/(?:Handloon_Weaver-Collection|handloom-weavers-collective)(?=\/|$)/i, '');
+
+  // Strip trailing slashes (except root '/')
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    pathname = pathname.slice(0, -1);
+  }
+
+  // Handle root or aliases
+  if (pathname === '' || pathname === '/') {
     pathname = '/index.html';
+  } else if (pathname === '/home' || pathname === '/home-1') {
+    pathname = '/index.html';
+  } else if (pathname === '/home-2') {
+    pathname = '/home-2.html';
   } else if (!path.extname(pathname)) {
     // Check if pathname + '.html' exists
     const candidatePath = path.join(PUBLIC_DIR, pathname + '.html');
@@ -42,6 +55,13 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
+      const custom404Path = path.join(PUBLIC_DIR, '404.html');
+      if (fs.existsSync(custom404Path)) {
+        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        fs.createReadStream(custom404Path).pipe(res);
+        return;
+      }
+
       res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(`
         <!DOCTYPE html>
