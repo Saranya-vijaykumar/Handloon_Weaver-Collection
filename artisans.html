@@ -136,6 +136,7 @@
       font-weight: 700 !important;
     }
   </style>
+  <script src="js/products-data.js"></script>
   <link rel="stylesheet" href="css/custom.css">
 </head><body class="bg-surface font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-[#1e191c]/90 backdrop-blur-xl border-b border-outline-variant/20 shadow-[0_1px_8px_rgba(0,0,0,0.02)] transition-all duration-300">
   <div class="header-inner relative max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
@@ -311,32 +312,85 @@
 <p class="font-body-md text-stone-600 dark:text-stone-400">Master Ramdas has spent over four decades perfecting the intricate Kadhwa brocade technique, mentoring over thirty young weavers in the sacred alleyways of Varanasi. His works grace museum collections and royal wardrobes worldwide.</p>
 <!-- Interactive Audio Waveform Player -->
 <div class="p-6 bg-surface dark:bg-[#1b1c1a] rounded-2xl border border-outline-variant/30 shadow-sm space-y-4">
-<audio id="weaver-audio" preload="metadata" src="audio/weaver-story.mp3"></audio>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<button class="w-12 h-12 rounded-full bg-primary text-on-primary dark:bg-tertiary-fixed dark:text-on-tertiary-fixed flex items-center justify-center shadow-md hover:scale-105 transition-all cursor-pointer" id="play-audio-btn" title="Play / Pause Weaver Story" aria-label="Play or pause weaver oral story">
-<span class="material-symbols-outlined text-xl" id="play-icon">play_arrow</span>
-</button>
-<div>
-<h4 class="font-body-sm font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1"><span class="material-symbols-outlined text-sm">headphones</span> Listen to Weaver Story</h4>
-<p class="text-xs text-stone-500">In conversation with Shri Ramdas (3:45 mins)</p>
+  <audio id="weaver-audio" preload="auto" src="audio/weaver-story.mp3"></audio>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <button class="w-12 h-12 rounded-full bg-primary text-on-primary dark:bg-tertiary-fixed dark:text-on-tertiary-fixed flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer pointer-events-auto" id="play-audio-btn" title="Play / Pause Weaver Story" aria-label="Play or pause weaver oral story" onclick="toggleAudio()">
+        <span class="material-symbols-outlined text-xl select-none" id="play-icon">play_arrow</span>
+      </button>
+      <div>
+        <h4 class="font-body-sm font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5"><span class="material-symbols-outlined text-sm select-none">headphones</span> Listen to Weaver Story</h4>
+        <p class="text-xs text-stone-500">In conversation with Shri Ramdas (3:45 mins)</p>
+      </div>
+    </div>
+    <span class="text-xs font-mono text-primary dark:text-tertiary-fixed-dim font-bold" id="audio-timer">00:00 / 03:45</span>
+  </div>
+  <!-- Waveform Visualizer -->
+  <div class="flex items-center gap-1 h-10 w-full px-1 cursor-pointer select-none" id="waveform-bars" title="Click anywhere along the waveform to seek" onclick="handleWaveformClick(event)">
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 33px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 14px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 14px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 32px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 14px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 24px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 22px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 29px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 28px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 30px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 16px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 13px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 35px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 9px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 28px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 35px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 30px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 21px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 22px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 25px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 23px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 28px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 12px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 33px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 24px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 23px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 13px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 34px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 8px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 9px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 27px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 20px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 30px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 8px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 23px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 35px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 30px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 11px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 24px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 25px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 23px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 30px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 17px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 10px;"></div>
+    <div class="waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200" style="height: 24px;"></div>
+  </div>
 </div>
-</div>
-<span class="text-xs font-mono text-primary dark:text-tertiary-fixed-dim font-bold" id="audio-timer">00:00 / 03:45</span>
-</div>
-<!-- Waveform Visualizer -->
-<div class="flex items-center gap-1 h-10 w-full px-2 cursor-pointer select-none" id="waveform-bars" title="Click anywhere along the waveform to seek"></div>
-</div>
-<div class="pt-4 flex flex-wrap gap-3">
-<a href="artisan-detail.html?id=art-1" class="px-6 py-3 bg-primary text-on-primary rounded-xl font-semibold text-label-md hover:opacity-95 transition-all shadow-sm flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">person</span> View Full Profile &amp; Works
-</a>
-<button class="px-5 py-3 bg-surface-container dark:bg-[#2a2926] text-stone-800 dark:text-stone-200 rounded-xl font-semibold text-label-md hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2" onclick="openJournalModal('Shri Ramdas', 'Banaras Royal Brocade', 'varanasi', 'art-1')">
-<span class="material-symbols-outlined text-sm">menu_book</span> Read Journal
-</button>
-<button class="px-5 py-3 bg-surface-container dark:bg-[#2a2926] text-stone-800 dark:text-stone-200 rounded-xl font-semibold text-label-md hover:bg-surface-container-high transition-all border border-outline-variant/30 flex items-center gap-2" onclick="openCommissionModal('Shri Ramdas', 'Banaras Royal Brocade')">
-<span class="material-symbols-outlined text-sm">palette</span> Commission Piece
-</button>
+
+<!-- Action CTAs: Perfectly Aligned, Fixed Height, Cross-Device Responsive Layout -->
+<div class="pt-4 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
+  <a href="artisan-detail.html?id=art-1" class="w-full sm:w-auto h-11 px-5 bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] rounded-xl font-semibold text-xs sm:text-sm hover:opacity-90 transition-all shadow-sm flex items-center justify-center gap-2 border border-transparent whitespace-nowrap cursor-pointer" title="View Master Artisan Profile">
+    <span class="material-symbols-outlined text-base leading-none select-none">person</span>
+    <span>View Master Profile</span>
+  </a>
+  <div class="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
+    <button type="button" class="flex-1 sm:flex-none h-11 px-4 sm:px-5 bg-surface-container dark:bg-[#2a2926] text-stone-800 dark:text-stone-200 rounded-xl font-semibold text-xs sm:text-sm hover:bg-surface-container-high dark:hover:bg-[#343330] transition-all border border-outline-variant/30 dark:border-stone-700 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer shadow-sm" onclick="openJournalModal('Shri Ramdas', 'Banaras Royal Brocade', 'varanasi', 'art-1')" title="Read Personal Artisan Journal">
+      <span class="material-symbols-outlined text-base leading-none select-none text-primary dark:text-[#fed65b]">menu_book</span>
+      <span>Read Journal</span>
+    </button>
+    <button type="button" class="flex-1 sm:flex-none h-11 px-4 sm:px-5 bg-surface-container dark:bg-[#2a2926] text-stone-800 dark:text-stone-200 rounded-xl font-semibold text-xs sm:text-sm hover:bg-surface-container-high dark:hover:bg-[#343330] transition-all border border-outline-variant/30 dark:border-stone-700 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer shadow-sm" onclick="openCommissionModal('Shri Ramdas', 'Banaras Royal Brocade')" title="Request Bespoke Heirloom Piece">
+      <span class="material-symbols-outlined text-base leading-none select-none text-primary dark:text-[#fed65b]">palette</span>
+      <span>Commission Piece</span>
+    </button>
+  </div>
 </div>
 </div>
 </div>
@@ -631,6 +685,22 @@
       return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
+    function handleWaveformClick(e) {
+      const waveformBars = document.getElementById('waveform-bars');
+      const audioEl = document.getElementById('weaver-audio');
+      const audioTimer = document.getElementById('audio-timer');
+      if (!waveformBars || !audioEl) return;
+      const rect = waveformBars.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      const dur = (audioEl.duration && !isNaN(audioEl.duration)) ? audioEl.duration : 225;
+      audioEl.currentTime = ratio * dur;
+      updateWaveformProgress(ratio);
+      const curFormatted = formatAudioTimer(audioEl.currentTime);
+      const durFormatted = formatAudioTimer(dur);
+      if (audioTimer) audioTimer.textContent = `${curFormatted} / ${durFormatted}`;
+    }
+
     function initWaveform() {
       const waveformBars = document.getElementById('waveform-bars');
       const audioEl = document.getElementById('weaver-audio');
@@ -642,31 +712,19 @@
       const barHeights = [
         33, 14, 14, 32, 14, 24, 22, 29, 28, 30, 16, 13, 35, 9, 28, 35,
         30, 21, 22, 25, 23, 28, 12, 33, 24, 23, 13, 34, 8, 9, 27, 20,
-        30, 8, 23, 35, 30, 11, 24, 25, 23, 30, 17, 10, 24, 28, 18, 32
+        30, 8, 23, 35, 30, 11, 24, 25, 23, 30, 17, 10, 24
       ];
 
-      waveformBars.innerHTML = '';
-      barHeights.forEach((height, idx) => {
-        const bar = document.createElement('div');
-        bar.className = 'waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200 hover:scale-y-125';
-        bar.style.height = height + 'px';
-        bar.setAttribute('data-idx', idx);
-        waveformBars.appendChild(bar);
-      });
-
-      // Seeking via clicking waveform
-      waveformBars.addEventListener('click', (e) => {
-        if (!audioEl) return;
-        const rect = waveformBars.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
-        const dur = (audioEl.duration && !isNaN(audioEl.duration)) ? audioEl.duration : 225;
-        audioEl.currentTime = ratio * dur;
-        updateWaveformProgress(ratio);
-        const curFormatted = formatAudioTimer(audioEl.currentTime);
-        const durFormatted = formatAudioTimer(dur);
-        if (audioTimer) audioTimer.textContent = `${curFormatted} / ${durFormatted}`;
-      });
+      // If waveform has no children yet, populate them
+      if (waveformBars.children.length === 0) {
+        barHeights.forEach((height, idx) => {
+          const bar = document.createElement('div');
+          bar.className = 'waveform-bar flex-1 bg-primary/25 dark:bg-tertiary-fixed/25 rounded-full transition-all duration-200';
+          bar.style.height = height + 'px';
+          bar.setAttribute('data-idx', idx);
+          waveformBars.appendChild(bar);
+        });
+      }
 
       if (audioEl) {
         audioEl.addEventListener('loadedmetadata', () => {
@@ -697,6 +755,7 @@
         audioEl.addEventListener('ended', () => {
           if (playIcon) playIcon.textContent = 'play_arrow';
           waveformBars.classList.remove('audio-playing');
+          stopTanpuraSynth();
           updateWaveformProgress(0);
           const durFormatted = formatAudioTimer(audioEl.duration || 225);
           if (audioTimer) audioTimer.textContent = `00:00 / ${durFormatted}`;
@@ -710,7 +769,7 @@
       const bars = waveformBars.querySelectorAll('.waveform-bar');
       const total = bars.length;
       const activeCount = Math.floor(ratio * total);
-      const isPlaying = !document.getElementById('weaver-audio')?.paused;
+      const isPlaying = !document.getElementById('weaver-audio')?.paused || isSynthPlaying;
 
       bars.forEach((bar, idx) => {
         if (idx <= activeCount) {
@@ -720,6 +779,10 @@
         }
       });
     }
+
+    let synthTimerInterval = null;
+    let synthSeconds = 0;
+    let isTogglingAudio = false;
 
     function playTanpuraSynth() {
       try {
@@ -732,7 +795,7 @@
 
         const freqs = [130.81, 196.00, 261.63, 261.63]; // Sa-Pa-Sa-Sa classical Indian drone
         const masterGain = synthCtx.createGain();
-        masterGain.gain.setValueAtTime(0.15, synthCtx.currentTime);
+        masterGain.gain.setValueAtTime(0.12, synthCtx.currentTime);
         masterGain.connect(synthCtx.destination);
 
         freqs.forEach((f, idx) => {
@@ -744,11 +807,11 @@
           const lfo = synthCtx.createOscillator();
           const lfoGain = synthCtx.createGain();
           lfo.frequency.value = 0.2 + idx * 0.1;
-          lfoGain.gain.value = 1.5;
+          lfoGain.gain.value = 1.2;
           lfo.connect(osc.frequency);
           lfo.start();
 
-          gain.gain.setValueAtTime(0.18, synthCtx.currentTime);
+          gain.gain.setValueAtTime(0.15, synthCtx.currentTime);
           osc.connect(gain);
           gain.connect(masterGain);
           osc.start();
@@ -760,6 +823,19 @@
         if (playIcon) playIcon.textContent = 'pause';
         const waveformBars = document.getElementById('waveform-bars');
         if (waveformBars) waveformBars.classList.add('audio-playing');
+
+        synthSeconds = 0;
+        clearInterval(synthTimerInterval);
+        synthTimerInterval = setInterval(() => {
+          synthSeconds++;
+          const curFormatted = formatAudioTimer(synthSeconds);
+          const audioTimer = document.getElementById('audio-timer');
+          if (audioTimer) audioTimer.textContent = `${curFormatted} / 03:45`;
+          updateWaveformProgress(synthSeconds / 225);
+          if (synthSeconds >= 225) {
+            stopTanpuraSynth();
+          }
+        }, 1000);
       } catch (err) {
         console.warn('Tanpura synth initialization error:', err);
       }
@@ -771,6 +847,8 @@
         synthOscs = [];
       }
       isSynthPlaying = false;
+      clearInterval(synthTimerInterval);
+      synthTimerInterval = null;
       const playIcon = document.getElementById('play-icon');
       if (playIcon) playIcon.textContent = 'play_arrow';
       const waveformBars = document.getElementById('waveform-bars');
@@ -778,8 +856,13 @@
     }
 
     async function toggleAudio() {
+      if (isTogglingAudio) return;
+      isTogglingAudio = true;
+      setTimeout(() => { isTogglingAudio = false; }, 350);
+
       const audioEl = document.getElementById('weaver-audio');
       const playIcon = document.getElementById('play-icon');
+      const waveformBars = document.getElementById('waveform-bars');
 
       if (!audioEl) {
         if (isSynthPlaying) {
@@ -790,18 +873,22 @@
         return;
       }
 
-      if (audioEl.paused) {
+      if (audioEl.paused && !isSynthPlaying) {
+        if (playIcon) playIcon.textContent = 'pause';
+        if (waveformBars) waveformBars.classList.add('audio-playing');
         try {
           await audioEl.play();
-          if (playIcon) playIcon.textContent = 'pause';
+          // HTML5 audio playing; ensure fallback synth is stopped
+          if (isSynthPlaying) stopTanpuraSynth();
         } catch (err) {
-          console.warn('HTML5 audio play blocked or unsupported, activating Indian tanpura synth:', err);
+          console.warn('HTML5 audio play blocked/error, activating tanpura synth fallback:', err);
           playTanpuraSynth();
         }
       } else {
         audioEl.pause();
         stopTanpuraSynth();
         if (playIcon) playIcon.textContent = 'play_arrow';
+        if (waveformBars) waveformBars.classList.remove('audio-playing');
       }
     }
 
@@ -813,39 +900,43 @@
       const clusterEl = document.getElementById('modal-artisan-cluster');
       const journalTextEl = document.getElementById('modal-journal-text');
       const imgEl = document.getElementById('modal-artisan-img');
-      const profileLinkEl = document.getElementById('modal-artisan-profile-link');
 
-      if (nameEl) nameEl.textContent = name;
-      if (clusterEl) clusterEl.innerHTML = '<span class="material-symbols-outlined text-xs">location_on</span> ' + cluster + ' • ' + (region || 'NORTH').toUpperCase() + ' CLUSTER';
+      if (nameEl) nameEl.textContent = name || 'Master Artisan';
+      if (clusterEl) clusterEl.innerHTML = '<span class="material-symbols-outlined text-xs">location_on</span> ' + (cluster || 'Varanasi') + ' • ' + (region || 'NORTH').toUpperCase() + ' CLUSTER';
 
       // Look up detailed artisan quote/bio from products-data.js
-      if (window.HWC_ARTISANS) {
+      const artisans = (typeof HWC_ARTISANS !== 'undefined') ? HWC_ARTISANS : (window.HWC_ARTISANS || []);
+      if (artisans && artisans.length) {
         let found = null;
         if (id) {
-          found = window.HWC_ARTISANS.find(a => a.id === id);
+          found = artisans.find(a => a.id === id);
         }
-        if (!found) {
+        if (!found && name) {
           const firstWord = name.toLowerCase().split(' ')[0];
-          found = window.HWC_ARTISANS.find(a => a.name.toLowerCase().includes(firstWord) || (a.cluster && a.cluster.toLowerCase().includes(cluster.toLowerCase().split(' ')[0])));
+          found = artisans.find(a => a.name.toLowerCase().includes(firstWord) || (a.cluster && a.cluster.toLowerCase().includes(cluster ? cluster.toLowerCase().split(' ')[0] : '')));
         }
         if (found) {
+          if (nameEl) nameEl.textContent = found.name;
           if (journalTextEl) journalTextEl.textContent = '"' + found.quote + '" ' + found.bio;
           if (imgEl && found.img) {
             imgEl.src = found.img;
             imgEl.alt = 'Portrait of ' + found.name;
           }
-          if (profileLinkEl) {
-            profileLinkEl.href = 'artisan-detail.html?id=' + found.id;
-          }
         }
       }
 
-      if (modal) modal.classList.remove('hidden');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
     }
 
     function closeJournalModal() {
       const modal = document.getElementById('journal-modal');
-      if (modal) modal.classList.add('hidden');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
     }
 
     function switchToCommission() {
@@ -861,12 +952,18 @@
       if (titleEl) {
         titleEl.textContent = 'Commission ' + artisanName + (craft ? ' (' + craft + ')' : '');
       }
-      if (modal) modal.classList.remove('hidden');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
     }
 
     function closeCommissionModal() {
       const modal = document.getElementById('commission-modal');
-      if (modal) modal.classList.add('hidden');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
     }
 
     function handleCommissionSubmit(e) {
@@ -964,9 +1061,9 @@
     document.addEventListener('DOMContentLoaded', () => {
       initWaveform();
 
-      // Audio play button
+      // Audio play button (fallback if inline onclick is absent)
       const playBtn = document.getElementById('play-audio-btn');
-      if (playBtn) {
+      if (playBtn && !playBtn.getAttribute('onclick')) {
         playBtn.addEventListener('click', toggleAudio);
       }
 
