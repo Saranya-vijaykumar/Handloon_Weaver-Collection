@@ -447,8 +447,46 @@ section.bg-primary-container p,
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
 }
 
+/* Metric Ribbon & Counter Numbers - Guaranteed Maximum Contrast & Alignment */
+.metric-ribbon {
+  position: relative !important;
+  width: 100% !important;
+}
+.metric-ribbon .metric-number,
+.metric-ribbon span.metric-number,
+.metric-ribbon .font-headline-lg,
+.metric-number {
+  color: #4a1525 !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+html.dark .metric-ribbon .metric-number,
+html.dark .metric-ribbon span.metric-number,
+html.dark .metric-ribbon .font-headline-lg,
+html.dark .metric-number {
+  color: #fed65b !important;
+  text-shadow: 0 0 12px rgba(254, 214, 91, 0.25) !important;
+}
+.metric-ribbon .material-symbols-outlined {
+  color: #735c00 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+html.dark .metric-ribbon .material-symbols-outlined {
+  color: #fed65b !important;
+}
+.metric-ribbon span.uppercase {
+  color: #524346 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+}
+html.dark .metric-ribbon span.uppercase {
+  color: #cfc2bd !important;
+}
+
 /* Headings in dark containers must always be brilliant, crisp white */
-.bg-primary-container h1,
+.bg-primary-container:not(.metric-ribbon) h1,
 .bg-primary-container h2,
 .bg-primary-container h3,
 .bg-primary-container h4,

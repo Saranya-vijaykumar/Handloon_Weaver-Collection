@@ -242,10 +242,10 @@
   </div>
 </header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
 <!-- Hero Section -->
-<section class="relative w-full min-h-[870px] flex items-center justify-center overflow-hidden bg-primary-container text-on-primary -mt-20 pt-20">
+<section class="relative w-full min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center overflow-hidden bg-primary-container text-on-primary -mt-20 pt-28 pb-16 lg:pt-36 lg:pb-20">
 <div class="hero-bg-image absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none" data-alt="A macro cinematic shot of a master weaver's hands gracefully interlacing antique gold zari threads with deep royal maroon silk on a wooden handloom. Warm ethereal studio lighting catches the shimmering threads, evoking an atmosphere of refined luxury and slow artisanal craft." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKWYm_9y3UnSbclBBXWNfX2QsMSOcBmVU9qzEiTXxyHzq8mmHPx85IGlvKzDcVhiqwFJbQxxzU1fpfs5clCH6c4GxovjrzP1vxoY0oiGLHqU_waZ5IZ9_G1GsrL-tCzlCgslzoUAEK0og1G9cGXX7lCpr29jhgrGBlCnY6aq3rXYFJLfkkZHA_-FWGtTKN6F0IBykgy7QMZ6KNQ2ldz1jKNip-vILCe_Jnl5WeJW4");'></div>
 <div class="absolute inset-0 bg-gradient-to-t from-[#20070f]/90 via-[#20070f]/35 to-[#20070f]/60 pointer-events-none"></div>
-<div class="relative max-w-7xl mx-auto px-8 lg:px-12 py-24 flex flex-col items-center text-center z-10 w-full">
+<div class="relative max-w-7xl mx-auto px-8 lg:px-12 py-16 lg:py-24 flex flex-col items-center text-center z-10 w-full">
 <span class="text-label-sm uppercase tracking-[0.2em] text-[#fed65b] font-bold mb-4 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-2 shadow-sm"><span class="material-symbols-outlined text-sm text-[#fed65b]">auto_awesome</span>Ancestral Mastery • Heirloom Collection</span>
 <h1 class="font-headline-xl text-5xl md:text-7xl font-normal tracking-tight max-w-4xl mb-6 leading-[1.1] text-white">
         The Living Poetry of <span class="italic font-light text-[#fed65b]">Indian Handlooms</span>
@@ -265,27 +265,49 @@
         </a>
 </div>
 </div>
-<!-- Floating Metric Ribbon -->
-<div class="absolute bottom-0 inset-x-0 bg-surface/95 backdrop-blur-xl border-t border-tertiary-fixed-dim/20 py-6 hidden md:block">
-<div class="max-w-7xl mx-auto px-8 lg:px-12 grid grid-cols-4 gap-8 text-center text-on-surface">
-<div>
-<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">groups</span>1,400+</span>
-<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Master Weavers</span>
-</div>
-<div>
-<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">domain</span>12</span>
-<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Heritage Clusters</span>
-</div>
-<div>
-<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">spa</span>100%</span>
-<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Organic Natural Fibers</span>
-</div>
-<div>
-<span class="block font-headline-lg text-3xl font-semibold text-primary tracking-tight flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-xl">payments</span>₹4.2Cr</span>
-<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Direct Artisan Earnings</span>
-</div>
-</div>
-</div>
+</section>
+
+<!-- Section 2: Living Heritage Metric Ribbon (100% High Visibility & Responsive Alignment) -->
+<section class="metric-ribbon relative z-20 bg-surface-container-low dark:bg-[#1e191c] py-7 sm:py-9 border-b border-outline-variant/30 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+    
+    <!-- Stat 1: Master Weavers -->
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+      <div class="flex items-center justify-center gap-2.5 mb-1.5">
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">groups</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">1,400+</span>
+      </div>
+      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Master Weavers</span>
+    </div>
+
+    <!-- Stat 2: Heritage Clusters -->
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+      <div class="flex items-center justify-center gap-2.5 mb-1.5">
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">domain</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">12</span>
+      </div>
+      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Heritage Clusters</span>
+    </div>
+
+    <!-- Stat 3: Organic Natural Fibers -->
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+      <div class="flex items-center justify-center gap-2.5 mb-1.5">
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">spa</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">100%</span>
+      </div>
+      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Organic Natural Fibers</span>
+    </div>
+
+    <!-- Stat 4: Direct Artisan Earnings -->
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+      <div class="flex items-center justify-center gap-2.5 mb-1.5">
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">payments</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">₹4.2Cr</span>
+      </div>
+      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Direct Artisan Earnings</span>
+    </div>
+
+  </div>
 </section>
 <!-- Heritage Introduction -->
 <section class="py-24 max-w-7xl mx-auto px-8 lg:px-12 w-full" id="heritage">
