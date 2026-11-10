@@ -364,9 +364,10 @@
 
         <!-- Interactive Weaver Audio Story Player -->
         <div class="p-6 bg-surface-container-low dark:bg-[#1b1c1a] rounded-2xl border border-outline-variant/30 shadow-sm space-y-4">
+          <audio id="detail-weaver-audio" preload="metadata" src="audio/weaver-story.mp3"></audio>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:scale-105 transition-all" id="detail-audio-play-btn" title="Play / Pause Weaver Story">
+              <button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:scale-105 transition-all cursor-pointer" id="detail-audio-play-btn" title="Play / Pause Weaver Story" aria-label="Play or pause weaver story">
                 <span class="material-symbols-outlined text-xl" id="detail-audio-icon">play_arrow</span>
               </button>
               <div>
@@ -379,7 +380,7 @@
             <span class="text-xs font-mono text-primary font-bold" id="detail-audio-timer">00:00 / 03:42</span>
           </div>
           <!-- Waveform Visualizer -->
-          <div class="flex items-center gap-1 h-9 w-full px-1" id="detail-waveform-bars"></div>
+          <div class="flex items-center gap-1 h-9 w-full px-1 cursor-pointer select-none" id="detail-waveform-bars" title="Click anywhere along waveform to seek"></div>
         </div>
 
         <!-- Action CTAs -->
@@ -726,42 +727,116 @@
       audioTimer.textContent = `00:00 / ${artisan.audioDuration || '03:45'}`;
     }
 
-    // Audio Player Interactivity
+    const detailAudioEl = document.getElementById('detail-weaver-audio');
+    if (detailAudioEl && artisan.audioSrc) {
+      detailAudioEl.src = artisan.audioSrc;
+    }
+
+    // Audio Player Interactivity & Waveform Scrubber
     const playBtn = document.getElementById('detail-audio-play-btn');
     const playIcon = document.getElementById('detail-audio-icon');
     const waveformContainer = document.getElementById('detail-waveform-bars');
-    let isPlaying = false;
-    let timerSeconds = 0;
-    let audioInterval = null;
+
+    function formatDetailTime(secs) {
+      if (isNaN(secs) || secs < 0) return '00:00';
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function updateDetailWaveformProgress(ratio) {
+      if (!waveformContainer) return;
+      const bars = waveformContainer.querySelectorAll('div');
+      const total = bars.length;
+      const activeCount = Math.floor(ratio * total);
+      const isPlaying = detailAudioEl && !detailAudioEl.paused;
+
+      bars.forEach((bar, idx) => {
+        if (idx <= activeCount) {
+          bar.className = 'flex-1 bg-primary rounded-full transition-all duration-200' + (isPlaying && Math.abs(idx - activeCount) < 2 ? ' animate-pulse' : '');
+        } else {
+          bar.className = 'flex-1 bg-primary/25 rounded-full transition-all duration-200 hover:bg-primary/50';
+        }
+      });
+    }
 
     if (waveformContainer) {
       waveformContainer.innerHTML = '';
-      const barHeights = [18, 28, 14, 32, 22, 35, 12, 26, 30, 16, 24, 34, 18, 28, 14, 32, 20, 29, 36, 15, 25, 33, 19, 27];
-      barHeights.forEach(h => {
+      const barHeights = [18, 28, 14, 32, 22, 35, 12, 26, 30, 16, 24, 34, 18, 28, 14, 32, 20, 29, 36, 15, 25, 33, 19, 27, 22, 31, 17, 34, 25, 14, 28, 20];
+      barHeights.forEach((h, idx) => {
         const bar = document.createElement('div');
-        bar.className = 'flex-1 bg-primary/30 rounded-full transition-all duration-300';
+        bar.className = 'flex-1 bg-primary/25 rounded-full transition-all duration-200 hover:scale-y-125';
         bar.style.height = `${h}px`;
+        bar.setAttribute('data-idx', idx);
         waveformContainer.appendChild(bar);
+      });
+
+      waveformContainer.addEventListener('click', (e) => {
+        if (!detailAudioEl) return;
+        const rect = waveformContainer.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+        const dur = (detailAudioEl.duration && !isNaN(detailAudioEl.duration)) ? detailAudioEl.duration : 225;
+        detailAudioEl.currentTime = ratio * dur;
+        updateDetailWaveformProgress(ratio);
+        if (audioTimer) audioTimer.textContent = `${formatDetailTime(detailAudioEl.currentTime)} / ${formatDetailTime(dur)}`;
+      });
+    }
+
+    if (detailAudioEl) {
+      detailAudioEl.addEventListener('timeupdate', () => {
+        const cur = detailAudioEl.currentTime;
+        const dur = (detailAudioEl.duration && !isNaN(detailAudioEl.duration)) ? detailAudioEl.duration : 225;
+        const ratio = Math.min(1, cur / dur);
+        updateDetailWaveformProgress(ratio);
+        if (audioTimer) audioTimer.textContent = `${formatDetailTime(cur)} / ${artisan.audioDuration || formatDetailTime(dur)}`;
+      });
+
+      detailAudioEl.addEventListener('play', () => {
+        if (playIcon) playIcon.textContent = 'pause';
+      });
+
+      detailAudioEl.addEventListener('pause', () => {
+        if (playIcon) playIcon.textContent = 'play_arrow';
+        updateDetailWaveformProgress(detailAudioEl.currentTime / (detailAudioEl.duration || 225));
+      });
+
+      detailAudioEl.addEventListener('ended', () => {
+        if (playIcon) playIcon.textContent = 'play_arrow';
+        updateDetailWaveformProgress(0);
+        if (audioTimer) audioTimer.textContent = `00:00 / ${artisan.audioDuration || '03:45'}`;
       });
     }
 
     if (playBtn) {
-      playBtn.onclick = () => {
-        isPlaying = !isPlaying;
-        const bars = waveformContainer ? waveformContainer.querySelectorAll('div') : [];
-        if (isPlaying) {
-          if (playIcon) playIcon.textContent = 'pause';
-          bars.forEach(b => b.classList.add('animate-pulse', 'bg-primary'));
-          audioInterval = setInterval(() => {
-            timerSeconds++;
-            const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
-            const secs = String(timerSeconds % 60).padStart(2, '0');
-            if (audioTimer) audioTimer.textContent = `${mins}:${secs} / ${artisan.audioDuration || '03:45'}`;
-          }, 1000);
+      playBtn.onclick = async () => {
+        if (!detailAudioEl) return;
+        if (detailAudioEl.paused) {
+          try {
+            await detailAudioEl.play();
+            if (playIcon) playIcon.textContent = 'pause';
+          } catch (err) {
+            console.warn('Detail audio play error, falling back to tanpura synthesizer:', err);
+            try {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (AudioCtx) {
+                const actx = new AudioCtx();
+                const osc = actx.createOscillator();
+                const gain = actx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(196, actx.currentTime);
+                gain.gain.setValueAtTime(0.15, actx.currentTime);
+                osc.connect(gain);
+                gain.connect(actx.destination);
+                osc.start();
+                setTimeout(() => { try { osc.stop(); } catch(e){} }, 4000);
+                if (playIcon) playIcon.textContent = 'pause';
+              }
+            } catch(e){}
+          }
         } else {
+          detailAudioEl.pause();
           if (playIcon) playIcon.textContent = 'play_arrow';
-          bars.forEach(b => b.classList.remove('animate-pulse', 'bg-primary'));
-          clearInterval(audioInterval);
         }
       };
     }

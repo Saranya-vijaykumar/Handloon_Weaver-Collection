@@ -15,6 +15,7 @@ const HWC_ARTISANS = [
     quote: "When the shuttle passes through the silk warp, it carries not just thread, but 600 years of songs and silence.",
     audioTitle: "Rhythm of the Varanasi Pit Loom",
     audioDuration: "03:42",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5UZzwyLuOjGQNdoW03UKrgc2K0ULAw5Ry2J535Bp6m8Xu6KVCXTplcIPaQvT9eBQc4RJgOPH7It4pj11-cTrIrlpjZeqe5v56HbhKiNCA3RF1Egtwm5wS8GJLwQqtK-67QF0FbkrbVt1Cue2UDMfzt42LGz0PrMz3-PgwTgKUyh_M7Wh6bDc4_JMZGDcvBXZRuT1hyoDXWbIL-wXRFtAixzdF9o_Uz_gXHbohE2I"
   },
   {
@@ -28,6 +29,7 @@ const HWC_ARTISANS = [
     quote: "Every throw of the wooden shuttle is an act of devotion to our ancestors' patience.",
     audioTitle: "Echoes of the Sacred Ghat Pit Looms",
     audioDuration: "03:15",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBNaRkntKjLDi66O_29vUJcVUN6Wgc-WsXSjnwSF5eY0Z24fzSH_hD0HUe5ddbhySc3HJVbwYr70sNG6J--TKLIgVWB7HE4P59fVp1R8zVIuksuefyV-KQJkKlWCd4qhqAOKW5bxdBsUsX_rnXqJs-rTGTAxqOfrQvhqzYIa4mMhi7Lfsm3wuLp4iu9tjFu1XU0MxfI-4ZjdGdmxnQQ5eh_li-UeZXXGd3Lx_VFnj4"
   },
   {
@@ -41,6 +43,7 @@ const HWC_ARTISANS = [
     quote: "Our needlework carries the stories of Bengal's rivers, monsoon clouds, and rural village songs.",
     audioTitle: "The Village Veranda Stitching Songs",
     audioDuration: "02:40",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCjWGGruPse6kQKyUFj1a4CZqcvqmL1rtE9JRTjtvB3PPfVpcxJPtEc0XsRqt5gvLV7KVV6MITPvEp_QdU8UF6pAnb_PGJe065zW9YVsEvO1NPIjW6UFKSujVDGXB9n0jWD1dCDe29cBtbAaEsgAym6wRu2fWiBl2HXFRrXqKJxR34cvdEnJJjWpdjr3UEE6rLuIVQQu-x1FqgdrGvKNTjn3VWCg-fVZrT66c6KsEU"
   },
   {
@@ -54,6 +57,7 @@ const HWC_ARTISANS = [
     quote: "Pashmina is not merely fabric—it is the warm breath of the roof of the world.",
     audioTitle: "The Snow Wind of Changthang Plateau",
     audioDuration: "04:10",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA4bp9B0QuMP8C3mJEjusyVk7Q0P9ttc8NyXx8Nq4M4RG9fJlhuxFMMYr8TN3eHoRyOR1x7qRTzpWMGIco6EmaihLTFGW82SmlLDI14Rbi4QsE61R69Csn7-4a6ksH0noQJxRNpR8TGqS8mD7lr1RWj1urVUkiKWTclKHaacqMQndNrKQR0qgqA8viocy5cwts2V0qgy5R4naplPPOMo2JSlFnpWbsDRfQs4y9sH0Q"
   },
   {
@@ -67,6 +71,7 @@ const HWC_ARTISANS = [
     quote: "Every thread is counted in my mind long before it touches the natural indigo or madder dye pot.",
     audioTitle: "The Loom Mathematics of Telangana",
     audioDuration: "02:50",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDxx0XPd1K-OT1wy0nAUMJ7MCtcW9fOgEZYurnDw391mwAmURdRg9EDHeKPbRCED0HHe6lFIFEye0wqBEYZ7dIWli0LbgX6usFy0HksQx-0ob7w-nFOAAhqbGto5O4lRDnIuHERfXxMJQY3LjpYflpaHUtdSHm0yf2RBuaTt--mHdG5WgEJpB8XfIcrRKChi2rmlyWFCHWHFby0pVy1RR47AlbO3TNft7tfVEt3cxk"
   },
   {
@@ -80,6 +85,7 @@ const HWC_ARTISANS = [
     quote: "Our borders reflect the sacred stone carvings that have stood unbroken through the centuries.",
     audioTitle: "Whispers of the Golden Wire Warp",
     audioDuration: "03:10",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUBCqZBMqIGrE9WOurzWTnoivbx8p3l_EwD09Ce84lKsqrUQLsGAmmOCIbyxvbsx80NnOIcYNm8pWzHuEMk_C2Z_gcb2RLDT1hr0FeopBNwKUILEa9VwGVrPYOTaDof_K5Z0VR4jBEIKVu9BrVdmmkk6T1XJgp3RqKpvgF5-cp_wFwR_yxKs8QQ9or68NW3Kg7yNUNrLMLpbN6hmsh_zwVfq9Ul0oQJh214q9SHN0"
   },
   {
@@ -93,6 +99,7 @@ const HWC_ARTISANS = [
     quote: "True Jamdani cannot be hurried. It grows as slowly and gracefully as morning mist over the river.",
     audioTitle: "Morning Mist on Bengal Pit Looms",
     audioDuration: "03:30",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCG70nVFx6fNK_PWWOtlhrQEv1025moEZgs33IVDQ1TC755WOOOKW2OgBtXRsaRWj6JTWgjBq_uzNvmeX3bMOgTrmY_OCw2srDPaHjJu4muM5IRNvwvrndSvoJx4yX83ABoCrTDhoclPe5eehrb-6hQ73KRXWc2C7B-STZNRV9OvrHM-GNDrBJDklIECqJQ4bH6vMz3tKc4Jw6VrDYN3n0iWKIihuO1sfP_vfqFhfc"
   },
   {
@@ -106,6 +113,7 @@ const HWC_ARTISANS = [
     quote: "In Kanchipuram, every temple spire carved in stone finds its twin woven into our silk borders.",
     audioTitle: "Hymns of the Kanchi Korvai Loom",
     audioDuration: "03:22",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDxx0XPd1K-OT1wy0nAUMJ7MCtcW9fOgEZYurnDw391mwAmURdRg9EDHeKPbRCED0HHe6lFIFEye0wqBEYZ7dIWli0LbgX6usFy0HksQx-0ob7w-nFOAAhqbGto5O4lRDnIuHERfXxMJQY3LjpYflpaHUtdSHm0yf2RBuaTt--mHdG5WgEJpB8XfIcrRKChi2rmlyWFCHWHFby0pVy1RR47AlbO3TNft7tfVEt3cxk"
   },
   {
@@ -119,6 +127,7 @@ const HWC_ARTISANS = [
     quote: "True Chanderi feels like soft breeze through dawn mist, woven by the breath of memory.",
     audioTitle: "Echoes of the Bundelkhand Looms",
     audioDuration: "02:55",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUBCqZBMqIGrE9WOurzWTnoivbx8p3l_EwD09Ce84lKsqrUQLsGAmmOCIbyxvbsx80NnOIcYNm8pWzHuEMk_C2Z_gcb2RLDT1hr0FeopBNwKUILEa9VwGVrPYOTaDof_K5Z0VR4jBEIKVu9BrVdmmkk6T1XJgp3RqKpvgF5-cp_wFwR_yxKs8QQ9or68NW3Kg7yNUNrLMLpbN6hmsh_zwVfq9Ul0oQJh214q9SHN0"
   },
   {
@@ -132,6 +141,7 @@ const HWC_ARTISANS = [
     quote: "A Patola never fades; even when the cloth tears after a hundred years, the sacred color lives on.",
     audioTitle: "Geometry of the Double Ikat Loom",
     audioDuration: "03:45",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5DMUBXu8A1j6lrr_tusgV8EVlrdxHlHf5z8BprPVr1aw6PGRT60TzJkklr13CD-9Pjsxe9NikShGSvY4Gc0j2epqp1ZJS1RBDcWXGQ0roO3NMB4eSM6wFRHsHOLHUxGbQ8KeyEXlWPR3rC1XRqExE7ki1M3EIq5eBiX-yRHaQXF3tuchMSNkPEJzCjNWFJPJBoL5Q32amfBXVDL2dkuXTrYg74Y3N23qtvOUMuIY"
   },
   {
@@ -145,6 +155,7 @@ const HWC_ARTISANS = [
     quote: "Our weaves carry the ripple of the holy river and the strength of temple stones in every shuttle pass.",
     audioTitle: "Currents of the Narmada River Looms",
     audioDuration: "03:15",
+    audioSrc: "audio/weaver-story.mp3",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAluja6NCRIfYjgiIZUZlh9-5wgQCQSp3NK-FrYASPdivCKpUqdQ1bVJqGA2NpDr6Or-IOUDLcJpspiXuFU4Bk1O5bjty6IQKTMiazJMebOIkZiDyvcD1Ay8oIwouSh6sLWiV6Z8DAjJlcAfdRkhTtKyxEjerszTuI7ggqovkDrY4_Bd-7eGWiz3SMaV88DJuaKSe-YTnx5u_3djHd1q5KxPoUAC6Qd2XoG_plzeu0"
   }
 ];
