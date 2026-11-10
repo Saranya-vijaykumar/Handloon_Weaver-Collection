@@ -120,6 +120,32 @@ const HWC_ARTISANS = [
     audioTitle: "Echoes of the Bundelkhand Looms",
     audioDuration: "02:55",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUBCqZBMqIGrE9WOurzWTnoivbx8p3l_EwD09Ce84lKsqrUQLsGAmmOCIbyxvbsx80NnOIcYNm8pWzHuEMk_C2Z_gcb2RLDT1hr0FeopBNwKUILEa9VwGVrPYOTaDof_K5Z0VR4jBEIKVu9BrVdmmkk6T1XJgp3RqKpvgF5-cp_wFwR_yxKs8QQ9or68NW3Kg7yNUNrLMLpbN6hmsh_zwVfq9Ul0oQJh214q9SHN0"
+  },
+  {
+    id: "art-10",
+    name: "Shri Kantilal Salvi",
+    cluster: "Patan Patola Cluster",
+    experience: "42 Years Double Ikat Master",
+    craft: "Patan Double Ikat & Natural Flora Pigments",
+    verified: true,
+    bio: "Shri Kantilal Salvi is a master custodian of the 900-year-old Patan Patola double ikat silk tradition in Gujarat, individually tying and resist-dyeing each warp and weft silk thread to achieve pixel-perfect geometric symmetry.",
+    quote: "A Patola never fades; even when the cloth tears after a hundred years, the sacred color lives on.",
+    audioTitle: "Geometry of the Double Ikat Loom",
+    audioDuration: "03:45",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5DMUBXu8A1j6lrr_tusgV8EVlrdxHlHf5z8BprPVr1aw6PGRT60TzJkklr13CD-9Pjsxe9NikShGSvY4Gc0j2epqp1ZJS1RBDcWXGQ0roO3NMB4eSM6wFRHsHOLHUxGbQ8KeyEXlWPR3rC1XRqExE7ki1M3EIq5eBiX-yRHaQXF3tuchMSNkPEJzCjNWFJPJBoL5Q32amfBXVDL2dkuXTrYg74Y3N23qtvOUMuIY"
+  },
+  {
+    id: "art-11",
+    name: "Smt. Narmada Bai",
+    cluster: "Maheshwar Cluster",
+    experience: "31 Years Reversible Border Specialist",
+    craft: "Reversible Bugdi Borders & Lightweight Silk-Cotton",
+    verified: true,
+    bio: "Smt. Narmada Bai continues the Ahilyabai Holkar legacy in Maheshwar on the banks of the sacred river. She crafts reversible 'Bugdi' bordered sarees with lightweight silk warp and combed cotton weft.",
+    quote: "Our weaves carry the ripple of the holy river and the strength of temple stones in every shuttle pass.",
+    audioTitle: "Currents of the Narmada River Looms",
+    audioDuration: "03:15",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAluja6NCRIfYjgiIZUZlh9-5wgQCQSp3NK-FrYASPdivCKpUqdQ1bVJqGA2NpDr6Or-IOUDLcJpspiXuFU4Bk1O5bjty6IQKTMiazJMebOIkZiDyvcD1Ay8oIwouSh6sLWiV6Z8DAjJlcAfdRkhTtKyxEjerszTuI7ggqovkDrY4_Bd-7eGWiz3SMaV88DJuaKSe-YTnx5u_3djHd1q5KxPoUAC6Qd2XoG_plzeu0"
   }
 ];
 
@@ -452,6 +478,72 @@ const HWC_PRODUCTS = [
       weight: "160 grams",
       certification: "GI Certified Chanderi & Craftmark Registered",
       care: "Gentle hand wash in cold water or dry clean."
+    }
+  },
+  {
+    id: "prod-patola",
+    title: "Royal Navratna Patan Double Ikat Saree",
+    category: "silk",
+    fabric: "Pure Mulberry Silk & Natural Madder and Indigo Dyes",
+    technique: "Ancient Double Ikat Resist-Dye Handloom Weave",
+    price: 42000,
+    priceFormatted: "₹42,000",
+    usdPrice: "$510",
+    badge: "Patan Patola",
+    daysToWeave: 110,
+    artisan: {
+      id: "art-10",
+      name: "Shri Kantilal Salvi",
+      cluster: "Patan Patola Cluster",
+      lineage: "Master Double Ikat Weaver",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5DMUBXu8A1j6lrr_tusgV8EVlrdxHlHf5z8BprPVr1aw6PGRT60TzJkklr13CD-9Pjsxe9NikShGSvY4Gc0j2epqp1ZJS1RBDcWXGQ0roO3NMB4eSM6wFRHsHOLHUxGbQ8KeyEXlWPR3rC1XRqExE7ki1M3EIq5eBiX-yRHaQXF3tuchMSNkPEJzCjNWFJPJBoL5Q32amfBXVDL2dkuXTrYg74Y3N23qtvOUMuIY",
+      bio: "Shri Kantilal Salvi preserves the 900-year-old double ikat Patan Patola technique with natural madder, pomegranate rind, and indigo dyes.",
+      quote: "A Patola never fades; even when the cloth tears after a hundred years, the sacred color lives on."
+    },
+    images: [
+      "images/products/patan-patola-silk.jpg",
+      "images/products/patan-patola-silk.jpg"
+    ],
+    description: "An extraordinary masterwork of Patan Patola double ikat weaving featuring the historic Navratna (nine jewels) geometric medallions. Both warp and weft silk yarns are resist-dyed before weaving so the motifs emerge identically on both faces of the cloth.",
+    specs: {
+      length: "5.5 meters saree + 0.8 meter blouse",
+      width: "46 inches",
+      weight: "680 grams",
+      certification: "GI Certified Patan Patola & Craftmark Registered",
+      care: "Dry clean only. Heirloom storage in acid-free paper."
+    }
+  },
+  {
+    id: "prod-maheshwari",
+    title: "Reversible Narmada Border Silk Saree",
+    category: "cotton",
+    fabric: "High-Twist Silk Warp & Combed Cotton Weft",
+    technique: "Maheshwari Reversible Bugdi Border Weave",
+    price: 16500,
+    priceFormatted: "₹16,500",
+    usdPrice: "$200",
+    badge: "Maheshwari Weave",
+    daysToWeave: 40,
+    artisan: {
+      id: "art-11",
+      name: "Smt. Narmada Bai",
+      cluster: "Maheshwar Cluster",
+      lineage: "Master Weaver of Reversible Borders",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuAluja6NCRIfYjgiIZUZlh9-5wgQCQSp3NK-FrYASPdivCKpUqdQ1bVJqGA2NpDr6Or-IOUDLcJpspiXuFU4Bk1O5bjty6IQKTMiazJMebOIkZiDyvcD1Ay8oIwouSh6sLWiV6Z8DAjJlcAfdRkhTtKyxEjerszTuI7ggqovkDrY4_Bd-7eGWiz3SMaV88DJuaKSe-YTnx5u_3djHd1q5KxPoUAC6Qd2XoG_plzeu0",
+      bio: "Smt. Narmada Bai weaves lightweight reversible drapes inspired by 18th-century royal Holkar ateliers overlooking the Narmada river.",
+      quote: "Our weaves carry the ripple of the holy river and the strength of temple stones in every shuttle pass."
+    },
+    images: [
+      "images/products/maheshwari-silk-cotton.jpg",
+      "images/products/maheshwari-silk-cotton.jpg"
+    ],
+    description: "A gossamer-light Maheshwari saree in lustrous mulberry silk warp and fine combed cotton weft, distinguished by its authentic reversible 'Bugdi' temple border and delicate geometric checks inspired by historic Narmada ghat carvings.",
+    specs: {
+      length: "5.5 meters saree + 0.8 meter blouse",
+      width: "45 inches",
+      weight: "440 grams",
+      certification: "GI Tag Certified Maheshwari Handloom",
+      care: "Gentle dry clean or delicate hand wash."
     }
   }
 ];
