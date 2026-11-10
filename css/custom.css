@@ -423,9 +423,29 @@ input[type=range].hwc-slider::-webkit-slider-thumb:hover {
 
 
 /* =========================================================
-   High Contrast & Text Visibility Engine for Dark & Hero Sections
-   Fixes visibility issues where dark text was blending into dark backgrounds
+   Ultra-Clear Hero Section Background & Cinematic Imagery
+   Ensures hero images across all pages are sharp, rich, and
+   vividly visible while maintaining 100% text readability
    ========================================================= */
+.hero-bg-image {
+  opacity: 0.88 !important;
+  mix-blend-mode: normal !important;
+  filter: contrast(1.08) saturate(1.1) brightness(0.96) !important;
+  transition: opacity 0.4s ease, transform 0.8s ease !important;
+}
+
+/* Crystal-clear typography text shadow for hero sections */
+section.bg-primary h1,
+section.bg-primary-container h1,
+[class*="bg-primary"] h1 {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+}
+
+section.bg-primary p,
+section.bg-primary-container p,
+[class*="bg-primary"] p {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+}
 
 /* Headings in dark containers must always be brilliant, crisp white */
 .bg-primary-container h1,
