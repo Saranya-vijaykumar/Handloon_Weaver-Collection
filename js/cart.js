@@ -217,7 +217,7 @@ const HWC_Cart = (function() {
               <span class="material-symbols-outlined text-3xl">shopping_basket</span>
             </div>
             <h4 class="font-serif text-xl font-medium text-primary mb-1">Your cart is empty</h4>
-            <p class="text-sm max-w-xs mb-6 text-on-surface-variant/80">Support artisan weaving families and discover authentic handloom heirlooms.</p>
+            <p class="text-sm max-w-xs mb-6 text-on-surface-variant/80 dark:text-stone-300">Support artisan weaving families and discover authentic handloom heirlooms.</p>
             <a href="products.html" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full text-xs font-semibold hover:bg-surface-tint transition-colors shadow-sm">
               <span>Explore Collections</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>

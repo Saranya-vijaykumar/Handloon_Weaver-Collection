@@ -401,7 +401,7 @@ const HWC_Shared = (function() {
           <div id="search-results" class="mt-4 max-h-[60vh] overflow-y-auto space-y-2">
             <div class="flex items-center justify-between py-1 text-xs uppercase tracking-widest text-on-surface-variant">
               <span>Quick Curations</span>
-              <span class="text-[10px] lowercase text-on-surface-variant/70">Press ESC to close</span>
+              <span class="text-[10px] lowercase text-on-surface-variant/70 dark:text-stone-400">Press ESC to close</span>
             </div>
             <div class="flex flex-wrap gap-2 mb-3">
               <button onclick="HWC_Shared.setSearchQuery('Varanasi Silk')" class="text-xs bg-surface-container hover:bg-primary hover:text-on-primary px-3 py-1.5 rounded-full transition-colors">Varanasi Silk</button>

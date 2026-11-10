@@ -52,35 +52,57 @@ html.dark body {
   background-size: 20px 20px, 5px 5px, 5px 5px;
   color: #f3efe9;
 }
-html.dark .bg-surface {
+html.dark .bg-surface,
+html.dark [class*="bg-surface/"],
+html.dark [class*="bg-surface "] {
   background-color: #1e191c !important;
+  background-image: none !important;
   color: #f3efe9 !important;
 }
-html.dark .bg-surface-container-lowest {
+html.dark .bg-surface-container-lowest,
+html.dark [class*="bg-surface-container-lowest"] {
   background-color: #161214 !important;
+  background-image: none !important;
   color: #f3efe9 !important;
 }
-html.dark .bg-surface-container-low {
+html.dark .bg-surface-container-low,
+html.dark [class*="bg-surface-container-low"] {
   background-color: #241e22 !important;
+  background-image: none !important;
   color: #f3efe9 !important;
 }
-html.dark .bg-surface-container {
+html.dark .bg-surface-container,
+html.dark [class*="bg-surface-container/"],
+html.dark [class*="bg-surface-container "] {
   background-color: #2c252a !important;
+  background-image: none !important;
   color: #f3efe9 !important;
 }
-html.dark .bg-surface-container-high {
+html.dark .bg-surface-container-high,
+html.dark [class*="bg-surface-container-high"] {
   background-color: #372f34 !important;
+  background-image: none !important;
   color: #f3efe9 !important;
 }
-html.dark .bg-surface-container-highest {
+html.dark .bg-surface-container-highest,
+html.dark [class*="bg-surface-container-highest"] {
   background-color: #42383e !important;
+  background-image: none !important;
   color: #f3efe9 !important;
 }
-html.dark .text-on-surface {
+html.dark .text-on-surface,
+html.dark [class*="text-on-surface"] {
   color: #f5f0ea !important;
 }
-html.dark .text-on-surface-variant {
-  color: #cfc2bd !important;
+html.dark .text-on-surface-variant,
+html.dark [class*="text-on-surface-variant"] {
+  color: #d6ccc7 !important;
+}
+html.dark [class*="text-on-surface-variant/70"],
+html.dark [class*="text-on-surface-variant/80"],
+html.dark [class*="text-on-surface-variant/60"],
+html.dark [class*="text-on-surface-variant/50"] {
+  color: #d6ccc7 !important;
 }
 html.dark .border-outline-variant\/20,
 html.dark .border-outline-variant\/30,
