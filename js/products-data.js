@@ -94,6 +94,32 @@ const HWC_ARTISANS = [
     audioTitle: "Morning Mist on Bengal Pit Looms",
     audioDuration: "03:30",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCG70nVFx6fNK_PWWOtlhrQEv1025moEZgs33IVDQ1TC755WOOOKW2OgBtXRsaRWj6JTWgjBq_uzNvmeX3bMOgTrmY_OCw2srDPaHjJu4muM5IRNvwvrndSvoJx4yX83ABoCrTDhoclPe5eehrb-6hQ73KRXWc2C7B-STZNRV9OvrHM-GNDrBJDklIECqJQ4bH6vMz3tKc4Jw6VrDYN3n0iWKIihuO1sfP_vfqFhfc"
+  },
+  {
+    id: "art-8",
+    name: "Shri S. Varadarajan",
+    cluster: "Kanchipuram Cluster",
+    experience: "36 Years Korvai Silk Specialist",
+    craft: "Pure Mulberry Silk & Interlocking Korvai Borders",
+    verified: true,
+    bio: "Shri S. Varadarajan carries forward a multi-generational legacy in the temple town of Kanchipuram. He preserves the rare 'Korvai' technique where two master weavers work synchronously on both sides of the heavy pit loom to interlock vibrant temple border motifs with high-twist mulberry silk and pure gold dipped zari.",
+    quote: "In Kanchipuram, every temple spire carved in stone finds its twin woven into our silk borders.",
+    audioTitle: "Hymns of the Kanchi Korvai Loom",
+    audioDuration: "03:22",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDxx0XPd1K-OT1wy0nAUMJ7MCtcW9fOgEZYurnDw391mwAmURdRg9EDHeKPbRCED0HHe6lFIFEye0wqBEYZ7dIWli0LbgX6usFy0HksQx-0ob7w-nFOAAhqbGto5O4lRDnIuHERfXxMJQY3LjpYflpaHUtdSHm0yf2RBuaTt--mHdG5WgEJpB8XfIcrRKChi2rmlyWFCHWHFby0pVy1RR47AlbO3TNft7tfVEt3cxk"
+  },
+  {
+    id: "art-9",
+    name: "Smt. Shakuntala Bai",
+    cluster: "Chanderi Cluster",
+    experience: "29 Years Chanderi Gossamer Specialist",
+    craft: "Gossamer Silk-Cotton & Hand-Inserted Gold Bootis",
+    verified: true,
+    bio: "Smt. Shakuntala Bai weaves in the historic fort town of Chanderi. Known for featherlight transparency, her gossamer drapes interlace non-degummed silk warp with fine handspun cotton weft and delicate Ashavali gold zari motifs.",
+    quote: "True Chanderi feels like soft breeze through dawn mist, woven by the breath of memory.",
+    audioTitle: "Echoes of the Bundelkhand Looms",
+    audioDuration: "02:55",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUBCqZBMqIGrE9WOurzWTnoivbx8p3l_EwD09Ce84lKsqrUQLsGAmmOCIbyxvbsx80NnOIcYNm8pWzHuEMk_C2Z_gcb2RLDT1hr0FeopBNwKUILEa9VwGVrPYOTaDof_K5Z0VR4jBEIKVu9BrVdmmkk6T1XJgp3RqKpvgF5-cp_wFwR_yxKs8QQ9or68NW3Kg7yNUNrLMLpbN6hmsh_zwVfq9Ul0oQJh214q9SHN0"
   }
 ];
 
@@ -360,6 +386,72 @@ const HWC_PRODUCTS = [
       weight: "190 grams",
       certification: "Craftmark Certified",
       care: "Dry clean only."
+    }
+  },
+  {
+    id: "prod-kanchipuram",
+    title: "Temple Border Mulberry Silk Saree",
+    category: "silk",
+    fabric: "Pure Kanchipuram Mulberry Silk & 3-Ply Real Zari",
+    technique: "Traditional Korvai Interlocking Border Weave",
+    price: 34000,
+    priceFormatted: "₹34,000",
+    usdPrice: "$420",
+    badge: "Kanchipuram Silk",
+    daysToWeave: 75,
+    artisan: {
+      id: "art-8",
+      name: "Shri S. Varadarajan",
+      cluster: "Kanchipuram Cluster",
+      lineage: "4th Generation Korvai Master Weaver",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDxx0XPd1K-OT1wy0nAUMJ7MCtcW9fOgEZYurnDw391mwAmURdRg9EDHeKPbRCED0HHe6lFIFEye0wqBEYZ7dIWli0LbgX6usFy0HksQx-0ob7w-nFOAAhqbGto5O4lRDnIuHERfXxMJQY3LjpYflpaHUtdSHm0yf2RBuaTt--mHdG5WgEJpB8XfIcrRKChi2rmlyWFCHWHFby0pVy1RR47AlbO3TNft7tfVEt3cxk",
+      bio: "Shri S. Varadarajan has spent thirty-six years at the traditional wooden pit loom in Kanchipuram, specializing in heavy interlocking Korvai borders and temple gopuram motifs.",
+      quote: "In Kanchipuram, every temple spire carved in stone finds its twin woven into our silk borders."
+    },
+    images: [
+      "images/products/kanchipuram-temple-silk.jpg",
+      "images/products/kanchipuram-temple-silk.jpg"
+    ],
+    description: "An authentic heirloom Kanchipuram pure mulberry silk saree in majestic deep emerald green, enriched with pure gold zari interlocking Korvai temple borders and traditional petni pallu detailing. Woven synchronously by two master artisans on heavy pit looms.",
+    specs: {
+      length: "5.5 meters saree + 0.8 meter contrast blouse piece",
+      width: "48 inches",
+      weight: "850 grams",
+      certification: "Silk Mark & GI (Geographical Indication) Registered Kanchipuram",
+      care: "Dry clean only. Store in muslin wrap with natural cedar."
+    }
+  },
+  {
+    id: "prod-chanderi",
+    title: "Ethereal Silk-Cotton Chanderi Dupatta",
+    category: "silk",
+    fabric: "Gossamer Handspun Chanderi Silk-Cotton Blend",
+    technique: "Ashavali Border Weave with Hand-Inserted Gold Bootis",
+    price: 9800,
+    priceFormatted: "₹9,800",
+    usdPrice: "$125",
+    badge: "Chanderi Silk",
+    daysToWeave: 30,
+    artisan: {
+      id: "art-9",
+      name: "Smt. Shakuntala Bai",
+      cluster: "Chanderi Cluster",
+      lineage: "Master Chanderi Weaver",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUBCqZBMqIGrE9WOurzWTnoivbx8p3l_EwD09Ce84lKsqrUQLsGAmmOCIbyxvbsx80NnOIcYNm8pWzHuEMk_C2Z_gcb2RLDT1hr0FeopBNwKUILEa9VwGVrPYOTaDof_K5Z0VR4jBEIKVu9BrVdmmkk6T1XJgp3RqKpvgF5-cp_wFwR_yxKs8QQ9or68NW3Kg7yNUNrLMLpbN6hmsh_zwVfq9Ul0oQJh214q9SHN0",
+      bio: "Smt. Shakuntala Bai weaves gossamer-light Chanderi textiles in Madhya Pradesh, preserving centuries of Bundelkhand royal atelier techniques.",
+      quote: "True Chanderi feels like soft breeze through dawn mist, woven by the breath of memory."
+    },
+    images: [
+      "images/products/chanderi-silk-dupatta.jpg",
+      "images/products/chanderi-silk-dupatta.jpg"
+    ],
+    description: "A weightless handspun Chanderi dupatta in natural ivory silk-cotton, sprinkled with delicate pure gold zari coin bootis and finished with an antique maroon zari border and hand-tied tassels. Woven on traditional frame looms.",
+    specs: {
+      length: "2.6 meters",
+      width: "36 inches",
+      weight: "160 grams",
+      certification: "GI Certified Chanderi & Craftmark Registered",
+      care: "Gentle hand wash in cold water or dry clean."
     }
   }
 ];
