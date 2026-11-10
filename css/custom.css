@@ -1060,4 +1060,116 @@ article img,
   flex-shrink: 0 !important;
 }
 
+/* =========================================================
+   Universal Image Overlay Badges - High-Contrast Visibility
+   Ensures badges over product photos are 100% razor-sharp
+   in both Light Mode (AAA contrast) and Dark Mode (AAA contrast)
+   ========================================================= */
+.product-image-badge-primary,
+.badge-pill-primary {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #4a1525 !important;
+  border: 1px solid rgba(74, 21, 37, 0.22) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+.product-image-badge-primary .material-symbols-outlined,
+.badge-pill-primary .material-symbols-outlined {
+  color: #4a1525 !important;
+}
+
+html.dark .product-image-badge-primary,
+html.dark .badge-pill-primary {
+  background-color: rgba(22, 18, 20, 0.95) !important;
+  color: #fed65b !important;
+  border: 1px solid rgba(254, 214, 91, 0.35) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .product-image-badge-primary .material-symbols-outlined,
+html.dark .badge-pill-primary .material-symbols-outlined {
+  color: #fed65b !important;
+}
+
+.product-image-badge-secondary,
+.badge-pill-secondary {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1b1c1a !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+.product-image-badge-secondary .material-symbols-outlined,
+.badge-pill-secondary .material-symbols-outlined {
+  color: #8c4a5a !important;
+}
+
+html.dark .product-image-badge-secondary,
+html.dark .badge-pill-secondary {
+  background-color: rgba(22, 18, 20, 0.95) !important;
+  color: #f3efe9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .product-image-badge-secondary .material-symbols-outlined,
+html.dark .badge-pill-secondary .material-symbols-outlined {
+  color: #fed65b !important;
+}
+
+/* Fallback catch-all for any absolute top-3 badges over photos */
+html.dark [class*="absolute top-3 left-3"][class*="rounded-full"],
+html.dark .artisan-card [class*="absolute top-3 left-3"],
+html.dark .product-card [class*="absolute top-3 left-3"] {
+  background-color: rgba(22, 18, 20, 0.95) !important;
+  color: #fed65b !important;
+  border: 1px solid rgba(254, 214, 91, 0.35) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark [class*="absolute top-3 left-3"][class*="rounded-full"] .material-symbols-outlined,
+html.dark .artisan-card [class*="absolute top-3 left-3"] .material-symbols-outlined,
+html.dark .product-card [class*="absolute top-3 left-3"] .material-symbols-outlined {
+  color: #fed65b !important;
+}
+
+html.dark [class*="absolute top-3 right-3"][class*="rounded-full"],
+html.dark .product-card [class*="absolute top-3 right-3"] {
+  background-color: rgba(22, 18, 20, 0.95) !important;
+  color: #f3efe9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark [class*="absolute top-3 right-3"][class*="rounded-full"] .material-symbols-outlined,
+html.dark .product-card [class*="absolute top-3 right-3"] .material-symbols-outlined {
+  color: #fed65b !important;
+}
+
+html:not(.dark) [class*="absolute top-3 left-3"][class*="rounded-full"],
+html:not(.dark) .artisan-card [class*="absolute top-3 left-3"],
+html:not(.dark) .product-card [class*="absolute top-3 left-3"] {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #4a1525 !important;
+  border: 1px solid rgba(74, 21, 37, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+html:not(.dark) [class*="absolute top-3 left-3"][class*="rounded-full"] .material-symbols-outlined,
+html:not(.dark) .artisan-card [class*="absolute top-3 left-3"] .material-symbols-outlined,
+html:not(.dark) .product-card [class*="absolute top-3 left-3"] .material-symbols-outlined {
+  color: #4a1525 !important;
+}
+
+html:not(.dark) [class*="absolute top-3 right-3"][class*="rounded-full"],
+html:not(.dark) .product-card [class*="absolute top-3 right-3"] {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1b1c1a !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+}
+html:not(.dark) [class*="absolute top-3 right-3"][class*="rounded-full"] .material-symbols-outlined,
+html:not(.dark) .product-card [class*="absolute top-3 right-3"] .material-symbols-outlined {
+  color: #8c4a5a !important;
+}
+
+
+
 
