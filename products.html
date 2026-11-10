@@ -261,58 +261,64 @@
 <!-- Filter & Sort Bar Section -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-8 w-full">
   <div class="bg-surface-container-low dark:bg-[#1b1c1a] p-4 sm:p-5 rounded-2xl border border-outline-variant/30 shadow-sm space-y-4">
-    <!-- Row 1: Fabric Category Filter Chips & Sort + Count -->
-    <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
-      <!-- Category Filter Chips (Wrap cleanly - Never truncate!) -->
-      <div class="flex flex-wrap items-center gap-2" id="category-filter-container">
-        <button class="filter-btn bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm tracking-wide flex items-center gap-1.5 shrink-0" data-category="all">
+    <!-- Row 1: Fabric Category Filter Chips & Available Count -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+      <!-- Category Filter Chips -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 min-w-0 flex-1" id="category-filter-container">
+        <button class="filter-btn bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm tracking-wide flex items-center gap-1.5 shrink-0 whitespace-nowrap" data-category="all">
           <span class="material-symbols-outlined text-base">grid_view</span>All Masterpieces
         </button>
-        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30" data-category="silk">
+        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30 whitespace-nowrap" data-category="silk">
           <span class="material-symbols-outlined text-base">diamond</span>Pure Silks
         </button>
-        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30" data-category="cotton">
+        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30 whitespace-nowrap" data-category="cotton">
           <span class="material-symbols-outlined text-base">spa</span>Jamdani &amp; Cotton
         </button>
-        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30" data-category="wool">
+        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30 whitespace-nowrap" data-category="wool">
           <span class="material-symbols-outlined text-base">ac_unit</span>Pashmina &amp; Wool
         </button>
-        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30" data-category="linen">
+        <button class="filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30 whitespace-nowrap" data-category="linen">
           <span class="material-symbols-outlined text-base">filter_vintage</span>Organic Linen
         </button>
       </div>
 
-      <!-- Count & Sort Control -->
-      <div class="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0 pt-3 xl:pt-0 border-t xl:border-t-0 border-outline-variant/20">
-        <div class="flex items-center gap-1.5 text-xs sm:text-sm text-on-surface-variant font-medium whitespace-nowrap">
-          <span class="material-symbols-outlined text-base text-primary dark:text-[#fed65b]">inventory_2</span>
-          <span id="showing-count" class="font-semibold text-on-surface">8 pieces available</span>
+      <!-- Count Badge -->
+      <div class="flex items-center gap-1.5 text-xs sm:text-sm text-on-surface-variant dark:text-stone-300 font-medium whitespace-nowrap shrink-0 self-end md:self-center pl-2">
+        <span class="material-symbols-outlined text-base text-primary dark:text-[#fed65b]">inventory_2</span>
+        <span id="showing-count" class="font-semibold text-on-surface dark:text-[#f3efe9]">8 pieces available</span>
+      </div>
+    </div>
+
+    <!-- Row 2: Live Search Input, Price Filter Pills & Sort Dropdown -->
+    <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between pt-3 border-t border-outline-variant/20 dark:border-stone-800">
+      <!-- Search Input -->
+      <div class="relative flex-1 max-w-md">
+        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-stone-400 text-base sm:text-lg">search</span>
+        <input type="text" id="product-page-search" placeholder="Search by weave name, craft, artisan or fabric..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-outline-variant/40 dark:border-stone-700 bg-surface dark:bg-[#151412] text-on-surface dark:text-white placeholder:text-on-surface-variant/60 dark:placeholder:text-stone-400 focus:outline-none focus:border-primary dark:focus:border-[#fed65b] text-xs sm:text-sm shadow-sm transition-all"/>
+      </div>
+
+      <!-- Controls: Price Filter Pills & Sort Dropdown -->
+      <div class="flex flex-wrap sm:flex-nowrap items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0">
+        <!-- Price Filter Pills -->
+        <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+          <span class="text-xs font-semibold text-on-surface-variant dark:text-stone-300 uppercase tracking-wider flex-shrink-0">Price:</span>
+          <button onclick="setPriceFilter('all')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] transition-all flex-shrink-0 shadow-sm" data-price-filter="all">All Prices</button>
+          <button onclick="setPriceFilter('under-10k')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface dark:text-stone-200 hover:bg-surface-container border border-outline-variant/30 dark:border-stone-700 transition-all flex-shrink-0" data-price-filter="under-10k">&lt; ₹10k</button>
+          <button onclick="setPriceFilter('10k-20k')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface dark:text-stone-200 hover:bg-surface-container border border-outline-variant/30 dark:border-stone-700 transition-all flex-shrink-0" data-price-filter="10k-20k">₹10k - ₹20k</button>
+          <button onclick="setPriceFilter('above-20k')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface dark:text-stone-200 hover:bg-surface-container border border-outline-variant/30 dark:border-stone-700 transition-all flex-shrink-0" data-price-filter="above-20k">&gt; ₹20k</button>
         </div>
+
+        <!-- Sort Select -->
         <div class="relative flex items-center shrink-0">
-          <span class="material-symbols-outlined absolute left-3 text-sm text-on-surface-variant pointer-events-none">sort</span>
-          <select class="bg-surface dark:bg-[#241e22] text-on-surface pl-9 pr-8 py-2 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer border border-outline-variant/30 font-medium tracking-wide appearance-none" id="sort-select">
+          <span class="material-symbols-outlined absolute left-3 text-sm text-on-surface-variant dark:text-stone-400 pointer-events-none">sort</span>
+          <select class="bg-surface dark:bg-[#241e22] text-on-surface dark:text-white pl-9 pr-8 py-2 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer border border-outline-variant/30 dark:border-stone-700 font-medium tracking-wide appearance-none" id="sort-select">
             <option value="featured">Newest Additions</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
             <option value="days">Days on Loom</option>
           </select>
-          <span class="material-symbols-outlined absolute right-2.5 text-xs text-on-surface-variant pointer-events-none">expand_more</span>
+          <span class="material-symbols-outlined absolute right-2.5 text-xs text-on-surface-variant dark:text-stone-400 pointer-events-none">expand_more</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Row 2: Live Search Input & Price Filter Pills -->
-    <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between pt-3 border-t border-outline-variant/20">
-      <div class="relative flex-1 max-w-lg">
-        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base sm:text-lg">search</span>
-        <input type="text" id="product-page-search" placeholder="Search by weave name, craft, artisan or fabric..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-outline-variant/40 bg-surface dark:bg-[#151412] text-on-surface focus:outline-none focus:border-primary text-xs sm:text-sm shadow-sm transition-all"/>
-      </div>
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
-        <span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider flex-shrink-0">Price:</span>
-        <button onclick="setPriceFilter('all')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] transition-all flex-shrink-0 shadow-sm" data-price-filter="all">All Prices</button>
-        <button onclick="setPriceFilter('under-10k')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-all flex-shrink-0" data-price-filter="under-10k">&lt; ₹10k</button>
-        <button onclick="setPriceFilter('10k-20k')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-all flex-shrink-0" data-price-filter="10k-20k">₹10k - ₹20k</button>
-        <button onclick="setPriceFilter('above-20k')" class="price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-all flex-shrink-0" data-price-filter="above-20k">&gt; ₹20k</button>
       </div>
     </div>
   </div>
@@ -909,7 +915,7 @@
           if (btn.dataset.priceFilter === range) {
             btn.className = 'price-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] transition-all flex-shrink-0 shadow-sm';
           } else {
-            btn.className = 'price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-all flex-shrink-0';
+            btn.className = 'price-pill px-3 py-1.5 rounded-xl text-xs font-medium bg-surface dark:bg-[#2a2926] text-on-surface dark:text-stone-200 hover:bg-surface-container border border-outline-variant/30 dark:border-stone-700 transition-all flex-shrink-0';
           }
         });
         renderProducts();
@@ -934,9 +940,9 @@
           const dataCat = btn.getAttribute('data-category') || '';
           const isActive = (dataCat === currentCategory);
           if (isActive) {
-            btn.className = 'filter-btn bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm tracking-wide flex items-center gap-1.5 shrink-0';
+            btn.className = 'filter-btn bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-sm tracking-wide flex items-center gap-1.5 shrink-0 whitespace-nowrap';
           } else {
-            btn.className = 'filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30';
+            btn.className = 'filter-btn bg-surface dark:bg-[#2a2926] text-on-surface-variant dark:text-stone-300 hover:bg-surface-container px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all tracking-wide flex items-center gap-1.5 shrink-0 border border-outline-variant/30 dark:border-stone-700 whitespace-nowrap';
           }
         });
       }

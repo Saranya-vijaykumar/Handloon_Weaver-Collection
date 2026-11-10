@@ -1044,3 +1044,20 @@ article img,
   }
 }
 
+/* =========================================================
+   Filter & Catalog Controls - Zero-Wrap Responsive Polish
+   ========================================================= */
+#category-filter-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+#category-filter-container::-webkit-scrollbar {
+  display: none;
+}
+#category-filter-container .filter-btn {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+
