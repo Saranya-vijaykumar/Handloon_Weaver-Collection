@@ -396,12 +396,12 @@ const HWC_PRODUCTS = [
     id: "prod-8",
     title: "Sapphire Royal Zari Dupatta",
     category: "silk",
-    fabric: "Gossamer Chanderi Silk-Cotton",
-    technique: "Ashavali Border Weave",
-    price: 9500,
-    priceFormatted: "₹9,500",
-    usdPrice: "$115",
-    badge: "Chanderi Silk",
+    fabric: "Pure Katan Silk Warp with Fine Metallic Gold Zari",
+    technique: "Varanasi Ashavali Zari Border Weave",
+    price: 14500,
+    priceFormatted: "₹14,500",
+    usdPrice: "$175",
+    badge: "Varanasi Silk",
     daysToWeave: 45,
     artisan: {
       id: "art-2",
@@ -416,13 +416,112 @@ const HWC_PRODUCTS = [
       "images/products/prod-8-main.jpg",
       "images/products/prod-8-detail.jpg"
     ],
-    description: "A translucent royal sapphire dupatta with shimmering gold bootis sprinkled across lightweight silk-cotton warp, finished with delicate scalloped gold fringes.",
+    description: "A translucent royal sapphire dupatta with shimmering gold bootis sprinkled across lightweight silk warp, finished with delicate scalloped gold fringes.",
     specs: {
       length: "2.5 meters",
       width: "36 inches",
-      weight: "190 grams",
-      certification: "Craftmark Certified",
+      weight: "220 grams",
+      certification: "GI Certified Varanasi Handloom",
       care: "Dry clean only."
+    }
+  },
+  {
+    id: "prod-rahim-kinkhab",
+    title: "Imperial Kinkhab Gold Tissue Saree",
+    category: "silk",
+    fabric: "Mulberry Silk & Electroplated Silver Zari",
+    technique: "Dense Kinkhab Brocade Pit Loom Weave",
+    price: 36500,
+    priceFormatted: "₹36,500",
+    usdPrice: "$445",
+    badge: "Varanasi Silk",
+    daysToWeave: 65,
+    artisan: {
+      id: "art-2",
+      name: "Ustad Rahim Ansari",
+      cluster: "Varanasi Cluster",
+      lineage: "Royal Zari & Brocade Master",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuBNaRkntKjLDi66O_29vUJcVUN6Wgc-WsXSjnwSF5eY0Z24fzSH_hD0HUe5ddbhySc3HJVbwYr70sNG6J--TKLIgVWB7HE4P59fVp1R8zVIuksuefyV-KQJkKlWCd4qhqAOKW5bxdBsUsX_rnXqJs-rTGTAxqOfrQvhqzYIa4mMhi7Lfsm3wuLp4iu9tjFu1XU0MxfI-4ZjdGdmxnQQ5eh_li-UeZXXGd3Lx_VFnj4",
+      bio: "Ustad Rahim Ansari is a revered 4th-generation master of Kinkhab heavy brocade in Varanasi. Working with pure silver-gilded zari and rich jewel mulberry silk.",
+      quote: "Every throw of the wooden shuttle is an act of devotion to our ancestors' patience."
+    },
+    images: [
+      "images/products/prod-1-main.jpg",
+      "images/products/prod-1-detail.jpg"
+    ],
+    description: "An imperial Banarasi Kinkhab masterpiece with full warp gold tissue inlay and intricate scrolling floral jaal inspired by historic royal wardrobes.",
+    specs: {
+      length: "5.5 meters saree + 0.8 meter blouse",
+      width: "45 inches",
+      weight: "860 grams",
+      certification: "GI Certified Varanasi Brocade",
+      care: "Dry clean only."
+    }
+  },
+  {
+    id: "prod-rahim-shikargah",
+    title: "Antique Shikargah Zari Brocade Saree",
+    category: "silk",
+    fabric: "100% Handspun Katan Silk with Antique Zari",
+    technique: "Shikargah Hunting Scene Kadwa Weave",
+    price: 42000,
+    priceFormatted: "₹42,000",
+    usdPrice: "$510",
+    badge: "Varanasi Silk",
+    daysToWeave: 90,
+    artisan: {
+      id: "art-2",
+      name: "Ustad Rahim Ansari",
+      cluster: "Varanasi Cluster",
+      lineage: "Royal Zari & Brocade Master",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuBNaRkntKjLDi66O_29vUJcVUN6Wgc-WsXSjnwSF5eY0Z24fzSH_hD0HUe5ddbhySc3HJVbwYr70sNG6J--TKLIgVWB7HE4P59fVp1R8zVIuksuefyV-KQJkKlWCd4qhqAOKW5bxdBsUsX_rnXqJs-rTGTAxqOfrQvhqzYIa4mMhi7Lfsm3wuLp4iu9tjFu1XU0MxfI-4ZjdGdmxnQQ5eh_li-UeZXXGd3Lx_VFnj4",
+      bio: "Ustad Rahim Ansari is a revered 4th-generation master of Kinkhab heavy brocade in Varanasi. Working with pure silver-gilded zari and rich jewel mulberry silk.",
+      quote: "Every throw of the wooden shuttle is an act of devotion to our ancestors' patience."
+    },
+    images: [
+      "images/products/prod-7-main.jpg",
+      "images/products/prod-7-detail.jpg"
+    ],
+    description: "Historic Shikargah iconography woven with pure gilded silver threads depicting flora and fauna of the sacred Gangetic forests.",
+    specs: {
+      length: "5.5 meters saree + 0.8 meter blouse",
+      width: "45 inches",
+      weight: "890 grams",
+      certification: "Silk Mark Registered & GI Certified",
+      care: "Dry clean only."
+    }
+  },
+  {
+    id: "prod-kantha-saree",
+    title: "Nakshi Kantha Handspun Indigo Saree",
+    category: "cotton",
+    fabric: "Handspun Khadi Cotton with Multi-Ply Silk Threads",
+    technique: "Ancestral Nakshi Kantha Running Stitch",
+    price: 18500,
+    priceFormatted: "₹18,500",
+    usdPrice: "$225",
+    badge: "Bengal Kantha",
+    daysToWeave: 60,
+    artisan: {
+      id: "art-3",
+      name: "Padmavati Devi",
+      cluster: "Bengal Cluster",
+      lineage: "Master of Kantha Embroidery",
+      photo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCjWGGruPse6kQKyUFj1a4CZqcvqmL1rtE9JRTjtvB3PPfVpcxJPtEc0XsRqt5gvLV7KVV6MITPvEp_QdU8UF6pAnb_PGJe065zW9YVsEvO1NPIjW6UFKSujVDGXB9n0jWD1dCDe29cBtbAaEsgAym6wRu2fWiBl2HXFRrXqKJxR34cvdEnJJjWpdjr3UEE6rLuIVQQu-x1FqgdrGvKNTjn3VWCg-fVZrT66c6KsEU",
+      bio: "Padmavati Devi leads an all-women artisan cooperative in rural Bengal. She transforms handspun khadi cotton saris with layered multicoloured Kantha embroidery.",
+      quote: "Our needlework carries the stories of Bengal's rivers, monsoon clouds, and rural village songs."
+    },
+    images: [
+      "images/products/prod-4-main.jpg",
+      "images/products/prod-4-detail.jpg"
+    ],
+    description: "Intricately embroidered handspun indigo cotton saree layered with thousands of fine running stitches depicting rural Bengal village folklore and floral creepers.",
+    specs: {
+      length: "5.5 meters saree + 0.8 meter blouse",
+      width: "44 inches",
+      weight: "520 grams",
+      certification: "Fair Trade Certified Bengal Handloom",
+      care: "Gentle cold hand wash with mild detergent."
     }
   },
   {

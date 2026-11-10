@@ -400,17 +400,17 @@
   </section>
 
   <!-- Woven Masterpieces Section -->
-  <section id="artisan-masterpieces-section" class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-outline-variant/20">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+  <section id="artisan-masterpieces-section" class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-outline-variant/20 dark:border-stone-800">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
       <div>
-        <span class="text-xs text-primary uppercase font-bold tracking-widest flex items-center gap-1">
+        <span class="text-xs text-primary dark:text-[#fed65b] uppercase font-bold tracking-widest flex items-center gap-1">
           <span class="material-symbols-outlined text-xs">grade</span> Living Atelier
         </span>
-        <h2 class="font-headline-lg text-on-surface text-3xl sm:text-4xl font-normal mt-1" id="masterpieces-heading">
+        <h2 class="font-headline-lg text-on-surface dark:text-[#f3efe9] text-3xl sm:text-4xl font-normal mt-1" id="masterpieces-heading">
           Masterpieces Woven by Pandit Ramkishan
         </h2>
       </div>
-      <p class="text-on-surface-variant text-sm font-serif italic max-w-md">
+      <p class="text-on-surface-variant dark:text-stone-300 text-sm font-serif italic max-w-md">
         Every thread is handspun, dyed with natural vats, and woven one pass at a time. Each acquisition directly enriches the weaver's family.
       </p>
     </div>
@@ -864,38 +864,53 @@
         return p.artisan.id === artisan.id || p.artisan.name.toLowerCase().includes(artisan.name.toLowerCase().split(' ')[0]);
       });
 
-      // If less than 2, supplement with other heirloom products
-      if (artisanProducts.length === 0) {
-        artisanProducts = window.HWC_PRODUCTS.slice(0, 3);
+      // Ensure the 3-column grid is always fully populated with 3 curated masterpieces
+      if (artisanProducts.length < 3) {
+        // Supplement with pieces from the same cluster/craft
+        const clusterProducts = window.HWC_PRODUCTS.filter(p => 
+          !artisanProducts.some(ap => ap.id === p.id) &&
+          ((p.artisan && p.artisan.cluster === artisan.cluster) || 
+           (p.badge && artisan.craft && artisan.craft.toLowerCase().includes(p.badge.toLowerCase().split(' ')[0])) ||
+           (p.category === 'silk'))
+        );
+        artisanProducts.push(...clusterProducts);
+
+        // If still fewer than 3, supplement from the broader master collective
+        if (artisanProducts.length < 3) {
+          const others = window.HWC_PRODUCTS.filter(p => !artisanProducts.some(ap => ap.id === p.id));
+          artisanProducts.push(...others);
+        }
+
+        artisanProducts = artisanProducts.slice(0, 3);
       }
 
       productsGrid.innerHTML = artisanProducts.map(p => `
-        <div class="product-card group flex flex-col bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-xl transition-all duration-300">
-          <div class="relative aspect-[4/5] overflow-hidden bg-surface-container">
-            <a href="product-detail.html?id=${p.id}">
+        <div class="product-card group flex flex-col bg-surface-container-low dark:bg-[#1b1c1a] rounded-2xl overflow-hidden border border-outline-variant/30 dark:border-stone-800 shadow-sm hover:shadow-xl transition-all duration-300">
+          <div class="relative aspect-[4/5] overflow-hidden bg-surface-container dark:bg-[#252422]">
+            <a href="product-detail.html?id=${p.id}" class="block w-full h-full">
               <img src="${p.images[0]}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
             </a>
-            <span class="absolute top-3 left-3 px-3 py-1 bg-surface/90 backdrop-blur-md rounded-full text-[11px] font-bold text-primary uppercase tracking-wider">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-surface/90 dark:bg-[#151412]/90 backdrop-blur-md rounded-full text-[11px] font-bold text-primary dark:text-[#fed65b] uppercase tracking-wider">
               ${p.badge}
             </span>
-            <span class="absolute top-3 right-3 px-2.5 py-1 bg-surface/90 backdrop-blur-md rounded-full text-[11px] font-medium text-on-surface flex items-center gap-1">
+            <span class="absolute top-3 right-3 px-2.5 py-1 bg-surface/90 dark:bg-[#151412]/90 backdrop-blur-md rounded-full text-[11px] font-medium text-on-surface dark:text-stone-200 flex items-center gap-1">
               <span class="material-symbols-outlined text-xs">schedule</span> ${p.daysToWeave} Days
             </span>
           </div>
           <div class="p-5 flex flex-col flex-1 justify-between space-y-4">
             <div class="space-y-1.5">
-              <span class="text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">${p.technique}</span>
-              <h3 class="font-headline-sm text-on-surface text-xl font-bold line-clamp-1">
-                <a href="product-detail.html?id=${p.id}" class="hover:text-primary transition-colors">${p.title}</a>
+              <span class="text-[11px] text-on-surface-variant dark:text-stone-400 uppercase tracking-widest font-semibold">${p.technique}</span>
+              <h3 class="font-headline-sm text-on-surface dark:text-[#f3efe9] text-xl font-bold line-clamp-1">
+                <a href="product-detail.html?id=${p.id}" class="hover:text-primary dark:hover:text-[#fed65b] transition-colors">${p.title}</a>
               </h3>
-              <p class="font-serif text-sm text-on-surface-variant line-clamp-2">${p.description}</p>
+              <p class="font-serif text-sm text-on-surface-variant dark:text-stone-300 line-clamp-2">${p.description}</p>
             </div>
-            <div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+            <div class="pt-3 border-t border-outline-variant/20 dark:border-stone-800 flex items-center justify-between">
               <div>
-                <span class="font-headline-md text-primary font-bold text-xl">${p.priceFormatted}</span>
-                <span class="text-xs text-on-surface-variant font-serif italic ml-1">/ ${p.usdPrice} USD</span>
+                <span class="font-headline-md text-primary dark:text-[#fed65b] font-bold text-xl">${p.priceFormatted}</span>
+                <span class="text-xs text-on-surface-variant dark:text-stone-400 font-serif italic ml-1">/ ${p.usdPrice} USD</span>
               </div>
-              <a href="product-detail.html?id=${p.id}" class="px-4 py-2 bg-primary text-on-primary rounded-xl text-xs font-semibold hover:opacity-90 transition-all flex items-center gap-1">
+              <a href="product-detail.html?id=${p.id}" class="px-4 py-2 bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] rounded-xl text-xs font-semibold hover:opacity-90 transition-all flex items-center gap-1 shadow-sm">
                 <span>View Details</span>
                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
               </a>
@@ -910,30 +925,30 @@
     if (otherGrid && window.HWC_ARTISANS) {
       const others = window.HWC_ARTISANS.filter(a => a.id !== artisan.id).slice(0, 3);
       otherGrid.innerHTML = others.map(a => `
-        <div class="group flex flex-col bg-surface rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm hover:shadow-lg transition-all duration-300">
-          <div class="relative aspect-[4/3] overflow-hidden bg-surface-container">
-            <a href="artisan-detail.html?id=${a.id}">
+        <div class="group flex flex-col bg-surface dark:bg-[#1b1c1a] rounded-2xl overflow-hidden border border-outline-variant/30 dark:border-stone-800 shadow-sm hover:shadow-lg transition-all duration-300">
+          <div class="relative aspect-[4/3] overflow-hidden bg-surface-container dark:bg-[#252422]">
+            <a href="artisan-detail.html?id=${a.id}" class="block w-full h-full">
               <img src="${a.img}" alt="${a.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
             </a>
-            <span class="absolute top-3 left-3 px-3 py-1 bg-surface/90 backdrop-blur-md rounded-full text-xs font-bold text-primary uppercase tracking-wider">
+            <span class="absolute top-3 left-3 px-3 py-1 bg-surface/90 dark:bg-[#151412]/90 backdrop-blur-md rounded-full text-xs font-bold text-primary dark:text-[#fed65b] uppercase tracking-wider">
               ${a.cluster}
             </span>
           </div>
           <div class="p-5 flex flex-col flex-1 justify-between space-y-3">
             <div>
-              <h3 class="font-headline-sm text-on-surface text-xl font-bold flex items-center justify-between">
-                <a href="artisan-detail.html?id=${a.id}" class="hover:text-primary transition-colors">${a.name}</a>
-                <span class="material-symbols-outlined text-primary text-base">verified</span>
+              <h3 class="font-headline-sm text-on-surface dark:text-[#f3efe9] text-xl font-bold flex items-center justify-between">
+                <a href="artisan-detail.html?id=${a.id}" class="hover:text-primary dark:hover:text-[#fed65b] transition-colors">${a.name}</a>
+                <span class="material-symbols-outlined text-primary dark:text-[#fed65b] text-base">verified</span>
               </h3>
-              <p class="text-xs text-on-surface-variant font-medium">${a.experience} • ${a.craft}</p>
-              <p class="font-serif text-sm text-stone-600 dark:text-stone-400 mt-2 line-clamp-2">${a.bio}</p>
+              <p class="text-xs text-on-surface-variant dark:text-stone-400 font-medium">${a.experience} • ${a.craft}</p>
+              <p class="font-serif text-sm text-stone-600 dark:text-stone-300 mt-2 line-clamp-2">${a.bio}</p>
             </div>
-            <div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
-              <a href="artisan-detail.html?id=${a.id}" class="text-xs font-bold text-primary hover:underline flex items-center gap-1">
+            <div class="pt-3 border-t border-outline-variant/20 dark:border-stone-800 flex items-center justify-between">
+              <a href="artisan-detail.html?id=${a.id}" class="text-xs font-bold text-primary dark:text-[#fed65b] hover:underline flex items-center gap-1">
                 <span>View Full Profile</span>
                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
               </a>
-              <span class="text-xs text-on-surface-variant italic font-serif">100% Handwoven</span>
+              <span class="text-xs text-on-surface-variant dark:text-stone-400 italic font-serif">100% Handwoven</span>
             </div>
           </div>
         </div>
