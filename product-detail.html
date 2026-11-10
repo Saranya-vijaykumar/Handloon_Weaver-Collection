@@ -278,8 +278,8 @@
 <!-- Main Display -->
 <div class="flex-1 rounded-2xl overflow-hidden bg-surface-container-high relative group aspect-[4/5] shadow-xl">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Mayur-Bahar Gold Brocade Saree by Handloom Weavers Collective, showing rich royal maroon mulberry silk interwoven with genuine antique gold zari metallic threads in exquisite detail." id="main-product-img" src="images/products/prod-1-main.jpg"/>
-<div class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-label-sm text-on-surface flex items-center gap-2 shadow-sm tracking-wide">
-<span class="material-symbols-outlined text-sm">zoom_in</span> Hover to zoom
+<div class="product-image-badge-primary absolute bottom-4 right-4 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg tracking-wide z-10 pointer-events-none">
+<span class="material-symbols-outlined text-base">zoom_in</span> Hover to zoom
         </div>
 </div>
 </div>
@@ -321,8 +321,8 @@
 <button class="flex-1 bg-primary text-on-primary py-4 px-space-md rounded-xl text-label-md uppercase tracking-widest font-bold hover:opacity-90 transition-all shadow-md flex items-center justify-center gap-2" id="main-add-to-cart">
 <span class="material-symbols-outlined">shopping_bag</span> Add to Cart
         </button>
-<button class="w-14 h-14 border border-outline-variant/50 rounded-xl flex items-center justify-center hover:border-primary text-on-surface hover:text-primary transition-all bg-surface-container-low" id="wishlist-btn">
-<span class="material-symbols-outlined">favorite</span>
+<button class="w-14 h-14 border border-outline-variant/50 rounded-xl flex items-center justify-center hover:border-primary text-on-surface hover:text-primary transition-all bg-surface-container-low cursor-pointer active:scale-95 shadow-sm" id="wishlist-btn" title="Save to Heirloom Wishlist" aria-label="Save to Heirloom Wishlist">
+<span class="material-symbols-outlined text-2xl transition-transform duration-200">favorite</span>
 </button>
 </div>
 <!-- Artisan & Craftsmanship Guarantee -->
@@ -490,7 +490,7 @@
 <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/20 flex flex-col group" data-category="cotton">
 <a href="product-detail.html?id=prod-2" class="block h-72 overflow-hidden relative cursor-pointer group/img" title="View details">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Meghdoot Handspun Jamdani" src="images/products/prod-2-main.jpg"/>
-<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm text-on-surface px-3 py-1 rounded-full text-xs font-semibold tracking-wider">Bengal Cluster</span>
+<span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold tracking-wider">Bengal Cluster</span>
 </a>
 <div class="p-space-md flex flex-col flex-1 justify-between">
 <div>
@@ -508,7 +508,7 @@
 <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/20 flex flex-col group" data-category="wool">
 <a href="product-detail.html?id=prod-3" class="block h-72 overflow-hidden relative cursor-pointer group/img" title="View details">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Chinar Leaf Hand-Embroidered Pashmina" src="images/products/prod-3-main.jpg"/>
-<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm text-on-surface px-3 py-1 rounded-full text-xs font-semibold tracking-wider">Kashmir Cluster</span>
+<span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold tracking-wider">Kashmir Cluster</span>
 </a>
 <div class="p-space-md flex flex-col flex-1 justify-between">
 <div>
@@ -526,7 +526,7 @@
 <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/20 flex flex-col group" data-category="cotton">
 <a href="product-detail.html?id=prod-4" class="block h-72 overflow-hidden relative cursor-pointer group/img" title="View details">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Kala Cotton Indigo Tunic" src="images/products/prod-4-main.jpg"/>
-<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm text-on-surface px-3 py-1 rounded-full text-xs font-semibold tracking-wider">Kutch Cluster</span>
+<span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold tracking-wider">Kutch Cluster</span>
 </a>
 <div class="p-space-md flex flex-col flex-1 justify-between">
 <div>
@@ -852,6 +852,52 @@
         };
       }
 
+      // Wishlist Button Interactive Wiring
+      const wishlistBtn = document.getElementById('wishlist-btn');
+      const wishlistIcon = wishlistBtn ? wishlistBtn.querySelector('.material-symbols-outlined') : null;
+
+      function updateWishlistButtonUI(isFav) {
+        if (!wishlistBtn || !wishlistIcon) return;
+        if (isFav) {
+          wishlistBtn.className = 'w-14 h-14 border-2 border-red-500/70 dark:border-red-400/80 rounded-xl flex items-center justify-center text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 shadow-md transition-all cursor-pointer active:scale-95';
+          wishlistIcon.style.fontVariationSettings = "'FILL' 1";
+          wishlistBtn.title = 'Remove from Heirloom Wishlist';
+          wishlistBtn.setAttribute('aria-label', 'Remove from Heirloom Wishlist');
+        } else {
+          wishlistBtn.className = 'w-14 h-14 border border-outline-variant/50 rounded-xl flex items-center justify-center hover:border-primary text-on-surface hover:text-primary transition-all bg-surface-container-low cursor-pointer shadow-sm active:scale-95';
+          wishlistIcon.style.fontVariationSettings = "'FILL' 0";
+          wishlistBtn.title = 'Save to Heirloom Wishlist';
+          wishlistBtn.setAttribute('aria-label', 'Save to Heirloom Wishlist');
+        }
+      }
+
+      if (wishlistBtn && product) {
+        const isFav = window.HWC_Wishlist ? window.HWC_Wishlist.has(product.id) : false;
+        updateWishlistButtonUI(isFav);
+
+        wishlistBtn.onclick = (e) => {
+          e.preventDefault();
+          if (window.HWC_Wishlist) {
+            const nowFav = window.HWC_Wishlist.toggle({
+              id: product.id,
+              title: product.title,
+              price: product.price,
+              priceFormatted: product.priceFormatted,
+              imgSrc: product.images ? product.images[0] : '',
+              cluster: product.badge
+            });
+            updateWishlistButtonUI(nowFav);
+
+            if (wishlistIcon) {
+              wishlistIcon.style.transform = 'scale(1.35)';
+              setTimeout(() => {
+                wishlistIcon.style.transform = 'scale(1)';
+              }, 220);
+            }
+          }
+        };
+      }
+
       // Color Swatches Selection
       const colorSwatches = document.querySelectorAll('.color-swatch');
       const colorLabel = document.getElementById('selected-color-name');
@@ -892,7 +938,7 @@
           <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/20 flex flex-col group cursor-pointer" data-category="${p.category}" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=${p.id}'">
             <a href="product-detail.html?id=${p.id}" class="block h-72 overflow-hidden relative cursor-pointer group/img" title="View ${p.title}">
               <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${p.title}" src="${p.images[0]}"/>
-              <span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm text-on-surface px-3 py-1 rounded-full text-xs font-semibold tracking-wider pointer-events-none">${p.badge}</span>
+              <span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold tracking-wider pointer-events-none">${p.badge}</span>
             </a>
             <div class="p-space-md flex flex-col flex-1 justify-between">
               <div>

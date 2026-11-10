@@ -1123,57 +1123,72 @@ html.dark .badge-pill-secondary .material-symbols-outlined {
   color: #fed65b !important;
 }
 
-/* Fallback catch-all for any absolute top-3 badges over photos */
-html.dark [class*="absolute top-3 left-3"][class*="rounded-full"],
-html.dark .artisan-card [class*="absolute top-3 left-3"],
-html.dark .product-card [class*="absolute top-3 left-3"] {
-  background-color: rgba(22, 18, 20, 0.95) !important;
-  color: #fed65b !important;
-  border: 1px solid rgba(254, 214, 91, 0.35) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+/* =========================================================
+   Universal Fallback for ALL Image Overlay Badges & Pills
+   Ensures badges, Hover-to-Zoom indicators, Quick View,
+   and action buttons over images NEVER have washed-out colors!
+   ========================================================= */
+
+/* Light Mode: Crisp White Pill with Bold Deep Maroon / Charcoal */
+html:not(.dark) [class*="absolute"][class*="bottom-"][class*="rounded-"]:not([id*="close-"]):not([class*="p-4"]),
+html:not(.dark) [class*="absolute"][class*="top-"][class*="rounded-"]:not([id*="close-"]),
+html:not(.dark) .zoom-card [class*="absolute"][class*="top-3"],
+html:not(.dark) .zoom-card [class*="absolute"][class*="bottom-3"],
+html:not(.dark) [class*="aspect-"] [class*="absolute"][class*="top-3"],
+html:not(.dark) [class*="aspect-"] [class*="absolute"][class*="bottom-3"],
+html:not(.dark) [class*="aspect-"] [class*="absolute"][class*="bottom-4"],
+html:not(.dark) [class*="Hover to zoom"] {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  color: #3b0d1a !important;
+  border: 1px solid rgba(74, 21, 37, 0.22) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
+  font-weight: 700 !important;
 }
-html.dark [class*="absolute top-3 left-3"][class*="rounded-full"] .material-symbols-outlined,
-html.dark .artisan-card [class*="absolute top-3 left-3"] .material-symbols-outlined,
-html.dark .product-card [class*="absolute top-3 left-3"] .material-symbols-outlined {
+
+html:not(.dark) [class*="absolute"][class*="bottom-"][class*="rounded-"]:not([id*="close-"]):not([class*="p-4"]) .material-symbols-outlined,
+html:not(.dark) [class*="absolute"][class*="top-"][class*="rounded-"]:not([id*="close-"]) .material-symbols-outlined,
+html:not(.dark) .zoom-card [class*="absolute"] .material-symbols-outlined,
+html:not(.dark) [class*="aspect-"] [class*="absolute"] .material-symbols-outlined {
+  color: #3b0d1a !important;
+}
+
+/* Dark Mode: Deep Obsidian Pill with Luminous Gold Text & Icon (AAA Contrast) */
+html.dark [class*="absolute"][class*="bottom-"][class*="rounded-"]:not([id*="close-"]):not([class*="p-4"]),
+html.dark [class*="absolute"][class*="top-"][class*="rounded-"]:not([id*="close-"]),
+html.dark .zoom-card [class*="absolute"][class*="top-3"],
+html.dark .zoom-card [class*="absolute"][class*="bottom-3"],
+html.dark [class*="aspect-"] [class*="absolute"][class*="top-3"],
+html.dark [class*="aspect-"] [class*="absolute"][class*="bottom-3"],
+html.dark [class*="aspect-"] [class*="absolute"][class*="bottom-4"],
+html.dark [class*="Hover to zoom"] {
+  background-color: rgba(20, 16, 18, 0.96) !important;
+  color: #fed65b !important;
+  border: 1px solid rgba(254, 214, 91, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+  font-weight: 700 !important;
+}
+
+html.dark [class*="absolute"][class*="bottom-"][class*="rounded-"]:not([id*="close-"]):not([class*="p-4"]) .material-symbols-outlined,
+html.dark [class*="absolute"][class*="top-"][class*="rounded-"]:not([id*="close-"]) .material-symbols-outlined,
+html.dark .zoom-card [class*="absolute"] .material-symbols-outlined,
+html.dark [class*="aspect-"] [class*="absolute"] .material-symbols-outlined {
   color: #fed65b !important;
 }
 
-html.dark [class*="absolute top-3 right-3"][class*="rounded-full"],
-html.dark .product-card [class*="absolute top-3 right-3"] {
-  background-color: rgba(22, 18, 20, 0.95) !important;
-  color: #f3efe9 !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+/* Interactive Overlay Buttons Hover States */
+.add-to-cart-btn:hover {
+  background-color: #4a1525 !important;
+  color: #ffffff !important;
 }
-html.dark [class*="absolute top-3 right-3"][class*="rounded-full"] .material-symbols-outlined,
-html.dark .product-card [class*="absolute top-3 right-3"] .material-symbols-outlined {
-  color: #fed65b !important;
+.add-to-cart-btn:hover .material-symbols-outlined {
+  color: #ffffff !important;
 }
-
-html:not(.dark) [class*="absolute top-3 left-3"][class*="rounded-full"],
-html:not(.dark) .artisan-card [class*="absolute top-3 left-3"],
-html:not(.dark) .product-card [class*="absolute top-3 left-3"] {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  color: #4a1525 !important;
-  border: 1px solid rgba(74, 21, 37, 0.2) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+html.dark .add-to-cart-btn:hover {
+  background-color: #fed65b !important;
+  color: #241a00 !important;
 }
-html:not(.dark) [class*="absolute top-3 left-3"][class*="rounded-full"] .material-symbols-outlined,
-html:not(.dark) .artisan-card [class*="absolute top-3 left-3"] .material-symbols-outlined,
-html:not(.dark) .product-card [class*="absolute top-3 left-3"] .material-symbols-outlined {
-  color: #4a1525 !important;
-}
-
-html:not(.dark) [class*="absolute top-3 right-3"][class*="rounded-full"],
-html:not(.dark) .product-card [class*="absolute top-3 right-3"] {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  color: #1b1c1a !important;
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
-}
-html:not(.dark) [class*="absolute top-3 right-3"][class*="rounded-full"] .material-symbols-outlined,
-html:not(.dark) .product-card [class*="absolute top-3 right-3"] .material-symbols-outlined {
-  color: #8c4a5a !important;
+html.dark .add-to-cart-btn:hover .material-symbols-outlined {
+  color: #241a00 !important;
 }
 
 

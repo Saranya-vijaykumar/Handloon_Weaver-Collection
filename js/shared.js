@@ -1280,7 +1280,66 @@ const HWC_Shared = (function() {
   };
 })();
 
+// =========================================================
+// Universal Heirloom Wishlist Manager
+// =========================================================
+const HWC_Wishlist = (function() {
+  const STORAGE_KEY = 'hwc_wishlist_items';
+
+  function getItems() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function has(productId) {
+    const items = getItems();
+    return items.some(item => (typeof item === 'string' ? item === productId : item.id === productId));
+  }
+
+  function toggle(product) {
+    let items = getItems();
+    const productId = typeof product === 'string' ? product : product.id;
+    const exists = has(productId);
+
+    if (exists) {
+      items = items.filter(item => (typeof item === 'string' ? item !== productId : item.id !== productId));
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
+      if (window.HWC_Shared && window.HWC_Shared.showToast) {
+        window.HWC_Shared.showToast('Removed piece from your Heirloom Wishlist', 'favorite_border');
+      }
+      dispatchChangeEvent();
+      return false; // removed
+    } else {
+      const productObj = typeof product === 'object' ? product : { id: productId, title: 'Handcrafted Piece' };
+      items.push(productObj);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
+      if (window.HWC_Shared && window.HWC_Shared.showToast) {
+        window.HWC_Shared.showToast(`Saved "${productObj.title || 'Piece'}" to your Wishlist!`, 'favorite');
+      }
+      dispatchChangeEvent();
+      return true; // added
+    }
+  }
+
+  function dispatchChangeEvent() {
+    try {
+      window.dispatchEvent(new CustomEvent('hwc:wishlist-updated', { detail: { items: getItems() } }));
+    } catch(e) {}
+  }
+
+  return {
+    getItems,
+    has,
+    toggle
+  };
+})();
+
 window.HWC_Shared = HWC_Shared;
+window.HWC_Wishlist = HWC_Wishlist;
 window.openPolicyModal = HWC_Shared.openPolicyModal;
 window.openVideoModal = HWC_Shared.openVideoModal;
 window.closeVideoModal = HWC_Shared.closeVideoModal;
