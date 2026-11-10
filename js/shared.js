@@ -1100,6 +1100,150 @@ const HWC_Shared = (function() {
     observer.observe(metricRibbon);
   }
 
+  // 14. Universal Artisan Video Documentary Modal
+  function createOrGetVideoModal() {
+    let modal = document.getElementById('video-lightbox');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'video-lightbox';
+      modal.className = 'fixed inset-0 z-[150] flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-md hidden transition-opacity duration-300';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', 'video-modal-title');
+      modal.innerHTML = `
+        <div class="relative w-full max-w-4xl bg-surface dark:bg-[#1b1c1a] rounded-3xl overflow-hidden shadow-2xl border border-outline-variant/30 flex flex-col">
+          <button class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center shadow-lg transition-all cursor-pointer focus:outline-none" id="close-video-lightbox" onclick="closeVideoModal()" aria-label="Close video">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+          <div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
+            <video id="documentary-video" class="w-full h-full object-cover" controls playsinline preload="auto" poster="https://lh3.googleusercontent.com/aida-public/AB6AXuBt8fluQOM8l_DMrh3WZ8S4Zt40V915Nqe-mWlqo_HPX0OQattif6jy5q8Tn_i08mzeV63N3ODaQhgVeRk-bgii7PPeNXk_mVgz9qEkn43E8rIcOLsORFqBknHygO2JUbg6vTLJ2lAhqsoCQIHozHVynL3OLDLEsuVmdudvs6xU3gVsUnrPuvcCzVbdUzVOGiSAe4LzP4sEAeuYJTbExYu2dKTh52BIcFuRQ3aVGMc">
+              <source src="videos/artisan-film.mp4" type="video/mp4">
+              <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+              <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <!-- Overlay Play Button if autoplay was blocked -->
+            <button id="video-play-overlay-btn" onclick="playDocumentary()" class="absolute inset-0 m-auto w-20 h-20 rounded-full bg-primary/90 hover:bg-primary text-[#fed65b] flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 cursor-pointer pointer-events-auto z-20" aria-label="Play documentary">
+              <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+            </button>
+          </div>
+          <div class="p-6 md:p-8 bg-surface dark:bg-[#1b1c1a] space-y-2">
+            <span class="text-xs text-primary dark:text-[#fed65b] font-bold uppercase tracking-widest flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs">location_on</span> Varanasi &amp; Chanderi Loom Workshops • Living Heritage Film
+            </span>
+            <h3 id="video-modal-title" class="font-headline text-stone-900 dark:text-stone-100 text-xl sm:text-2xl font-bold">The Rhythm of the Shuttle &amp; The Soul of the Loom</h3>
+            <p class="font-body text-stone-700 dark:text-stone-300 text-xs sm:text-sm leading-relaxed">Witness the meditative rhythm and timeless grace of master weavers bringing sacred heritage textiles to life through slow artisanal craft, pure mulberry silk, and hand-spun gold zari.</p>
+            <div class="flex items-center gap-3 pt-2 text-xs text-on-surface-variant dark:text-stone-400">
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary dark:text-[#fed65b]">hd</span> 1080p Ultra HD</span>
+              <span>•</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary dark:text-[#fed65b]">timer</span> Documentary Short</span>
+              <span>•</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary dark:text-[#fed65b]">verified</span> National Award Guild Lineage</span>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeVideoModal();
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeVideoModal();
+        }
+      });
+    }
+    return modal;
+  }
+
+  function playDocumentary() {
+    const video = document.getElementById('documentary-video');
+    const overlay = document.getElementById('video-play-overlay-btn');
+    if (video) {
+      video.play().then(() => {
+        if (overlay) overlay.classList.add('hidden');
+      }).catch(err => {
+        console.warn('Playback error, trying unmuted fallback:', err);
+        video.muted = true;
+        video.play().then(() => {
+          if (overlay) overlay.classList.add('hidden');
+        }).catch(() => {});
+      });
+    }
+  }
+
+  function openVideoModal() {
+    const modal = createOrGetVideoModal();
+    const video = document.getElementById('documentary-video') || (modal ? modal.querySelector('video') : null);
+    const overlay = document.getElementById('video-play-overlay-btn') || (modal ? modal.querySelector('#video-play-overlay-btn') : null);
+
+    if (modal) {
+      modal.classList.remove('hidden');
+      if (overlay) overlay.classList.remove('hidden');
+
+      if (video) {
+        if (!video.querySelector('source')) {
+          video.innerHTML = `
+            <source src="videos/artisan-film.mp4" type="video/mp4">
+            <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+            <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+          `;
+          video.load();
+        } else {
+          const firstSource = video.querySelector('source');
+          if (firstSource && firstSource.src.includes('WeAreGoingOnBullrun')) {
+            firstSource.src = 'videos/artisan-film.mp4';
+            video.load();
+          }
+        }
+
+        video.currentTime = 0;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            if (overlay) overlay.classList.add('hidden');
+          }).catch(() => {
+            if (overlay) overlay.classList.remove('hidden');
+          });
+        }
+      }
+    }
+  }
+
+  function closeVideoModal() {
+    const modal = document.getElementById('video-lightbox');
+    const video = document.getElementById('documentary-video') || (modal ? modal.querySelector('video') : null);
+    const overlay = document.getElementById('video-play-overlay-btn') || (modal ? modal.querySelector('#video-play-overlay-btn') : null);
+
+    if (modal) {
+      modal.classList.add('hidden');
+      if (video) video.pause();
+      if (overlay) overlay.classList.remove('hidden');
+    }
+  }
+
+  function setupVideoTriggers() {
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('button, a, div');
+      if (btn) {
+        const text = btn.textContent.trim().toLowerCase();
+        if (text.includes('watch artisan film') || btn.hasAttribute('data-video-modal')) {
+          e.preventDefault();
+          openVideoModal();
+        }
+      }
+    });
+
+    const video = document.getElementById('documentary-video');
+    const overlay = document.getElementById('video-play-overlay-btn');
+    if (video) {
+      video.addEventListener('play', () => { if (overlay) overlay.classList.add('hidden'); });
+      video.addEventListener('pause', () => { if (overlay) overlay.classList.remove('hidden'); });
+      video.addEventListener('ended', () => { if (overlay) overlay.classList.remove('hidden'); });
+    }
+  }
+
   function init() {
     highlightActiveNav();
     setupThemeToggle();
@@ -1115,6 +1259,7 @@ const HWC_Shared = (function() {
     setupAmbientZariCanvas();
     setupScrollAnimations();
     setupMetricCounters();
+    setupVideoTriggers();
   }
 
   if (document.readyState === 'loading') {
@@ -1128,10 +1273,17 @@ const HWC_Shared = (function() {
     openSearch,
     setSearchQuery,
     highlightActiveNav,
-    openPolicyModal
+    openPolicyModal,
+    openVideoModal,
+    closeVideoModal,
+    playDocumentary
   };
 })();
 
 window.HWC_Shared = HWC_Shared;
 window.openPolicyModal = HWC_Shared.openPolicyModal;
+window.openVideoModal = HWC_Shared.openVideoModal;
+window.closeVideoModal = HWC_Shared.closeVideoModal;
+window.playDocumentary = HWC_Shared.playDocumentary;
+
 

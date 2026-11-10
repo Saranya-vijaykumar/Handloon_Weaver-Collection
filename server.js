@@ -16,6 +16,11 @@ const MIME_TYPES = {
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.mp4': 'video/mp4',
+  '.webm': 'video/webm',
+  '.ogv': 'video/ogg',
+  '.mp3': 'audio/mpeg',
+  '.wav': 'audio/wav',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.ttf': 'font/ttf',
@@ -88,9 +93,31 @@ const server = http.createServer((req, res) => {
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    const fileSize = stats.size;
+    const range = req.headers.range;
+
+    // HTTP 206 Partial Content for video/audio streaming and scrubbing
+    if (range && (ext === '.mp4' || ext === '.webm' || ext === '.ogv' || ext === '.mp3')) {
+      const parts = range.replace(/bytes=/, '').split('-');
+      const start = parseInt(parts[0], 10);
+      const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+      const chunkSize = (end - start) + 1;
+      const fileStream = fs.createReadStream(filePath, { start, end });
+
+      res.writeHead(206, {
+        'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+        'Accept-Ranges': 'bytes',
+        'Content-Length': chunkSize,
+        'Content-Type': contentType,
+      });
+      fileStream.pipe(res);
+      return;
+    }
 
     res.writeHead(200, {
       'Content-Type': contentType,
+      'Content-Length': fileSize,
+      'Accept-Ranges': 'bytes',
       'Cache-Control': 'no-cache, no-store, must-revalidate'
     });
 

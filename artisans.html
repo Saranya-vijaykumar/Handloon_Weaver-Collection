@@ -580,20 +580,36 @@
 </div></main>
 
   <!-- Video Lightbox Modal -->
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-md hidden" id="video-lightbox">
+  <div class="fixed inset-0 z-[150] flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-md hidden transition-opacity duration-300" id="video-lightbox" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
     <div class="relative w-full max-w-4xl bg-surface dark:bg-[#1b1c1a] rounded-3xl overflow-hidden shadow-2xl border border-outline-variant/30 flex flex-col">
-      <button class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-surface/80 dark:bg-[#2a2926]/80 hover:bg-surface dark:hover:bg-[#2a2926] text-stone-900 dark:text-stone-100 flex items-center justify-center shadow-md transition-all" id="close-video-lightbox" onclick="closeVideoModal()">
-        <span class="material-symbols-outlined">close</span>
+      <button class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center shadow-lg transition-all cursor-pointer focus:outline-none" id="close-video-lightbox" onclick="closeVideoModal()" aria-label="Close video">
+        <span class="material-symbols-outlined text-xl">close</span>
       </button>
-      <div class="relative w-full aspect-video bg-black flex items-center justify-center">
-        <video id="documentary-video" class="w-full h-full object-cover" controls src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"></video>
+      <div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
+        <video id="documentary-video" class="w-full h-full object-cover" controls playsinline preload="auto" poster="https://lh3.googleusercontent.com/aida-public/AB6AXuBt8fluQOM8l_DMrh3WZ8S4Zt40V915Nqe-mWlqo_HPX0OQattif6jy5q8Tn_i08mzeV63N3ODaQhgVeRk-bgii7PPeNXk_mVgz9qEkn43E8rIcOLsORFqBknHygO2JUbg6vTLJ2lAhqsoCQIHozHVynL3OLDLEsuVmdudvs6xU3gVsUnrPuvcCzVbdUzVOGiSAe4LzP4sEAeuYJTbExYu2dKTh52BIcFuRQ3aVGMc">
+          <source src="videos/artisan-film.mp4" type="video/mp4">
+          <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+          <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <!-- Overlay Play Button if autoplay was blocked -->
+        <button id="video-play-overlay-btn" onclick="playDocumentary()" class="absolute inset-0 m-auto w-20 h-20 rounded-full bg-primary/90 hover:bg-primary text-[#fed65b] flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 cursor-pointer pointer-events-auto z-20" aria-label="Play documentary">
+          <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+        </button>
       </div>
       <div class="p-6 md:p-8 bg-surface dark:bg-[#1b1c1a] space-y-2">
-        <span class="text-xs text-primary dark:text-tertiary-fixed-dim font-bold uppercase tracking-widest flex items-center gap-1">
-          <span class="material-symbols-outlined text-xs">location_on</span> Kutch & Varanasi Handloom Studios
+        <span class="text-xs text-primary dark:text-[#fed65b] font-bold uppercase tracking-widest flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-xs">location_on</span> Kutch &amp; Varanasi Handloom Studios • Living Heritage Film
         </span>
-        <h3 class="font-headline-sm text-stone-900 dark:text-stone-100 text-2xl font-bold">Interlacing Heritage Silk & Natural Dyes</h3>
-        <p class="font-body-md text-stone-700 dark:text-stone-300">Witness the meditative rhythm and timeless grace of master weavers bringing sacred heritage textiles to life through slow artisanal craft and pure mulberry silk.</p>
+        <h3 id="video-modal-title" class="font-headline-sm text-stone-900 dark:text-stone-100 text-xl sm:text-2xl font-bold">Interlacing Heritage Silk &amp; Natural Dyes</h3>
+        <p class="font-body-md text-stone-700 dark:text-stone-300 text-xs sm:text-sm leading-relaxed">Witness the meditative rhythm and timeless grace of master weavers bringing sacred heritage textiles to life through slow artisanal craft, pure mulberry silk, and hand-spun gold zari.</p>
+        <div class="flex items-center gap-3 pt-2 text-xs text-on-surface-variant dark:text-stone-400">
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary dark:text-[#fed65b]">hd</span> 1080p Ultra HD</span>
+          <span>•</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary dark:text-[#fed65b]">timer</span> Documentary Short</span>
+          <span>•</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary dark:text-[#fed65b]">verified</span> National Award Guild Lineage</span>
+        </div>
       </div>
     </div>
   </div>
@@ -732,14 +748,39 @@
     }
 
     // 4. Video Lightbox System
+    function playDocumentary() {
+      const video = document.getElementById('documentary-video');
+      const overlay = document.getElementById('video-play-overlay-btn');
+      if (video) {
+        video.play().then(() => {
+          if (overlay) overlay.classList.add('hidden');
+        }).catch(err => {
+          console.warn('Playback error:', err);
+          video.muted = true;
+          video.play().then(() => {
+            if (overlay) overlay.classList.add('hidden');
+          }).catch(() => {});
+        });
+      }
+    }
+
     function openVideoModal() {
       const modal = document.getElementById('video-lightbox');
       const video = document.getElementById('documentary-video') || (modal ? modal.querySelector('video') : null);
+      const overlay = document.getElementById('video-play-overlay-btn');
       if (modal) {
         modal.classList.remove('hidden');
+        if (overlay) overlay.classList.remove('hidden');
         if (video) {
           video.currentTime = 0;
-          video.play().catch(() => {});
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              if (overlay) overlay.classList.add('hidden');
+            }).catch(() => {
+              if (overlay) overlay.classList.remove('hidden');
+            });
+          }
         }
       }
     }
@@ -747,11 +788,13 @@
     function closeVideoModal() {
       const modal = document.getElementById('video-lightbox');
       const video = document.getElementById('documentary-video') || (modal ? modal.querySelector('video') : null);
+      const overlay = document.getElementById('video-play-overlay-btn');
       if (modal) {
         modal.classList.add('hidden');
         if (video) {
           video.pause();
         }
+        if (overlay) overlay.classList.remove('hidden');
       }
     }
 
