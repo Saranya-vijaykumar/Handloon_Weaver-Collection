@@ -273,7 +273,7 @@
 <span class="text-primary font-bold">Varanasi Silk Katan</span>
 </div>
 <div class="flex items-center gap-3">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed/30 text-on-tertiary-fixed-variant text-label-sm uppercase">
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/10 dark:bg-[#fed65b]/15 text-primary dark:text-[#fed65b] font-bold text-xs uppercase border border-primary/20 dark:border-[#fed65b]/30">
 <span class="material-symbols-outlined text-sm">verified</span> GI Certified Handloom
       </span>
 </div>
@@ -283,24 +283,38 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 <!-- Left Column: Macro Imagery & Gallery Mosaic -->
 <div class="lg:col-span-7 flex flex-col gap-6">
-<div class="relative group rounded-xl overflow-hidden shadow-xl bg-surface-container-low">
-<img class="w-full h-[550px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High-resolution macro photography of traditional Varanasi silk brocade fabric. Intricate golden zari floral motifs woven on deep crimson mulberry silk background, capturing the shimmering metallic sheen and delicate handloom texture with extreme clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvxPukrgYxO6kSZ_Q_bgLyIT-cni9yr6_ANgFwfd-OjOFYeCAufJTlg8wv716I27GYK-Yu0cyGK2Byd5_PgHAPrNdz0iIYwSxUKoyaEUHsLpCUVjMr4yXthlFXKa6Dy3fwcV6ZCtgxOmYqAg4iswRE4TGc_8njpFPRP0QZt0qRGHHFfb0jcNcsg1rh07gs-wybsGgr_g4Pwhr3uGLZU-O-NSS2tCYH_8xK53DxkO4"/>
-<div class="absolute bottom-4 left-4 bg-surface/90 backdrop-blur-md px-4 py-2 rounded-lg text-label-md flex items-center gap-2 shadow-sm">
-<span class="material-symbols-outlined text-primary text-lg">zoom_in</span> Macro Zari Weave Detail (600 DPI)
-          </div>
-</div>
-<!-- Thumbnail Mosaic -->
-<div class="grid grid-cols-3 gap-4">
-<div class="rounded-lg overflow-hidden shadow-sm h-32 bg-surface-container cursor-pointer hover:opacity-90 transition-opacity">
-<img class="w-full h-full object-cover" data-alt="Close-up of the warp and weft threads showing pure gold metallic zari intertwining with hand-reeled silk yarns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWX1DY1Nci1W7zs_fnNlQU85sxfX5NtxXSnid2Pt0r4Wgrkdr0ne8WGxO9fPU6k6aDuR3Y1_K6QSQYn52WsDDi9Wivc7xWBgXQhrRxTI3jjfCMLnpN6PIkRruqxtXVJwi4Q2dUaBwxHTpZa98PgTBN8S5828Y4AbfNg1VxCh7U-047rtoVYABm_nro30ytGdX1P1npesvgc5zXT7kN6LgP4IDNA240mt14o0Nitow"/>
-</div>
-<div class="rounded-lg overflow-hidden shadow-sm h-32 bg-surface-container cursor-pointer hover:opacity-90 transition-opacity">
-<img class="w-full h-full object-cover" data-alt="A master artisan hand-punching the traditional wooden Jacquard cards used to program intricate floral motifs for Varanasi silk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqVGfF11R-pQXEWrtmavmLT6btUxUAXWvJNe_Ekxiwh_E60e2GKrZ1dzC__lybsISrYq5k-_6BYRrNehPirG3Hz9Pq175wUFcmEi_6HZmo_mZZGml9VBqQqlWTWyQprK5dsZVFk_kKX1pbk0zbhXUOPuMYOq3vaH94zQWKZh_9rDMIZHZjbTMeYXk5D_-R9Ady5eI4H19o7myAO9OMoT-51XG_u7RpSukGG_wdiiU"/>
-</div>
-<div class="rounded-lg overflow-hidden shadow-sm h-32 bg-surface-container cursor-pointer hover:opacity-90 transition-opacity">
-<img class="w-full h-full object-cover" data-alt="Draped view of the finished Varanasi Katan Silk saree in rich jewel tones, showcasing its fluid drape and opulent luster." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd4DiVYr3CMxLGNGnHuBQMdstZ5SdYTj34A3IhJAK8ouXC1xu9OhIK9ZQL-IVYyJMOVStOI6Ix69vnsFMPoG7qa8rEuDlIZMzGRbf5QcmKXEghPieWo1xhH2xwRSpdq7d19ZQoCRNDEsGGaFbnBal8HQTOvlSskpKDO1s9qPTvTVQ8Jl_S1p_L6CoL6soXkvWGTSk2KI17yjzNmWn6Bi6r_Qep-2PG3YIpUF5ISY4"/>
-</div>
-</div>
+  <!-- Main Macro Image Display -->
+  <div class="relative group rounded-2xl overflow-hidden shadow-xl bg-surface-container-low cursor-pointer border border-outline-variant/30" onclick="openMacroZoomModal()" title="Click to view full-screen 600 DPI macro zoom">
+    <img id="main-macro-img" class="w-full h-[520px] sm:h-[550px] object-cover group-hover:scale-105 transition-all duration-700 select-none" data-alt="High-resolution macro photography of traditional Varanasi silk brocade fabric. Intricate golden zari floral motifs woven on deep crimson mulberry silk background, capturing the shimmering metallic sheen and delicate handloom texture with extreme clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvxPukrgYxO6kSZ_Q_bgLyIT-cni9yr6_ANgFwfd-OjOFYeCAufJTlg8wv716I27GYK-Yu0cyGK2Byd5_PgHAPrNdz0iIYwSxUKoyaEUHsLpCUVjMr4yXthlFXKa6Dy3fwcV6ZCtgxOmYqAg4iswRE4TGc_8njpFPRP0QZt0qRGHHFfb0jcNcsg1rh07gs-wybsGgr_g4Pwhr3uGLZU-O-NSS2tCYH_8xK53DxkO4"/>
+    
+    <!-- High-Contrast Floating Badge Pill (Visible in both Light & Dark modes) -->
+    <div id="macro-badge" class="product-image-badge-primary absolute bottom-4 left-4 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 shadow-lg cursor-pointer transition-transform hover:scale-105 z-10">
+      <span class="material-symbols-outlined text-base sm:text-lg">zoom_in</span>
+      <span id="macro-badge-text">Macro Zari Weave Detail (600 DPI)</span>
+    </div>
+
+    <!-- Fullscreen Macro Zoom Trigger Icon Button -->
+    <button type="button" class="product-image-badge-primary absolute top-4 right-4 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md hover:scale-105 transition-all cursor-pointer z-10" onclick="event.stopPropagation(); openMacroZoomModal();" title="Inspect weave in 4K Fullscreen">
+      <span class="material-symbols-outlined text-sm">fullscreen</span>
+      <span class="hidden sm:inline">4K Macro Zoom</span>
+    </button>
+  </div>
+
+  <!-- Interactive 3-Image Thumbnail Mosaic (Click to Switch Main View) -->
+  <div class="grid grid-cols-3 gap-4" id="macro-thumbnails">
+    <!-- Thumbnail 1 (Active by default) -->
+    <div class="macro-thumb-item rounded-xl overflow-hidden shadow-md h-28 sm:h-32 bg-surface-container cursor-pointer transition-all ring-2 ring-primary dark:ring-[#fed65b] ring-offset-2 ring-offset-surface dark:ring-offset-[#1b1c1a] opacity-100 scale-[1.02]" onclick="switchMacroImage(0)" title="View Macro Zari Weave Detail">
+      <img class="w-full h-full object-cover" data-alt="High-resolution macro photography of traditional Varanasi silk brocade fabric with golden zari floral motifs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvxPukrgYxO6kSZ_Q_bgLyIT-cni9yr6_ANgFwfd-OjOFYeCAufJTlg8wv716I27GYK-Yu0cyGK2Byd5_PgHAPrNdz0iIYwSxUKoyaEUHsLpCUVjMr4yXthlFXKa6Dy3fwcV6ZCtgxOmYqAg4iswRE4TGc_8njpFPRP0QZt0qRGHHFfb0jcNcsg1rh07gs-wybsGgr_g4Pwhr3uGLZU-O-NSS2tCYH_8xK53DxkO4"/>
+    </div>
+    <!-- Thumbnail 2 -->
+    <div class="macro-thumb-item rounded-xl overflow-hidden shadow-sm h-28 sm:h-32 bg-surface-container cursor-pointer transition-all opacity-70 hover:opacity-100 hover:shadow-md border border-outline-variant/30" onclick="switchMacroImage(1)" title="View Jacquard Loom Card Artistry">
+      <img class="w-full h-full object-cover" data-alt="A master artisan hand-punching the traditional wooden Jacquard cards used to program intricate floral motifs for Varanasi silk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqVGfF11R-pQXEWrtmavmLT6btUxUAXWvJNe_Ekxiwh_E60e2GKrZ1dzC__lybsISrYq5k-_6BYRrNehPirG3Hz9Pq175wUFcmEi_6HZmo_mZZGml9VBqQqlWTWyQprK5dsZVFk_kKX1pbk0zbhXUOPuMYOq3vaH94zQWKZh_9rDMIZHZjbTMeYXk5D_-R9Ady5eI4H19o7myAO9OMoT-51XG_u7RpSukGG_wdiiU"/>
+    </div>
+    <!-- Thumbnail 3 -->
+    <div class="macro-thumb-item rounded-xl overflow-hidden shadow-sm h-28 sm:h-32 bg-surface-container cursor-pointer transition-all opacity-70 hover:opacity-100 hover:shadow-md border border-outline-variant/30" onclick="switchMacroImage(2)" title="View Finished Regal Katan Drape">
+      <img class="w-full h-full object-cover" data-alt="Finished Varanasi Regal Katan Silk Brocade Saree draped on mannequin in crimson and pure antique gold zari." src="images/products/prod-1-main.jpg"/>
+    </div>
+  </div>
 </div>
 <!-- Right Column: Product Details & Purchase Actions -->
 <div class="lg:col-span-5 flex flex-col gap-6">
@@ -487,7 +501,7 @@
 <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col group border-amber-900/25 dark:border-amber-400/25 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer" data-category="silk" data-date="2024-02-01" data-price="28000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-7'">
 <a href="product-detail.html?id=prod-1" class="block relative overflow-hidden h-80 cursor-pointer group/img" title="View Saree Details">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Emerald green Katan silk saree with silver zari geometric booti weave, captured against a minimalist neutral backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn2vKFaMZN6VPkjmGJveKfhn8SaSQdgTgqHIG-KC2WSsOarHeh6JVXYllmToLAhxnWWFMR6slJi2oNqglKL8TJQDulvLoqKDIfOhh3PwHkJpE3HwH7tuDk3Wn98FC7IDTiT6d5FPtOeAxp2eqL6_RJrFYA46jGYrbkqtVjYgmSWnx6akO_clBS123lR1y8Fu-iJjp8SH24KfkYdMdJn1oxbFfGB_rDM0iQAWViq5A"/>
-<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">Varanasi Cluster</span>
+<span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold">Varanasi Cluster</span>
 </a>
 <div class="p-6 flex flex-col flex-1 justify-between gap-4">
 <div>
@@ -504,7 +518,7 @@
 <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col group border-amber-900/25 dark:border-amber-400/25 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer" data-category="silk" data-date="2024-02-05" data-price="31000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-8'">
 <a href="product-detail.html?id=prod-2" class="block relative overflow-hidden h-80 cursor-pointer group/img" title="View Saree Details">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Royal sapphire blue Katan silk dupatta with intricate gold zari pallu and floral vines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdrcmcBTl3zbB_YXcGppycCXELIC07w3TmhvYYHDo-tYp22m0xlxJs2W9Q1nWj-rhp2DGv2pkoX2eHs_A3Xm1AqM5gO0YLGomQUepSkibVJum603WBirvrYXaLj4kO4jcY5wm1xzvGYmhSuQKZSsRPzGmSkda7sWiTYmIl6TLwbfn14f7IQXNGguf3vFFs9xFeeH0nggJw-EB2d25c3yDrBWRSApZjapMPX8PdQf0"/>
-<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">Varanasi Cluster</span>
+<span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold">Varanasi Cluster</span>
 </a>
 <div class="p-6 flex flex-col flex-1 justify-between gap-4">
 <div>
@@ -521,7 +535,7 @@
 <div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col group border-amber-900/25 dark:border-amber-400/25 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer" data-category="silk" data-date="2024-02-10" data-price="25000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-2'">
 <a href="product-detail.html?id=prod-3" class="block relative overflow-hidden h-80 cursor-pointer group/img" title="View Saree Details">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Ivory and gold tissue Katan silk fabric running material with delicate floral motifs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm_-0AYuHFegYod_8OnsdvlIl7Ee5gRJgpEfYvZV_bkUS5LowvjikSyWl8cYdwh8MAXK4PblZJOPTUqQhYuUZv8lRaZ86AxbbSuF39PF7qoLKFoyHO7q1FCkUqIefyASeiSwukMRfqCEkIYsqLqZ9dt0T_xb_PCbLe9R3SHc_zNKmNwQaV9VWXARpD5VOh6vbJeNIusj0IHPo-zqOfp5gE95GjfLUOdpEL8k4ukE4"/>
-<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">Varanasi Cluster</span>
+<span class="product-image-badge-primary absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold">Varanasi Cluster</span>
 </a>
 <div class="p-6 flex flex-col flex-1 justify-between gap-4">
 <div>
@@ -537,6 +551,48 @@
 </div>
 </section>
 </div></main>
+
+<!-- Macro 4K Lightbox Zoom Modal -->
+<div id="macro-zoom-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md transition-opacity duration-300 p-4 sm:p-8" role="dialog" aria-modal="true" aria-label="High Resolution Zoom Viewer">
+  <!-- Top Bar -->
+  <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-white z-20">
+    <div class="flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-xs sm:text-sm font-semibold shadow-lg">
+      <span class="material-symbols-outlined text-amber-400 text-base sm:text-lg">zoom_in</span>
+      <span id="modal-image-title">Macro Zari Weave Detail (600 DPI)</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button type="button" onclick="toggleModalZoom()" class="bg-black/60 hover:bg-white/20 text-white p-2.5 rounded-full border border-white/20 transition-all flex items-center justify-center cursor-pointer shadow-lg" title="Toggle 2x Zoom" aria-label="Toggle Zoom">
+        <span class="material-symbols-outlined text-lg" id="modal-zoom-icon">zoom_in</span>
+      </button>
+      <button type="button" onclick="closeMacroZoomModal()" class="bg-black/60 hover:bg-red-600/80 text-white p-2.5 rounded-full border border-white/20 transition-all flex items-center justify-center cursor-pointer shadow-lg" title="Close Viewer (ESC)" aria-label="Close Viewer">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Prev Navigation Button -->
+  <button type="button" onclick="navigateModal(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white p-3.5 rounded-full border border-white/20 transition-all z-20 cursor-pointer hidden sm:flex items-center justify-center hover:scale-110 shadow-xl" aria-label="Previous Image">
+    <span class="material-symbols-outlined text-2xl">chevron_left</span>
+  </button>
+
+  <!-- Image Container -->
+  <div class="relative max-w-5xl max-h-[80vh] w-full h-full flex items-center justify-center overflow-hidden cursor-zoom-in" onclick="toggleModalZoom()">
+    <img id="modal-zoom-img" src="" alt="Macro view" class="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl transition-transform duration-300 select-none"/>
+  </div>
+
+  <!-- Next Navigation Button -->
+  <button type="button" onclick="navigateModal(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black text-white p-3.5 rounded-full border border-white/20 transition-all z-20 cursor-pointer hidden sm:flex items-center justify-center hover:scale-110 shadow-xl" aria-label="Next Image">
+    <span class="material-symbols-outlined text-2xl">chevron_right</span>
+  </button>
+
+  <!-- Bottom Dots Navigation -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-auto">
+    <div class="flex items-center gap-3 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg" id="modal-dots">
+      <!-- Generated by JavaScript -->
+    </div>
+  </div>
+</div>
+
 <!-- Slide-over Cart Drawer -->
 <div class="fixed inset-0 z-50 hidden" id="cart-drawer">
   <div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm transition-opacity opacity-0 duration-300" id="cart-backdrop"></div>
@@ -742,6 +798,164 @@
 </footer>
 
   <script>
+    // Macro 600 DPI Gallery Data & Controls
+    const macroGallery = [
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvxPukrgYxO6kSZ_Q_bgLyIT-cni9yr6_ANgFwfd-OjOFYeCAufJTlg8wv716I27GYK-Yu0cyGK2Byd5_PgHAPrNdz0iIYwSxUKoyaEUHsLpCUVjMr4yXthlFXKa6Dy3fwcV6ZCtgxOmYqAg4iswRE4TGc_8njpFPRP0QZt0qRGHHFfb0jcNcsg1rh07gs-wybsGgr_g4Pwhr3uGLZU-O-NSS2tCYH_8xK53DxkO4",
+        title: "Macro Zari Weave Detail (600 DPI)",
+        alt: "High-resolution macro photography of traditional Varanasi silk brocade fabric with golden zari floral motifs."
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDqVGfF11R-pQXEWrtmavmLT6btUxUAXWvJNe_Ekxiwh_E60e2GKrZ1dzC__lybsISrYq5k-_6BYRrNehPirG3Hz9Pq175wUFcmEi_6HZmo_mZZGml9VBqQqlWTWyQprK5dsZVFk_kKX1pbk0zbhXUOPuMYOq3vaH94zQWKZh_9rDMIZHZjbTMeYXk5D_-R9Ady5eI4H19o7myAO9OMoT-51XG_u7RpSukGG_wdiiU",
+        title: "Jacquard Loom Card Artistry",
+        alt: "A master artisan hand-punching traditional wooden Jacquard cards to program intricate floral motifs for Varanasi silk."
+      },
+      {
+        src: "images/products/prod-1-main.jpg",
+        title: "Finished Regal Katan Drape",
+        alt: "Finished Varanasi Regal Katan Silk Brocade Saree draped on mannequin in crimson and pure antique gold zari."
+      }
+    ];
+
+    let activeMacroIndex = 0;
+    let isModalZoomed = false;
+
+    function switchMacroImage(index) {
+      if (index < 0 || index >= macroGallery.length) return;
+      activeMacroIndex = index;
+      const item = macroGallery[index];
+      const mainImg = document.getElementById('main-macro-img');
+      const badgeText = document.getElementById('macro-badge-text');
+
+      if (mainImg) {
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.src = item.src;
+          mainImg.alt = item.alt;
+          mainImg.style.opacity = '1';
+        }, 120);
+      }
+
+      if (badgeText) {
+        badgeText.textContent = item.title;
+      }
+
+      // Update thumbnail active states
+      const thumbs = document.querySelectorAll('.macro-thumb-item');
+      thumbs.forEach((thumb, idx) => {
+        if (idx === index) {
+          thumb.className = 'macro-thumb-item rounded-xl overflow-hidden shadow-md h-28 sm:h-32 bg-surface-container cursor-pointer transition-all ring-2 ring-primary dark:ring-[#fed65b] ring-offset-2 ring-offset-surface dark:ring-offset-[#1b1c1a] opacity-100 scale-[1.02]';
+        } else {
+          thumb.className = 'macro-thumb-item rounded-xl overflow-hidden shadow-sm h-28 sm:h-32 bg-surface-container cursor-pointer transition-all opacity-70 hover:opacity-100 hover:shadow-md border border-outline-variant/30';
+        }
+      });
+    }
+
+    function openMacroZoomModal(index) {
+      if (typeof index === 'number') {
+        activeMacroIndex = index;
+      }
+      const modal = document.getElementById('macro-zoom-modal');
+      const modalImg = document.getElementById('modal-zoom-img');
+      const modalTitle = document.getElementById('modal-image-title');
+      const modalDots = document.getElementById('modal-dots');
+      
+      if (!modal || !modalImg) return;
+      const item = macroGallery[activeMacroIndex];
+      modalImg.src = item.src;
+      modalImg.alt = item.alt;
+      modalImg.style.transform = 'scale(1)';
+      isModalZoomed = false;
+      const zoomIcon = document.getElementById('modal-zoom-icon');
+      if (zoomIcon) zoomIcon.textContent = 'zoom_in';
+
+      if (modalTitle) modalTitle.textContent = item.title;
+
+      if (modalDots) {
+        modalDots.innerHTML = macroGallery.map((_, i) => `
+          <button type="button" onclick="event.stopPropagation(); navigateModalTo(${i})" class="w-3 h-3 rounded-full transition-all cursor-pointer ${i === activeMacroIndex ? 'bg-amber-400 scale-125' : 'bg-white/40 hover:bg-white/80'}" aria-label="Go to image ${i + 1}"></button>
+        `).join('');
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMacroZoomModal() {
+      const modal = document.getElementById('macro-zoom-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function navigateModal(direction) {
+      let nextIndex = activeMacroIndex + direction;
+      if (nextIndex < 0) nextIndex = macroGallery.length - 1;
+      if (nextIndex >= macroGallery.length) nextIndex = 0;
+      navigateModalTo(nextIndex);
+    }
+
+    function navigateModalTo(index) {
+      activeMacroIndex = index;
+      const item = macroGallery[index];
+      const modalImg = document.getElementById('modal-zoom-img');
+      const modalTitle = document.getElementById('modal-image-title');
+      if (modalImg) {
+        modalImg.style.opacity = '0.3';
+        setTimeout(() => {
+          modalImg.src = item.src;
+          modalImg.alt = item.alt;
+          modalImg.style.transform = 'scale(1)';
+          modalImg.style.opacity = '1';
+          isModalZoomed = false;
+          const zoomIcon = document.getElementById('modal-zoom-icon');
+          if (zoomIcon) zoomIcon.textContent = 'zoom_in';
+        }, 120);
+      }
+      if (modalTitle) modalTitle.textContent = item.title;
+      switchMacroImage(index);
+
+      const dots = document.querySelectorAll('#modal-dots button');
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = 'w-3 h-3 rounded-full transition-all cursor-pointer bg-amber-400 scale-125';
+        } else {
+          dot.className = 'w-3 h-3 rounded-full transition-all cursor-pointer bg-white/40 hover:bg-white/80';
+        }
+      });
+    }
+
+    function toggleModalZoom() {
+      const modalImg = document.getElementById('modal-zoom-img');
+      const zoomIcon = document.getElementById('modal-zoom-icon');
+      if (!modalImg) return;
+      isModalZoomed = !isModalZoomed;
+      if (isModalZoomed) {
+        modalImg.style.transform = 'scale(1.75)';
+        modalImg.parentElement.classList.remove('cursor-zoom-in');
+        modalImg.parentElement.classList.add('cursor-zoom-out');
+        if (zoomIcon) zoomIcon.textContent = 'zoom_out';
+      } else {
+        modalImg.style.transform = 'scale(1)';
+        modalImg.parentElement.classList.remove('cursor-zoom-out');
+        modalImg.parentElement.classList.add('cursor-zoom-in');
+        if (zoomIcon) zoomIcon.textContent = 'zoom_in';
+      }
+    }
+
+    // Keyboard navigation for modal
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('macro-zoom-modal');
+      if (modal && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeMacroZoomModal();
+        if (e.key === 'ArrowLeft') navigateModal(-1);
+        if (e.key === 'ArrowRight') navigateModal(1);
+      }
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
       // Interactive Weaving Stages
       const stages = [
