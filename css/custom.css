@@ -789,3 +789,236 @@ html.dark input::placeholder,
 html.dark textarea::placeholder {
   color: #a09296 !important;
 }
+
+/* =========================================================
+   Zari Silk Sparkle & Universal Page Animations System
+   - Interactive Gold Spark Trail & Click Burst
+   - Ambient Zari Silk Dust Particle Canvas
+   - Scroll-Driven Waterfall Reveal Transitions
+   - Card Hover 3D Elevation & Golden Glow
+   - Shimmer Sweeps & Floating Badge Micro-Animations
+   - Metric Counter Animation
+   ========================================================= */
+
+/* 1. Page Entrance Fade */
+body {
+  animation: hwcPageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hwcPageFadeIn {
+  from {
+    opacity: 0.88;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Interactive Spark Trail & Click Particles */
+.hwc-spark-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  user-select: none;
+  will-change: transform, opacity;
+  transform: translate(-50%, -50%);
+  animation: hwcSparkPop 0.85s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  filter: drop-shadow(0 0 5px rgba(254, 214, 91, 0.85)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+  font-family: serif, 'Material Symbols Outlined';
+  line-height: 1;
+}
+
+@keyframes hwcSparkPop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3) rotate(0deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -15px))) scale(0.95) rotate(var(--rot, 45deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 22px))) scale(0.1) rotate(var(--rot, 90deg));
+  }
+}
+
+/* 3. Ambient Zari Silk Dust Canvas in Hero */
+#hwc-zari-sparkles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+  mix-blend-mode: screen;
+}
+
+/* 4. Scroll Reveal Waterfall Animations */
+.hwc-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.hwc-reveal.hwc-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Stagger delays for child cards / items */
+.hwc-stagger-1 { transition-delay: 0.05s; }
+.hwc-stagger-2 { transition-delay: 0.10s; }
+.hwc-stagger-3 { transition-delay: 0.15s; }
+.hwc-stagger-4 { transition-delay: 0.20s; }
+.hwc-stagger-5 { transition-delay: 0.25s; }
+.hwc-stagger-6 { transition-delay: 0.30s; }
+.hwc-stagger-7 { transition-delay: 0.35s; }
+.hwc-stagger-8 { transition-delay: 0.40s; }
+
+/* 5. Shimmer Sweep Animation on CTA Buttons & Badges */
+.btn-shimmer,
+.bg-primary:not(.no-shimmer) {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after,
+.bg-primary:not(.no-shimmer)::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(254, 214, 91, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: hwcShimmerSweep 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes hwcShimmerSweep {
+  0% {
+    left: -70%;
+  }
+  28% {
+    left: 140%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+/* 6. Gentle Floating Badge Animation */
+.floating-badge,
+.badge-float {
+  animation: hwcFloatBadge 3.6s ease-in-out infinite;
+}
+
+@keyframes hwcFloatBadge {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* 7. Golden Glow Pulse for Badges & Key Highlights */
+.glow-gold,
+.sparkle-pulse {
+  animation: hwcGoldPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes hwcGoldPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(254, 214, 91, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px 3px rgba(254, 214, 91, 0.3);
+  }
+}
+
+/* 8. Interactive Card Hover Lift & Silk Glow */
+article,
+.product-card,
+[data-product-id],
+.artisan-card,
+#product-grid > div {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+}
+
+article:hover,
+.product-card:hover,
+[data-product-id]:hover,
+.artisan-card:hover,
+#product-grid > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px -8px rgba(74, 21, 37, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.3) !important;
+}
+
+html.dark article:hover,
+html.dark .product-card:hover,
+html.dark [data-product-id]:hover,
+html.dark .artisan-card:hover,
+html.dark #product-grid > div:hover {
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7), 0 0 14px 1px rgba(254, 214, 91, 0.25) !important;
+}
+
+/* Image zoom inside cards on hover */
+article:hover img,
+.product-card:hover img,
+[data-product-id]:hover img,
+.artisan-card:hover img,
+#product-grid > div:hover img {
+  transform: scale(1.04);
+}
+
+article img,
+.product-card img,
+[data-product-id] img,
+.artisan-card img,
+#product-grid > div img {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 9. Twinkle Star Keyframes */
+.twinkle-star {
+  display: inline-block;
+  animation: hwcTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes hwcTwinkle {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.9) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(15deg);
+    filter: drop-shadow(0 0 6px #fed65b);
+  }
+}
+
+/* Respect user accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hwc-spark-particle {
+    display: none !important;
+  }
+}
+

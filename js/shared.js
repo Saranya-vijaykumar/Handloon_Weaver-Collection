@@ -805,7 +805,302 @@ const HWC_Shared = (function() {
     });
   }
 
-function init() {
+  // 10. Zari Gold Sparkle Effects (Cursor Trail & Click Burst)
+  function setupSparkEffects() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const sparkChars = ['✦', '✧', '⋆', '•', '✵', '✨'];
+    const sparkColors = ['#fed65b', '#e6b800', '#ffd700', '#d4af37', '#ffffff', '#f5b041'];
+
+    let lastX = 0;
+    let lastY = 0;
+    let lastTime = 0;
+
+    function createSpark(x, y, dx, dy, size, color, char) {
+      const spark = document.createElement('span');
+      spark.className = 'hwc-spark-particle';
+      spark.textContent = char || sparkChars[Math.floor(Math.random() * sparkChars.length)];
+      spark.style.left = x + 'px';
+      spark.style.top = y + 'px';
+      spark.style.color = color || sparkColors[Math.floor(Math.random() * sparkColors.length)];
+      spark.style.fontSize = (size || Math.floor(Math.random() * 8 + 11)) + 'px';
+      spark.style.setProperty('--dx', (dx !== undefined ? dx : (Math.random() * 26 - 13)) + 'px');
+      spark.style.setProperty('--dy', (dy !== undefined ? dy : (Math.random() * 26 - 13)) + 'px');
+      spark.style.setProperty('--rot', (Math.random() * 180 - 90) + 'deg');
+      document.body.appendChild(spark);
+
+      setTimeout(() => {
+        if (spark.parentNode) spark.remove();
+      }, 850);
+    }
+
+    // Cursor / Touch Trail (Throttled)
+    function onPointerMove(e) {
+      const now = performance.now();
+      if (now - lastTime < 32) return; // 30fps throttle
+
+      const x = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      const y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+      if (!x && !y) return;
+
+      const dist = Math.hypot(x - lastX, y - lastY);
+      if (dist < 14) return;
+
+      lastX = x;
+      lastY = y;
+      lastTime = now;
+
+      createSpark(x, y);
+    }
+
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+
+    // Click / Tap Spark Burst
+    function onPointerDown(e) {
+      const x = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      const y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+      if (!x && !y) return;
+
+      const count = 10;
+      for (let i = 0; i < count; i++) {
+        const angle = (i / count) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
+        const speed = Math.random() * 32 + 18;
+        const dx = Math.cos(angle) * speed;
+        const dy = Math.sin(angle) * speed;
+        const size = Math.floor(Math.random() * 9 + 12);
+        createSpark(x, y, dx, dy, size);
+      }
+    }
+
+    window.addEventListener('pointerdown', onPointerDown, { passive: true });
+  }
+
+  // 11. Ambient Floating Zari Silk Dust Canvas
+  function setupAmbientZariCanvas() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const hero = document.querySelector('section.relative, main > section:first-of-type, .hero-section');
+    if (!hero) return;
+
+    if (hero.querySelector('#hwc-zari-sparkles-canvas')) return;
+
+    const compStyle = window.getComputedStyle(hero);
+    if (compStyle.position === 'static') {
+      hero.style.position = 'relative';
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'hwc-zari-sparkles-canvas';
+    hero.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = hero.offsetWidth);
+    let height = (canvas.height = hero.offsetHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = hero.offsetWidth;
+      height = canvas.height = hero.offsetHeight;
+    });
+
+    const particles = [];
+    const particleCount = 38;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 2.2 + 0.8,
+        speedY: Math.random() * 0.45 + 0.2,
+        speedX: (Math.random() - 0.5) * 0.3,
+        alpha: Math.random() * 0.6 + 0.2,
+        alphaSpeed: Math.random() * 0.02 + 0.01,
+        color: Math.random() > 0.3 ? '#fed65b' : '#d4af37'
+      });
+    }
+
+    let isPaused = false;
+    window.addEventListener('scroll', () => {
+      isPaused = window.scrollY > hero.offsetHeight + 100;
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+      isPaused = document.hidden || window.scrollY > hero.offsetHeight + 100;
+    });
+
+    function animate() {
+      if (!isPaused) {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.y -= p.speedY;
+          p.x += p.speedX;
+          p.alpha += p.alphaSpeed;
+
+          if (p.alpha > 0.85 || p.alpha < 0.15) {
+            p.alphaSpeed = -p.alphaSpeed;
+          }
+
+          if (p.y < -10) {
+            p.y = height + 10;
+            p.x = Math.random() * width;
+          }
+          if (p.x < -10) p.x = width + 10;
+          if (p.x > width + 10) p.x = -10;
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
+          ctx.shadowBlur = p.size * 3;
+          ctx.shadowColor = '#fed65b';
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  // 12. Universal Scroll-Driven Waterfall Reveal
+  function setupScrollAnimations() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const targets = document.querySelectorAll(`
+      main section > div,
+      main section > article,
+      article,
+      .product-card,
+      [data-product-id],
+      .artisan-card,
+      #product-grid > div,
+      .metric-ribbon > div,
+      .faq-item
+    `);
+
+    if (!targets.length) return;
+
+    document.querySelectorAll('.grid').forEach(grid => {
+      const items = Array.from(grid.children);
+      items.forEach((item, idx) => {
+        const staggerNum = (idx % 8) + 1;
+        item.classList.add(`hwc-stagger-${staggerNum}`);
+      });
+    });
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('hwc-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.05
+    });
+
+    targets.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      el.classList.add('hwc-reveal');
+
+      if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+        el.classList.add('hwc-revealed');
+      } else {
+        observer.observe(el);
+      }
+    });
+  }
+
+  // 13. Dynamic Animated Number Counters for Metric Ribbon
+  function setupMetricCounters() {
+    const metricRibbon = document.querySelector('.metric-ribbon');
+    if (!metricRibbon) return;
+
+    const counters = metricRibbon.querySelectorAll('.metric-number, .font-headline-lg');
+    if (!counters.length) return;
+
+    const data = [];
+    counters.forEach(c => {
+      const origText = c.textContent.trim();
+      let prefix = '';
+      let suffix = '';
+      let target = 0;
+      let isFloat = false;
+
+      if (origText.includes('₹') && origText.includes('Cr')) {
+        prefix = '₹';
+        suffix = 'Cr';
+        target = parseFloat(origText.replace('₹', '').replace('Cr', '')) || 4.2;
+        isFloat = true;
+      } else if (origText.includes('%')) {
+        suffix = '%';
+        target = parseInt(origText.replace('%', ''), 10) || 100;
+      } else if (origText.includes('+')) {
+        suffix = '+';
+        target = parseInt(origText.replace(/[+,]/g, ''), 10) || 1400;
+      } else {
+        target = parseInt(origText.replace(/[^0-9]/g, ''), 10) || 12;
+      }
+
+      data.push({ el: c, origText, prefix, suffix, target, isFloat });
+    });
+
+    let animated = false;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          observer.disconnect();
+
+          const duration = 1400;
+          const startTime = performance.now();
+
+          function update(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+
+            data.forEach(item => {
+              if (progress >= 1) {
+                item.el.textContent = item.origText;
+              } else {
+                const current = item.target * ease;
+                let formatted = '';
+                if (item.isFloat) {
+                  formatted = item.prefix + current.toFixed(1) + item.suffix;
+                } else if (item.target >= 1000) {
+                  formatted = Math.floor(current).toLocaleString('en-IN') + item.suffix;
+                } else {
+                  formatted = item.prefix + Math.floor(current) + item.suffix;
+                }
+                item.el.textContent = formatted;
+              }
+            });
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          }
+
+          requestAnimationFrame(update);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(metricRibbon);
+  }
+
+  function init() {
     highlightActiveNav();
     setupThemeToggle();
     setupDirToggle();
@@ -816,6 +1111,10 @@ function init() {
     setupPolicyLinks();
     setupProductCardNavigation();
     setupFaqAccordions();
+    setupSparkEffects();
+    setupAmbientZariCanvas();
+    setupScrollAnimations();
+    setupMetricCounters();
   }
 
   if (document.readyState === 'loading') {
@@ -835,3 +1134,4 @@ function init() {
 
 window.HWC_Shared = HWC_Shared;
 window.openPolicyModal = HWC_Shared.openPolicyModal;
+
