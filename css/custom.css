@@ -138,37 +138,46 @@ html.dark header {
   }
 }
 
-/* Compact navigation for laptops (1024px to 1279px) */
+/* Elegant spacing for laptops (1024px to 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   #desktop-main-nav {
-    gap: 0.6rem !important;
+    gap: 1.15rem !important;
   }
   #desktop-main-nav .nav-item {
-    font-size: 13px !important;
-    letter-spacing: 0.01em !important;
-    padding: 0.2rem 0.2rem !important;
-  }
-  /* Hide decorative nav icons on laptop screens so links fit comfortably without crowding */
-  #desktop-main-nav .material-symbols-outlined:not(#home-dropdown-chevron) {
-    display: none !important;
+    font-size: 13.5px !important;
+    letter-spacing: 0.02em !important;
+    padding: 0.35rem 0.45rem !important;
   }
 }
 
-/* Spacious luxury navigation for standard desktops (1280px+) */
-@media (min-width: 1280px) {
+/* Spacious luxury navigation for standard desktops (1280px to 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
   #desktop-main-nav {
-    gap: 1.35rem !important;
+    gap: 1.85rem !important;
   }
   #desktop-main-nav .nav-item {
-    font-size: 14px !important;
+    font-size: 14.5px !important;
+    letter-spacing: 0.03em !important;
+    padding: 0.4rem 0.65rem !important;
   }
 }
 
-/* Wide screens (1536px+) */
+/* Extra spacious luxury navigation for wide screens (1536px+) */
 @media (min-width: 1536px) {
   #desktop-main-nav {
-    gap: 1.75rem !important;
+    gap: 2.5rem !important;
   }
+  #desktop-main-nav .nav-item {
+    font-size: 15px !important;
+    letter-spacing: 0.035em !important;
+    padding: 0.45rem 0.85rem !important;
+  }
+}
+
+#desktop-main-nav #home-dropdown-chevron {
+  display: inline-block !important;
+  font-size: 13px !important;
+  margin-left: 0.15rem !important;
 }
 
 /* RTL Support for Dropdown */

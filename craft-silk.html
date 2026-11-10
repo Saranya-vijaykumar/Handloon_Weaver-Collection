@@ -145,72 +145,71 @@
       <span class="font-serif tracking-tight truncate">Weavers Collective</span>
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-2.5 xl:gap-5 2xl:gap-7" id="desktop-main-nav">
-        <!-- Home Dropdown -->
-        <div class="relative group" id="home-dropdown-wrapper">
-          <button type="button" class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors text-xs xl:text-sm tracking-wide flex items-center gap-1 py-1 cursor-pointer focus:outline-none" id="home-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-            <span class="material-symbols-outlined text-base hidden xl:inline-block">home</span>
-            <span>Home</span>
-            <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180" id="home-dropdown-chevron">expand_more</span>
-          </button>
-          <!-- Dropdown Menu -->
-          <div class="absolute left-0 top-full pt-2 w-64 hidden group-hover:block group-focus-within:block transition-all duration-200 z-50 dropdown-menu" id="home-dropdown-menu">
-            <div class="bg-surface/95 dark:bg-[#231b1e]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-outline-variant/30 py-2.5 px-2">
-              <a href="index.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" data-route="index.html">
-                <span class="material-symbols-outlined text-lg text-primary">cottage</span>
-                <div class="flex-1">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-on-surface title-span">Home 1</span>
-                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold uppercase tracking-wider">Heritage</span>
-                  </div>
-                  <div class="text-[11px] text-on-surface-variant font-normal">Living Pit Looms Collective</div>
+    <!-- Desktop Navigation Links (Centered Typography Navigation) -->
+    <nav class="hidden lg:flex items-center gap-4 xl:gap-7 2xl:gap-9" id="desktop-main-nav">
+      <!-- Home Dropdown -->
+      <div class="relative group" id="home-dropdown-wrapper">
+        <button type="button" class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors text-xs xl:text-sm tracking-wide flex items-center gap-1 py-1 cursor-pointer focus:outline-none" id="home-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+          <span>Home</span>
+          <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180" id="home-dropdown-chevron">expand_more</span>
+        </button>
+        <!-- Dropdown Menu -->
+        <div class="absolute left-0 top-full pt-2 w-64 hidden group-hover:block group-focus-within:block transition-all duration-200 z-50 dropdown-menu" id="home-dropdown-menu">
+          <div class="bg-surface/95 dark:bg-[#231b1e]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-outline-variant/30 py-2.5 px-2">
+            <a href="index.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" data-route="index.html">
+              <span class="material-symbols-outlined text-lg text-primary">cottage</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-on-surface title-span">Home 1</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold uppercase tracking-wider">Heritage</span>
                 </div>
-              </a>
-              <a href="home-2.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors mt-1" data-route="home-2.html">
-                <span class="material-symbols-outlined text-lg text-primary">auto_stories</span>
-                <div class="flex-1">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-on-surface title-span">Home 2</span>
-                    <span class="text-[9px] px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-wider">Atelier</span>
-                  </div>
-                  <div class="text-[11px] text-on-surface-variant font-normal">Slow Craft Modern Elegance</div>
+                <div class="text-[11px] text-on-surface-variant font-normal">Living Pit Looms Collective</div>
+              </div>
+            </a>
+            <a href="home-2.html" class="home-option flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors mt-1" data-route="home-2.html">
+              <span class="material-symbols-outlined text-lg text-primary">auto_stories</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-on-surface title-span">Home 2</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-wider">Atelier</span>
                 </div>
-              </a>
-            </div>
+                <div class="text-[11px] text-on-surface-variant font-normal">Slow Craft Modern Elegance</div>
+              </div>
+            </a>
           </div>
         </div>
+      </div>
 
-        <!-- About Page -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="about.html" data-route="about.html">
-          <span class="material-symbols-outlined text-base hidden xl:inline-block">history_edu</span><span>About</span>
-        </a>
+      <!-- About Page -->
+      <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center py-1" href="about.html" data-route="about.html">
+        <span>About</span>
+      </a>
 
-        <!-- Products -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="products.html" data-route="products.html">
-          <span class="material-symbols-outlined text-base hidden xl:inline-block">checkroom</span><span>Products</span>
-        </a>
+      <!-- Products -->
+      <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center py-1" href="products.html" data-route="products.html">
+        <span>Products</span>
+      </a>
 
-        <!-- Artisans -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="artisans.html" data-route="artisans.html">
-          <span class="material-symbols-outlined text-base hidden xl:inline-block">engineering</span><span>Artisans</span>
-        </a>
+      <!-- Artisans -->
+      <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center py-1" href="artisans.html" data-route="artisans.html">
+        <span>Artisans</span>
+      </a>
 
-        <!-- Varanasi Silk -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="craft-silk.html" data-route="craft-silk.html">
-          <span class="material-symbols-outlined text-base hidden xl:inline-block">auto_awesome</span><span>Varanasi Silk</span>
-        </a>
+      <!-- Varanasi Silk -->
+      <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center py-1" href="craft-silk.html" data-route="craft-silk.html">
+        <span>Varanasi Silk</span>
+      </a>
 
-        <!-- Fair Trade -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="fair-trade.html" data-route="fair-trade.html">
-          <span class="material-symbols-outlined text-base hidden xl:inline-block">eco</span><span>Fair Trade</span>
-        </a>
+      <!-- Fair Trade -->
+      <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center py-1" href="fair-trade.html" data-route="fair-trade.html">
+        <span>Fair Trade</span>
+      </a>
 
-        <!-- Contact -->
-        <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center gap-1.5 py-1" href="contact.html" data-route="contact.html">
-          <span class="material-symbols-outlined text-base hidden xl:inline-block">mail</span><span>Contact</span>
-        </a>
-      </nav>
+      <!-- Contact -->
+      <a class="nav-item text-body-md text-on-surface-variant hover:text-primary transition-colors font-medium text-xs xl:text-sm tracking-wide flex items-center py-1" href="contact.html" data-route="contact.html">
+        <span>Contact</span>
+      </a>
+    </nav>
 
     <!-- Header Utility Action Buttons (Never Overflows on Mobile) -->
     <div class="flex items-center gap-1 sm:gap-2 xl:gap-2.5 flex-shrink-0 shrink-0 relative z-10">
