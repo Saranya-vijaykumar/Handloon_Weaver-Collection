@@ -548,79 +548,107 @@ const HWC_Shared = (function() {
     }
   }
 
-  // 8. Newsletter Forms
-  function setupNewsletters() {
-    document.querySelectorAll('form.newsletter-form, form[action*="newsletter"]').forEach(form => {
-      form.onsubmit = (e) => {
-        e.preventDefault();
-        const input = form.querySelector('input[type="email"]');
-        const email = input ? input.value : '';
-        if (email) {
-          showToast(`Welcome! You are subscribed with ${email}.`, 'mark_email_read');
-          form.reset();
-        }
-      };
-    });
-  }
-
-  // Init all shared behaviors
-  
   // 7. Policy & Terms Modal
   function openPolicyModal(type) {
     let modal = document.getElementById('hwc-policy-modal');
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'hwc-policy-modal';
-      modal.className = 'fixed inset-0 z-[120] flex items-center justify-center p-4 bg-inverse-surface/60 backdrop-blur-md transition-opacity duration-300';
+      modal.className = 'fixed inset-0 z-[120] flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-md transition-opacity duration-300';
       document.body.appendChild(modal);
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+        }
+      });
     }
 
-    const isPrivacy = type === 'privacy';
-    const title = isPrivacy ? 'Weavers Collective Privacy & Ethical Stewardship Policy' : 'Fair Trade Guild Terms of Service & Authenticity Guarantee';
-    const icon = isPrivacy ? 'shield' : 'description';
-    
-    const contentHtml = isPrivacy ? `
-      <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-        <p class="font-semibold text-primary">Last Updated: January 2026 • Madanpura & Chanderi Artisan Chapters</p>
-        <p>At Handloom Weavers Collective, we believe radical transparency applies equally to digital ethics and slow handloom craft. We treat your personal data with the same sacred care our master artisans give to their centuries-old wooden pit looms.</p>
-        <h4 class="font-serif font-bold text-base text-primary">1. Zero Third-Party Data Monetization</h4>
-        <p>We do not sell, rent, or trade customer contact details, browsing histories, or purchase records to third-party ad brokers or data warehouses. All collective data remains strictly confidential within our guild registry.</p>
-        <h4 class="font-serif font-bold text-base text-primary">2. Bespoke Commission & Swatch Information</h4>
-        <p>Information shared when ordering physical yarn swatches or submitting bespoke heirloom commission briefs is shared exclusively with the designated master artisan and our senior textile curator to ensure accurate weaving execution.</p>
-        <h4 class="font-serif font-bold text-base text-primary">3. Direct Artisan Living Wage Registry</h4>
-        <p>Purchase receipts and verifiable lineage certificates record proof of direct living wage disbursement to weaver cooperatives without exposing personal banking details.</p>
-      </div>
-    ` : `
-      <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-        <p class="font-semibold text-primary">Last Updated: January 2026 • 18 Craft Clusters Cooperative</p>
-        <p>By engaging with Handloom Weavers Collective, you become an active custodian in safeguarding indigenous artisanal traditions across 18 craft clusters in India.</p>
-        <h4 class="font-serif font-bold text-base text-primary">1. Authentic Geographic Indication (GI) Guarantee</h4>
-        <p>Every textile commissioned or purchased through our collective is certified 100% handspun and handwoven on traditional pit, frame, or backstrap looms. Any piece failing laboratory GI fiber verification is eligible for a full 100% refund plus insured return.</p>
-        <h4 class="font-serif font-bold text-base text-primary">2. Fair Trade & Living Wage Commitment</h4>
-        <p>A minimum guaranteed 68%–72% of each retail piece directly enriches the master artisan cooperative. Zero middleman margins are permitted within the Weavers Collective network.</p>
-        <h4 class="font-serif font-bold text-base text-primary">3. Bespoke Commission Timelines & Natural Variations</h4>
-        <p>Because authentic slow handloom incorporates pure natural vegetable dyes and hand-spun organic yarns, minor variations in slub texture and dye shading are celebrated hallmarks of genuine craft, not defects.</p>
-        <h4 class="font-serif font-bold text-base text-primary">4. 14-Day Heirloom Inspection & Care Guarantee</h4>
-        <p>We provide a 14-day in-home heirloom inspection window. Should a textile require bespoke re-finishing or ancestral care advice, our master curators offer complimentary lifetime textile consultation.</p>
-      </div>
-    `;
+    let title = 'Weavers Collective Policy & Guarantees';
+    let icon = 'verified';
+    let contentHtml = '';
+
+    if (type === 'privacy') {
+      title = 'Privacy & Ethical Stewardship Policy';
+      icon = 'shield';
+      contentHtml = `
+        <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant dark:text-stone-300 leading-relaxed">
+          <p class="font-semibold text-primary dark:text-[#fed65b]">Last Updated: January 2026 • Madanpura & Chanderi Artisan Chapters</p>
+          <p>At Handloom Weavers Collective, radical transparency applies equally to digital ethics and slow handloom craft. We treat your personal data with the same sacred care our master artisans give to their centuries-old wooden pit looms.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">1. Zero Third-Party Data Monetization</h4>
+          <p>We do not sell, rent, or trade customer contact details, browsing histories, or purchase records to third-party ad brokers or data warehouses. All collective data remains strictly confidential within our guild registry.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">2. Bespoke Commission & Swatch Information</h4>
+          <p>Information shared when ordering physical yarn swatches or submitting bespoke heirloom commission briefs is shared exclusively with the designated master artisan and our senior textile curator to ensure accurate weaving execution.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">3. Direct Artisan Living Wage Registry</h4>
+          <p>Purchase receipts and verifiable lineage certificates record proof of direct living wage disbursement to weaver cooperatives without exposing personal banking details.</p>
+        </div>
+      `;
+    } else if (type === 'shipping') {
+      title = 'Insured Worldwide Delivery & 14-Day Inspection';
+      icon = 'local_shipping';
+      contentHtml = `
+        <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant dark:text-stone-300 leading-relaxed">
+          <p class="font-semibold text-primary dark:text-[#fed65b]">Last Updated: January 2026 • Guild Logistics & Heirloom Dispatch</p>
+          <p>Each heirloom handloom piece represents weeks or months of artisan devotion. We ensure white-glove transport from weaver pit-looms straight to your home.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">1. Global Climate-Controlled Shipping</h4>
+          <p>All textiles are wrapped in breathable, unbleached hand-spun muslin covers with natural neem insect deterrents and sealed in waterproof protective casing. Shipped via express courier (DHL / FedEx) with full insurance.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">2. 14-Day In-Home Inspection Window</h4>
+          <p>Experience your textile in your own lighting and drape it with care. If the handloom piece does not resonate with you, contact our concierge within 14 days for a full refund and complimentary insured pickup.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">3. Bespoke Commission Lead Times</h4>
+          <p>Custom commissions require 3 to 8 weeks depending on the warp density (120-140 counts). Patrons receive bi-weekly photographic updates directly from the master weaver's workshop.</p>
+        </div>
+      `;
+    } else if (type === 'guarantee') {
+      title = '100% Certified GI & Living Wage Guarantee';
+      icon = 'verified';
+      contentHtml = `
+        <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant dark:text-stone-300 leading-relaxed">
+          <p class="font-semibold text-primary dark:text-[#fed65b]">Last Updated: January 2026 • Certified Craftmark & Silk Mark Guild</p>
+          <p>We stand unequivocally behind the authenticity, provenance, and ethical integrity of every thread woven in our collective.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">1. Serialized GI & Silk Mark Tagging</h4>
+          <p>Every saree, shawl, and yardage is accompanied by an authenticated Geographic Indication (GI) lineage certificate and QR-enabled Silk Mark or Craftmark seal verifying origin and 100% natural fiber content.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">2. Radical 68%–72% Living Wage Disbursement</h4>
+          <p>Unlike commercial retail where weavers receive merely 8%–12%, our collective directs 68% to 72% of each sale straight to the weaver family bank account, eliminating middlemen markups.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">3. 100% Money-Back Authenticity Guarantee</h4>
+          <p>If any piece purchased through the collective is ever found to contain synthetic filament or powerloom replication, we provide a 100% immediate refund, no questions asked.</p>
+        </div>
+      `;
+    } else {
+      // 'terms' default
+      title = 'Fair Trade Guild Terms of Service & Authenticity Guarantee';
+      icon = 'description';
+      contentHtml = `
+        <div class="space-y-4 text-xs sm:text-sm text-on-surface-variant dark:text-stone-300 leading-relaxed">
+          <p class="font-semibold text-primary dark:text-[#fed65b]">Last Updated: January 2026 • 18 Craft Clusters Cooperative</p>
+          <p>By engaging with Handloom Weavers Collective, you become an active custodian in safeguarding indigenous artisanal traditions across 18 craft clusters in India.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">1. Authentic Geographic Indication (GI) Guarantee</h4>
+          <p>Every textile commissioned or purchased through our collective is certified 100% handspun and handwoven on traditional pit, frame, or backstrap looms. Any piece failing laboratory GI fiber verification is eligible for a full 100% refund plus insured return.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">2. Fair Trade & Living Wage Commitment</h4>
+          <p>A minimum guaranteed 68%–72% of each retail piece directly enriches the master artisan cooperative. Zero middleman margins are permitted within the Weavers Collective network.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">3. Bespoke Commission Timelines & Natural Variations</h4>
+          <p>Because authentic slow handloom incorporates pure natural vegetable dyes and hand-spun organic yarns, minor variations in slub texture and dye shading are celebrated hallmarks of genuine craft, not defects.</p>
+          <h4 class="font-serif font-bold text-base text-primary dark:text-[#fed65b]">4. 14-Day Heirloom Inspection & Care Guarantee</h4>
+          <p>We provide a 14-day in-home heirloom inspection window. Should a textile require bespoke re-finishing or ancestral care advice, our master curators offer complimentary lifetime textile consultation.</p>
+        </div>
+      `;
+    }
 
     modal.innerHTML = `
-      <div class="relative w-full max-w-2xl bg-surface rounded-2xl shadow-2xl border border-outline-variant/30 flex flex-col max-h-[85vh] overflow-hidden">
-        <div class="p-5 sm:p-6 bg-surface-container-low border-b border-outline-variant/30 flex items-center justify-between">
+      <div class="relative w-full max-w-2xl bg-surface dark:bg-[#1e191c] text-on-surface dark:text-[#f3efe9] rounded-2xl shadow-2xl border border-outline-variant/30 dark:border-stone-700 flex flex-col max-h-[85vh] overflow-hidden">
+        <div class="p-5 sm:p-6 bg-surface-container-low dark:bg-[#252024] border-b border-outline-variant/30 dark:border-stone-700 flex items-center justify-between">
           <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-primary text-2xl">${icon}</span>
-            <h3 class="font-serif text-lg sm:text-xl font-bold text-primary">${title}</h3>
+            <span class="material-symbols-outlined text-primary dark:text-[#fed65b] text-2xl">${icon}</span>
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-primary dark:text-[#fed65b]">${title}</h3>
           </div>
-          <button onclick="document.getElementById('hwc-policy-modal').classList.add('hidden')" class="w-8 h-8 rounded-full bg-surface hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+          <button id="close-policy-btn" class="w-8 h-8 rounded-full bg-surface dark:bg-[#1e191c] hover:bg-surface-container dark:hover:bg-[#332b31] flex items-center justify-center text-on-surface-variant dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] transition-colors cursor-pointer" aria-label="Close modal">
             <span class="material-symbols-outlined text-base">close</span>
           </button>
         </div>
         <div class="p-6 overflow-y-auto space-y-4">
           ${contentHtml}
         </div>
-        <div class="p-4 bg-surface-container-low border-t border-outline-variant/30 flex justify-end">
-          <button onclick="document.getElementById('hwc-policy-modal').classList.add('hidden')" class="px-6 py-2.5 bg-primary text-on-primary rounded-xl text-xs font-semibold hover:opacity-95 transition-all shadow-sm">
+        <div class="p-4 bg-surface-container-low dark:bg-[#252024] border-t border-outline-variant/30 dark:border-stone-700 flex justify-end">
+          <button id="agree-policy-btn" class="px-6 py-2.5 bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] rounded-xl text-xs font-semibold hover:opacity-95 transition-all shadow-sm cursor-pointer">
             I Understand &amp; Agree
           </button>
         </div>
@@ -628,31 +656,110 @@ const HWC_Shared = (function() {
     `;
 
     modal.classList.remove('hidden');
+
+    const closeModal = () => modal.classList.add('hidden');
+    const closeBtn = document.getElementById('close-policy-btn');
+    const agreeBtn = document.getElementById('agree-policy-btn');
+    if (closeBtn) closeBtn.onclick = closeModal;
+    if (agreeBtn) agreeBtn.onclick = closeModal;
+
     modal.onclick = (e) => {
-      if (e.target === modal) modal.classList.add('hidden');
+      if (e.target === modal) closeModal();
     };
   }
 
+  // 8. Newsletter Forms
+  function setupNewsletters() {
+    document.querySelectorAll('form.newsletter-form, form[action*="newsletter"]').forEach(form => {
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        const input = form.querySelector('input[type="email"]');
+        const email = input ? input.value.trim() : '';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email || !emailRegex.test(email)) {
+          showToast('Please enter a valid email address.', 'error');
+          if (input) input.focus();
+          return;
+        }
+
+        // Store subscriber
+        try {
+          const subs = JSON.parse(localStorage.getItem('hwc_newsletter_subscribers') || '[]');
+          if (!subs.includes(email)) subs.push(email);
+          localStorage.setItem('hwc_newsletter_subscribers', JSON.stringify(subs));
+        } catch (err) {
+          console.warn('LocalStorage error:', err);
+        }
+
+        showToast(`Subscribed! Heirloom dispatches will arrive at ${email}.`, 'mark_email_read');
+
+        // Inline feedback animation
+        let feedback = form.querySelector('.newsletter-feedback');
+        if (!feedback) {
+          feedback = document.createElement('div');
+          feedback.className = 'newsletter-feedback text-[11px] font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1 pt-1';
+          feedback.innerHTML = '<span class="material-symbols-outlined text-xs">check_circle</span><span>Subscribed successfully! Thank you.</span>';
+          form.appendChild(feedback);
+        } else {
+          feedback.classList.remove('hidden');
+        }
+
+        setTimeout(() => {
+          if (feedback) feedback.classList.add('hidden');
+        }, 6000);
+
+        form.reset();
+      };
+    });
+  }
+
+  // 9. Policy Links & Back to top
   function setupPolicyLinks() {
+    // Buttons or links with data-policy
+    document.querySelectorAll('[data-policy]').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const policy = el.getAttribute('data-policy');
+        openPolicyModal(policy);
+      });
+    });
+
+    // Links containing policy text
     document.querySelectorAll('a').forEach(a => {
+      if (a.hasAttribute('data-policy')) return;
       const text = a.textContent.trim().toLowerCase();
-      if (text.includes('privacy policy') || text.includes('terms of service')) {
+      if (text.includes('privacy policy')) {
         a.style.cursor = 'pointer';
         a.addEventListener('click', (e) => {
           e.preventDefault();
-          openPolicyModal(text.includes('privacy') ? 'privacy' : 'terms');
+          openPolicyModal('privacy');
+        });
+      } else if (text.includes('terms of service')) {
+        a.style.cursor = 'pointer';
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          openPolicyModal('terms');
         });
       }
+    });
+
+    // Back to top actions
+    document.querySelectorAll('[data-action="back-to-top"], .footer-back-to-top, a[href="#top"]').forEach(btn => {
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
 
     // Social links toast feedback
     document.querySelectorAll('footer a[aria-label]').forEach(a => {
       const label = a.getAttribute('aria-label');
       if (['Instagram', 'Facebook', 'YouTube', 'Twitter'].includes(label)) {
-        a.style.cursor = 'pointer';
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          showToast('Connecting to official ' + label + ' channel @weaverscollective...', 'info');
+        a.addEventListener('click', () => {
+          showToast('Opening official ' + label + ' channel @weaverscollective...', 'open_in_new');
         });
       }
     });
@@ -727,3 +834,4 @@ function init() {
 })();
 
 window.HWC_Shared = HWC_Shared;
+window.openPolicyModal = HWC_Shared.openPolicyModal;
