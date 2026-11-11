@@ -4,8 +4,10 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Home 2 | Handloom Weavers Collective — Modern Slow Craft Atelier</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233b0d1a'/%3E%3Crect x='2' y='2' width='60' height='60' rx='14' fill='none' stroke='%23fed65b' stroke-width='1.5' stroke-opacity='0.4'/%3E%3Cline x1='20' y1='14' x2='20' y2='50' stroke='%23fed65b' stroke-width='2' stroke-linecap='round' stroke-opacity='0.6'/%3E%3Cline x1='28' y1='14' x2='28' y2='50' stroke='%23fed65b' stroke-width='2' stroke-linecap='round' stroke-opacity='0.9'/%3E%3Cline x1='36' y1='14' x2='36' y2='50' stroke='%23fed65b' stroke-width='2' stroke-linecap='round' stroke-opacity='0.9'/%3E%3Cline x1='44' y1='14' x2='44' y2='50' stroke='%23fed65b' stroke-width='2' stroke-linecap='round' stroke-opacity='0.6'/%3E%3Cpath d='M14 32 L32 18 L50 32 L32 46 Z' fill='none' stroke='%23fed65b' stroke-width='2.5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='32' r='4.5' fill='%23fed65b'/%3E%3C/svg%3E">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" href="favicon.ico">
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.png">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,43 +205,28 @@
 
   <!-- Main Content -->
   <main class="w-full pt-20">
-    <!-- Section 1: Hero Section -->
-    <section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center bg-primary text-on-primary overflow-hidden">
+    <!-- Section 1: Hero Section (Centrally Aligned for Neat Presentation) -->
+    <section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-primary text-on-primary overflow-hidden">
       <div class="hero-bg-image absolute inset-0 bg-cover bg-center opacity-85 pointer-events-none" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9bDLpyOuXsyQzZQtGO8JQPShW8kq5cN0-JbZEApnl_CzN3H_5r3mmHH3MJ3xKRcQY6PTaRxY1pk9g79v6SCL0wz58AHBwONKiZtFMiQIwb8VJFYe82bXYmvX9Q4UN92ZMN8b4R7hbSIVGQyt3H1SngH3f9N8Jzwr3uhJvHAH1muZI--839qMpifYCRygYtmaFRJSk5nimuvdT0rCM5IVQzzIocmbPHOAJki-viQ0");'></div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#20070f]/90 via-[#20070f]/40 to-[#20070f]/65 pointer-events-none"></div>
-      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-16 lg:py-24">
-        <div class="lg:col-span-7 flex flex-col items-start space-y-6">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container text-tertiary-fixed-dim text-xs uppercase tracking-widest border border-tertiary-fixed-dim/30 font-semibold">
-            <span class="material-symbols-outlined text-sm">flare</span>
-            <span>Heritage Haute Couture Collection</span>
-          </div>
-          <h1 class="font-headline text-4xl sm:text-5xl lg:text-6xl text-on-primary font-normal leading-[1.15] tracking-tight">
-            Where Centuries of Loom Craft Meet Modern Elegance
-          </h1>
-          <p class="font-body text-stone-200 text-base sm:text-lg max-w-xl leading-relaxed font-light">
-            Immerse yourself in the world of rare handloom textiles, where master artisans breathe life into every golden thread, creating bespoke masterpieces for the discerning patron.
-          </p>
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="products.html" class="bg-[#fed65b] !text-[#3b0d1a] px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-white hover:!text-[#3b0d1a] transition-all shadow-lg flex items-center gap-2 border border-amber-400/50">
-              <span class="material-symbols-outlined text-base !text-[#3b0d1a]">palette</span>Explore Collections
-            </a>
-            <button onclick="openVideoModal()" class="text-on-primary hover:text-tertiary-fixed-dim text-sm font-semibold flex items-center gap-2 transition-colors px-4 py-3 border border-tertiary-fixed-dim/30 rounded-xl hover:bg-white/10">
-              <span class="material-symbols-outlined text-xl">play_circle</span>Watch Artisan Film
-            </button>
-          </div>
+      <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex flex-col items-center text-center relative z-10 py-16 lg:py-24 space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container text-tertiary-fixed-dim text-xs uppercase tracking-widest border border-tertiary-fixed-dim/30 font-semibold shadow-sm">
+          <span class="material-symbols-outlined text-sm">flare</span>
+          <span>Heritage Haute Couture Collection</span>
         </div>
-
-        <div class="lg:col-span-5 relative">
-          <div class="relative w-full h-[420px] sm:h-[480px] rounded-2xl overflow-hidden shadow-2xl border border-tertiary-fixed-dim/30 group">
-            <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9bDLpyOuXsyQzZQtGO8JQPShW8kq5cN0-JbZEApnl_CzN3H_5r3mmHH3MJ3xKRcQY6PTaRxY1pk9g79v6SCL0wz58AHBwONKiZtFMiQIwb8VJFYe82bXYmvX9Q4UN92ZMN8b4R7hbSIVGQyt3H1SngH3f9N8Jzwr3uhJvHAH1muZI--839qMpifYCRygYtmaFRJSk5nimuvdT0rCM5IVQzzIocmbPHOAJki-viQ0');"></div>
-            <div class="absolute bottom-4 left-4 right-4 p-4 bg-primary/85 backdrop-blur-md rounded-xl border border-tertiary-fixed-dim/30 flex items-center justify-between">
-              <div>
-                <span class="text-[10px] text-tertiary-fixed-dim uppercase tracking-wider block font-bold">Featured Master Weaver</span>
-                <span class="font-serif font-bold text-base sm:text-lg text-on-primary">Ustad Hamid &amp; Sons, Varanasi</span>
-              </div>
-              <span class="material-symbols-outlined text-tertiary-fixed-dim text-2xl">verified</span>
-            </div>
-          </div>
+        <h1 class="font-headline text-4xl sm:text-5xl lg:text-6xl text-on-primary font-normal leading-[1.15] tracking-tight max-w-3xl">
+          Where Centuries of Loom Craft Meet Modern Elegance
+        </h1>
+        <p class="font-body text-stone-200 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+          Immerse yourself in the world of rare handloom textiles, where master artisans breathe life into every golden thread, creating bespoke masterpieces for the discerning patron.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a href="products.html" class="bg-[#fed65b] !text-[#3b0d1a] px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-white hover:!text-[#3b0d1a] transition-all shadow-lg flex items-center gap-2 border border-amber-400/50">
+            <span class="material-symbols-outlined text-base !text-[#3b0d1a]">palette</span>Explore Collections
+          </a>
+          <button onclick="openVideoModal()" class="text-on-primary hover:text-tertiary-fixed-dim text-sm font-semibold flex items-center gap-2 transition-colors px-5 py-3.5 border border-tertiary-fixed-dim/40 rounded-xl hover:bg-white/10 backdrop-blur-sm">
+            <span class="material-symbols-outlined text-xl">play_circle</span>Watch Artisan Film
+          </button>
         </div>
       </div>
     </section>
