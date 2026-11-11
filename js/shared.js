@@ -40,25 +40,25 @@ const HWC_Shared = (function() {
   // 2. Active Route Highlighter
   function highlightActiveNav() {
     const rawPath = window.location.pathname.toLowerCase();
+    const cleanPath = rawPath.replace(/\/+$/, '');
+    const filename = cleanPath.split('/').pop() || 'index.html';
     let current = 'index.html';
 
-    if (rawPath.endsWith('home-2.html') || rawPath.includes('home-2.html') || rawPath.endsWith('index-2.html') || rawPath.includes('index-2.html')) {
+    if (filename === 'home-2' || filename === 'home-2.html' || filename === 'index-2' || filename === 'index-2.html' || rawPath.includes('home-2')) {
       current = 'home-2.html';
-    } else if (rawPath.endsWith('about.html') || rawPath.includes('about.html')) {
+    } else if (filename === 'about' || filename === 'about.html' || rawPath.includes('about')) {
       current = 'about.html';
-    } else if (rawPath.endsWith('products.html') || rawPath.includes('products.html')) {
+    } else if (filename === 'products' || filename === 'products.html' || filename === 'product-detail' || filename === 'product-detail.html' || rawPath.includes('products') || rawPath.includes('product-detail')) {
       current = 'products.html';
-    } else if (rawPath.endsWith('product-detail.html') || rawPath.includes('product-detail.html')) {
-      current = 'products.html';
-    } else if (rawPath.endsWith('artisans.html') || rawPath.includes('artisans.html')) {
+    } else if (filename === 'artisans' || filename === 'artisans.html' || filename === 'artisan-detail' || filename === 'artisan-detail.html' || rawPath.includes('artisans') || rawPath.includes('artisan-detail')) {
       current = 'artisans.html';
-    } else if (rawPath.endsWith('craft-silk.html') || rawPath.includes('craft-silk.html')) {
+    } else if (filename === 'craft-silk' || filename === 'craft-silk.html' || rawPath.includes('craft-silk')) {
       current = 'craft-silk.html';
-    } else if (rawPath.endsWith('fair-trade.html') || rawPath.includes('fair-trade.html')) {
+    } else if (filename === 'fair-trade' || filename === 'fair-trade.html' || rawPath.includes('fair-trade')) {
       current = 'fair-trade.html';
-    } else if (rawPath.endsWith('contact.html') || rawPath.includes('contact.html')) {
+    } else if (filename === 'contact' || filename === 'contact.html' || rawPath.includes('contact')) {
       current = 'contact.html';
-    } else if (rawPath === '/' || rawPath.endsWith('/') || rawPath.endsWith('index.html')) {
+    } else if (filename === 'index' || filename === 'index.html' || rawPath === '/' || rawPath.endsWith('/')) {
       current = 'index.html';
     }
 
@@ -171,15 +171,33 @@ const HWC_Shared = (function() {
     });
   }
 
-  // 4. Direction Toggle (LTR / RTL)
+  // 4. Direction Toggle (LTR / RTL) - Pure Text Label (No Arrow Icon)
   function setupDirToggle() {
+    function updateBtnLabels() {
+      const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+      document.querySelectorAll('#dir-toggle, .dir-toggle-btn').forEach(btn => {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) icon.remove();
+        let label = btn.querySelector('.dir-toggle-text');
+        if (!label) {
+          label = document.createElement('span');
+          label.className = 'dir-toggle-text font-bold text-xs tracking-wider';
+          btn.appendChild(label);
+        }
+        label.textContent = currentDir === 'rtl' ? 'LTR' : 'RTL';
+      });
+    }
+
+    updateBtnLabels();
+
     document.querySelectorAll('#dir-toggle, .dir-toggle-btn').forEach(btn => {
       btn.onclick = (e) => {
         e.preventDefault();
         const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
         const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
         document.documentElement.setAttribute('dir', newDir);
-        showToast(`Layout Direction: ${newDir.toUpperCase()}`, 'swap_horiz');
+        updateBtnLabels();
+        showToast(`Layout Direction: ${newDir.toUpperCase()}`);
       };
     });
   }
@@ -1067,7 +1085,12 @@ const HWC_Shared = (function() {
           playPromise.then(() => {
             if (overlay) overlay.classList.add('hidden');
           }).catch(() => {
-            if (overlay) overlay.classList.remove('hidden');
+            video.muted = true;
+            video.play().then(() => {
+              if (overlay) overlay.classList.add('hidden');
+            }).catch(() => {
+              if (overlay) overlay.classList.remove('hidden');
+            });
           });
         }
       }

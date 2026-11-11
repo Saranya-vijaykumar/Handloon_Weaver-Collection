@@ -181,8 +181,8 @@
       </button>
 
       <!-- RTL/LTR Toggle (Hidden on mobile) -->
-      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold cursor-pointer" title="Toggle Layout Direction (LTR/RTL)" aria-label="Toggle Direction">
-        <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl">swap_horiz</span>
+      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold cursor-pointer" title="Toggle Layout Direction (LTR/RTL)" aria-label="Toggle Direction">
+        <span class="dir-toggle-text text-xs font-bold tracking-wider">RTL</span>
       </button>
 
       <!-- Cart Button with Live Badge -->
@@ -218,8 +218,8 @@
             Immerse yourself in the world of rare handloom textiles, where master artisans breathe life into every golden thread, creating bespoke masterpieces for the discerning patron.
           </p>
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="products.html" class="bg-tertiary-fixed-dim text-primary px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-surface hover:text-primary transition-all shadow-lg flex items-center gap-2">
-              <span class="material-symbols-outlined text-base">palette</span>Explore Collections
+            <a href="products.html" class="bg-[#fed65b] !text-[#3b0d1a] px-7 py-3.5 rounded-xl text-sm font-bold hover:bg-white hover:!text-[#3b0d1a] transition-all shadow-lg flex items-center gap-2 border border-amber-400/50">
+              <span class="material-symbols-outlined text-base !text-[#3b0d1a]">palette</span>Explore Collections
             </a>
             <button onclick="openVideoModal()" class="text-on-primary hover:text-tertiary-fixed-dim text-sm font-semibold flex items-center gap-2 transition-colors px-4 py-3 border border-tertiary-fixed-dim/30 rounded-xl hover:bg-white/10">
               <span class="material-symbols-outlined text-xl">play_circle</span>Watch Artisan Film
@@ -421,9 +421,12 @@
               </div>
               <p class="font-serif italic text-primary-fixed-dim text-sm sm:text-base leading-relaxed">"The drape and weight of the Banarasi silk saree is nothing short of royal museum-grade art. Wearing it felt like carrying centuries of living history."</p>
             </div>
-            <div class="pt-2 border-t border-white/10">
-              <h4 class="font-serif font-bold text-on-primary text-sm">Dr. Alana Sen</h4>
-              <span class="text-xs text-primary-fixed-dim">Couture Collector, London</span>
+            <div class="pt-3 border-t border-white/10 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80" alt="Dr. Alana Sen" class="w-11 h-11 rounded-full object-cover border-2 border-tertiary-fixed-dim/40 shadow-sm shrink-0"/>
+              <div>
+                <h4 class="font-serif font-bold text-on-primary text-sm">Dr. Alana Sen</h4>
+                <span class="text-xs text-primary-fixed-dim">Couture Collector, London</span>
+              </div>
             </div>
           </div>
 
@@ -439,9 +442,12 @@
               </div>
               <p class="font-serif italic text-primary-fixed-dim text-sm sm:text-base leading-relaxed">"Knowing the artisan by name and supporting their generational craft directly adds an emotional depth no luxury brand can ever replicate."</p>
             </div>
-            <div class="pt-2 border-t border-white/10">
-              <h4 class="font-serif font-bold text-on-primary text-sm">Vikramaditya Roy</h4>
-              <span class="text-xs text-primary-fixed-dim">Architect &amp; Patron, New Delhi</span>
+            <div class="pt-3 border-t border-white/10 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80" alt="Vikramaditya Roy" class="w-11 h-11 rounded-full object-cover border-2 border-tertiary-fixed-dim/40 shadow-sm shrink-0"/>
+              <div>
+                <h4 class="font-serif font-bold text-on-primary text-sm">Vikramaditya Roy</h4>
+                <span class="text-xs text-primary-fixed-dim">Architect &amp; Patron, New Delhi</span>
+              </div>
             </div>
           </div>
 
@@ -457,9 +463,12 @@
               </div>
               <p class="font-serif italic text-primary-fixed-dim text-sm sm:text-base leading-relaxed">"The packaging, handwritten artisan note, and absolute luminescence of the Kanchipuram silk surpassed all expectations. Truly breathtaking."</p>
             </div>
-            <div class="pt-2 border-t border-white/10">
-              <h4 class="font-serif font-bold text-on-primary text-sm">Clara Dupont</h4>
-              <span class="text-xs text-primary-fixed-dim">Interior Stylist, Paris</span>
+            <div class="pt-3 border-t border-white/10 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&h=200&q=80" alt="Clara Dupont" class="w-11 h-11 rounded-full object-cover border-2 border-tertiary-fixed-dim/40 shadow-sm shrink-0"/>
+              <div>
+                <h4 class="font-serif font-bold text-on-primary text-sm">Clara Dupont</h4>
+                <span class="text-xs text-primary-fixed-dim">Interior Stylist, Paris</span>
+              </div>
             </div>
           </div>
         </div>
@@ -684,14 +693,23 @@
       const video = document.getElementById('documentary-video');
       const overlay = document.getElementById('video-play-overlay-btn');
       if (video) {
+        if (!video.src && !video.currentSrc) {
+          video.src = 'videos/artisan-film.mp4';
+        }
         video.play().then(() => {
           if (overlay) overlay.classList.add('hidden');
         }).catch(err => {
-          console.warn('Playback error:', err);
+          console.warn('Playback error, falling back to muted or CDN:', err);
           video.muted = true;
           video.play().then(() => {
             if (overlay) overlay.classList.add('hidden');
-          }).catch(() => {});
+          }).catch(() => {
+            video.src = 'https://vjs.zencdn.net/v/oceans.mp4';
+            video.load();
+            video.play().then(() => {
+              if (overlay) overlay.classList.add('hidden');
+            }).catch(() => {});
+          });
         });
       }
     }
@@ -704,13 +722,23 @@
         modal.classList.remove('hidden');
         if (overlay) overlay.classList.remove('hidden');
         if (video) {
+          if (video.error) {
+            video.src = 'https://vjs.zencdn.net/v/oceans.mp4';
+            video.load();
+          }
           video.currentTime = 0;
           const playPromise = video.play();
           if (playPromise !== undefined) {
             playPromise.then(() => {
               if (overlay) overlay.classList.add('hidden');
             }).catch(() => {
-              if (overlay) overlay.classList.remove('hidden');
+              // Try muted autoplay
+              video.muted = true;
+              video.play().then(() => {
+                if (overlay) overlay.classList.add('hidden');
+              }).catch(() => {
+                if (overlay) overlay.classList.remove('hidden');
+              });
             });
           }
         }

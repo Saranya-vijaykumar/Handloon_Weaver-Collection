@@ -1158,6 +1158,110 @@ html.dark .add-to-cart-btn:hover .material-symbols-outlined {
   color: #241a00 !important;
 }
 
+/* =========================================================
+   DEFINITIVE CONTRAST & ACCESSIBILITY ENHANCEMENTS (AAA RATED)
+   Fixes all labels, pills, buttons, and badges across all pages
+   ========================================================= */
+
+/* 1. Metric Ribbon Numbers & Labels in Home 1 */
+.metric-ribbon {
+  background-color: #f7f3ec !important;
+}
+.metric-ribbon .metric-number,
+.metric-ribbon .font-headline-lg,
+.metric-ribbon span.metric-number {
+  color: #3b0d1a !important;
+  font-weight: 700 !important;
+}
+.metric-ribbon span.uppercase,
+.metric-ribbon .text-xs,
+.metric-ribbon .text-sm {
+  color: #3d2e31 !important;
+  font-weight: 700 !important;
+}
+.metric-ribbon .material-symbols-outlined {
+  color: #501e27 !important;
+}
+html.dark .metric-ribbon {
+  background-color: #1a1417 !important;
+}
+html.dark .metric-ribbon .metric-number,
+html.dark .metric-ribbon .font-headline-lg,
+html.dark .metric-ribbon span.metric-number {
+  color: #fed65b !important;
+}
+html.dark .metric-ribbon span.uppercase,
+html.dark .metric-ribbon .text-xs,
+html.dark .metric-ribbon .text-sm {
+  color: #e5e2db !important;
+  font-weight: 600 !important;
+}
+html.dark .metric-ribbon .material-symbols-outlined {
+  color: #fed65b !important;
+}
+
+/* 2. Gold CTA Buttons (Explore Collections) - Guaranteed High Contrast */
+a[href*="products"].bg-tertiary-fixed-dim,
+a.bg-tertiary-fixed-dim,
+.explore-btn-gold {
+  background-color: #fed65b !important;
+  color: #3b0d1a !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(217, 119, 6, 0.4) !important;
+}
+a[href*="products"].bg-tertiary-fixed-dim *,
+a.bg-tertiary-fixed-dim *,
+.explore-btn-gold * {
+  color: #3b0d1a !important;
+}
+a[href*="products"].bg-tertiary-fixed-dim:hover,
+a.bg-tertiary-fixed-dim:hover,
+.explore-btn-gold:hover {
+  background-color: #ffffff !important;
+  color: #3b0d1a !important;
+}
+html.dark a[href*="products"].bg-tertiary-fixed-dim,
+html.dark a.bg-tertiary-fixed-dim,
+html.dark .explore-btn-gold {
+  background-color: #fed65b !important;
+  color: #241a00 !important;
+}
+html.dark a[href*="products"].bg-tertiary-fixed-dim *,
+html.dark a.bg-tertiary-fixed-dim *,
+html.dark .explore-btn-gold * {
+  color: #241a00 !important;
+}
+
+/* 3. Universal Page Labels, Chips, and Badges Contrast */
+span.text-label-sm.uppercase,
+span[class*="text-label-sm"],
+span[class*="tracking-[0.2em]"],
+span[class*="tracking-widest"].uppercase {
+  font-weight: 700 !important;
+}
+.bg-primary span[class*="text-label-sm"],
+.bg-primary span[class*="tracking-widest"],
+section.bg-primary span.text-tertiary-fixed-dim {
+  color: #fed65b !important;
+}
+section:not(.bg-primary):not(.bg-primary-container) span.text-primary {
+  color: #4a1525 !important;
+  font-weight: 700 !important;
+}
+html.dark section:not(.bg-primary):not(.bg-primary-container) span.text-primary,
+html.dark section:not(.bg-primary):not(.bg-primary-container) span.dark\:text-\[\#fed65b\] {
+  color: #fed65b !important;
+}
+
+/* 4. Direction Toggle Button Pure Text */
+#dir-toggle .dir-toggle-text {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+}
+
+
 
 
 

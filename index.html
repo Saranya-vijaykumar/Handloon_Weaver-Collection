@@ -216,8 +216,8 @@
       </button>
 
       <!-- RTL/LTR Toggle (Hidden on mobile) -->
-      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold cursor-pointer" title="Toggle Layout Direction (LTR/RTL)" aria-label="Toggle Direction">
-        <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl">swap_horiz</span>
+      <button id="dir-toggle" class="hidden sm:flex bg-surface-container-high text-on-surface px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all items-center justify-center border border-outline-variant/30 text-xs font-bold cursor-pointer" title="Toggle Layout Direction (LTR/RTL)" aria-label="Toggle Direction">
+        <span class="dir-toggle-text text-xs font-bold tracking-wider">RTL</span>
       </button>
 
       <!-- Cart Button with Live Badge -->
@@ -260,43 +260,43 @@
 </section>
 
 <!-- Section 2: Living Heritage Metric Ribbon (100% High Visibility & Responsive Alignment) -->
-<section class="metric-ribbon relative z-20 bg-surface-container-low dark:bg-[#1e191c] py-7 sm:py-9 border-b border-outline-variant/30 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-colors duration-300">
+<section class="metric-ribbon relative z-20 bg-[#f7f3ec] dark:bg-[#1a1417] py-8 sm:py-10 border-b border-[#e2d9cd] dark:border-stone-800 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
     
     <!-- Stat 1: Master Weavers -->
-    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-white/60 dark:hover:bg-white/5">
       <div class="flex items-center justify-center gap-2.5 mb-1.5">
-        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">groups</span>
-        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">1,400+</span>
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-[#501e27] dark:text-[#fed65b]">groups</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-[#3b0d1a] dark:text-[#fed65b]">1,400+</span>
       </div>
-      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Master Weavers</span>
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#3d2e31] dark:text-stone-300">Master Weavers</span>
     </div>
 
     <!-- Stat 2: Heritage Clusters -->
-    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-white/60 dark:hover:bg-white/5">
       <div class="flex items-center justify-center gap-2.5 mb-1.5">
-        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">domain</span>
-        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">12</span>
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-[#501e27] dark:text-[#fed65b]">domain</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-[#3b0d1a] dark:text-[#fed65b]">12</span>
       </div>
-      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Heritage Clusters</span>
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#3d2e31] dark:text-stone-300">Heritage Clusters</span>
     </div>
 
     <!-- Stat 3: Organic Natural Fibers -->
-    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-white/60 dark:hover:bg-white/5">
       <div class="flex items-center justify-center gap-2.5 mb-1.5">
-        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">spa</span>
-        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">100%</span>
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-[#501e27] dark:text-[#fed65b]">spa</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-[#3b0d1a] dark:text-[#fed65b]">100%</span>
       </div>
-      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Organic Natural Fibers</span>
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#3d2e31] dark:text-stone-300">Organic Natural Fibers</span>
     </div>
 
     <!-- Stat 4: Direct Artisan Earnings -->
-    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-surface/60 dark:hover:bg-white/5">
+    <div class="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl transition-all hover:bg-white/60 dark:hover:bg-white/5">
       <div class="flex items-center justify-center gap-2.5 mb-1.5">
-        <span class="material-symbols-outlined text-2xl sm:text-3xl text-secondary dark:text-[#fed65b]">payments</span>
-        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-primary dark:text-[#fed65b]">₹4.2Cr</span>
+        <span class="material-symbols-outlined text-2xl sm:text-3xl text-[#501e27] dark:text-[#fed65b]">payments</span>
+        <span class="metric-number font-headline-lg text-3xl sm:text-4xl font-bold tracking-tight text-[#3b0d1a] dark:text-[#fed65b]">₹4.2Cr</span>
       </div>
-      <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-on-surface-variant dark:text-stone-300">Direct Artisan Earnings</span>
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#3d2e31] dark:text-stone-300">Direct Artisan Earnings</span>
     </div>
 
   </div>
@@ -358,7 +358,7 @@
 <div class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/20 zoom-card cursor-pointer" data-category="silk" data-date="2024-03-01" data-price="48000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-1'">
 <a href="product-detail.html?id=prod-1" class="block relative h-96 overflow-hidden cursor-pointer group/img" title="View Mayur-Bahar Gold Brocade Saree">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An opulent crimson Kanjeevaram pure silk saree featuring intricate pure gold zari brocade peacocks and floral vine motifs along the rich pallu." src="images/products/prod-1-main.jpg"/>
-<span class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none"><span class="material-symbols-outlined text-xs">location_on</span>Varanasi Cluster</span>
+<span class="absolute top-4 left-4 bg-[#20070f]/90 text-[#fed65b] border border-[#fed65b]/40 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md pointer-events-none"><span class="material-symbols-outlined text-xs text-[#fed65b]">location_on</span>Varanasi Cluster</span>
 </a>
 <div class="p-6 flex flex-col flex-1 justify-between">
 <div>
@@ -379,7 +379,7 @@
 <div class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/20 zoom-card cursor-pointer" data-category="jamdani" data-date="2024-03-05" data-price="28000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-2'">
 <a href="product-detail.html?id=prod-2" class="block relative h-96 overflow-hidden cursor-pointer group/img" title="View Meghdoot Handspun Jamdani">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sheer ivory Bengal Jamdani handloom cotton saree adorned with gossamer-thin geometric floral motifs floating gracefully across the drape." src="images/products/prod-2-main.jpg"/>
-<span class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none"><span class="material-symbols-outlined text-xs">location_on</span>Bengal Cluster</span>
+<span class="absolute top-4 left-4 bg-[#20070f]/90 text-[#fed65b] border border-[#fed65b]/40 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md pointer-events-none"><span class="material-symbols-outlined text-xs text-[#fed65b]">location_on</span>Bengal Cluster</span>
 </a>
 <div class="p-6 flex flex-col flex-1 justify-between">
 <div>
@@ -400,7 +400,7 @@
 <div class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-outline-variant/20 zoom-card cursor-pointer" data-category="pashmina" data-date="2024-02-20" data-price="65000" onclick="if(!event.target.closest('button')) window.location.href='product-detail.html?id=prod-3'">
 <a href="product-detail.html?id=prod-3" class="block relative h-96 overflow-hidden cursor-pointer group/img" title="View Chinar Leaf Hand-Embroidered Pashmina">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious natural ivory Ladakhi Pashmina shawl featuring hand-embroidered Sozni needlework in subtle earthy tones of walnut and olive." src="images/products/prod-3-main.jpg"/>
-<span class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm pointer-events-none"><span class="material-symbols-outlined text-xs">location_on</span>Kashmir Cluster</span>
+<span class="absolute top-4 left-4 bg-[#20070f]/90 text-[#fed65b] border border-[#fed65b]/40 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md pointer-events-none"><span class="material-symbols-outlined text-xs text-[#fed65b]">location_on</span>Kashmir Cluster</span>
 </a>
 <div class="p-6 flex flex-col flex-1 justify-between">
 <div>
