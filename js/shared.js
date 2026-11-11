@@ -789,16 +789,34 @@ const HWC_Shared = (function() {
   // 9. Universal FAQ Accordion Handler
   function setupFaqAccordions() {
     document.querySelectorAll('.faq-toggle').forEach(toggle => {
-      toggle.addEventListener('click', () => {
+      if (toggle.dataset.faqBound === 'true') return;
+      toggle.dataset.faqBound = 'true';
+
+      if (!toggle.hasAttribute('aria-expanded')) {
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
         const content = toggle.nextElementSibling;
         const icon = toggle.querySelector('.material-symbols-outlined:last-child') || toggle.querySelector('.material-symbols-outlined');
-        const isOpen = content && !content.classList.contains('hidden');
+        const isCurrentlyOpen = content && !content.classList.contains('hidden');
 
-        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-        document.querySelectorAll('.faq-toggle .material-symbols-outlined:last-child').forEach(i => i.style.transform = 'rotate(0deg)');
+        // Close all other FAQs in the same accordion container or page
+        const parentAccordion = toggle.closest('#faq-accordion') || document;
+        parentAccordion.querySelectorAll('.faq-content').forEach(c => {
+          c.classList.add('hidden');
+        });
+        parentAccordion.querySelectorAll('.faq-toggle').forEach(btn => {
+          btn.setAttribute('aria-expanded', 'false');
+          const btnIcon = btn.querySelector('.material-symbols-outlined:last-child') || btn.querySelector('.material-symbols-outlined');
+          if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
+        });
 
-        if (content && !isOpen) {
+        // Toggle the clicked FAQ
+        if (content && !isCurrentlyOpen) {
           content.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
           if (icon) icon.style.transform = 'rotate(180deg)';
         }
       });
@@ -1276,7 +1294,8 @@ const HWC_Shared = (function() {
     openPolicyModal,
     openVideoModal,
     closeVideoModal,
-    playDocumentary
+    playDocumentary,
+    setupFaqAccordions
   };
 })();
 

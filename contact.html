@@ -646,23 +646,10 @@ Kindly send me the complete master artisan commission catalog and price guide.`;
         };
       }
 
-      // 3. FAQ Accordion Toggle
-      const faqToggles = document.querySelectorAll('.faq-toggle');
-      faqToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          const content = toggle.nextElementSibling;
-          const icon = toggle.querySelector('.material-symbols-outlined:last-child');
-          const isOpen = !content.classList.contains('hidden');
-
-          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-          document.querySelectorAll('.faq-toggle .material-symbols-outlined:last-child').forEach(i => i.style.transform = 'rotate(0deg)');
-
-          if (!isOpen) {
-            content.classList.remove('hidden');
-            if (icon) icon.style.transform = 'rotate(180deg)';
-          }
-        });
-      });
+      // 3. FAQ Accordion Toggle - Handled universally by HWC_Shared.setupFaqAccordions
+      if (window.HWC_Shared && window.HWC_Shared.setupFaqAccordions) {
+        window.HWC_Shared.setupFaqAccordions();
+      }
     });
   </script>
 
