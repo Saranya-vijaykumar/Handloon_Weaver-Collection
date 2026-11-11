@@ -94,8 +94,64 @@ const HWC_Cart = (function() {
     saveCart([]);
   }
 
+  // Dynamically ensure the cart drawer markup exists in document
+  function ensureCartDrawerExists() {
+    let drawer = document.getElementById('cart-drawer');
+    if (!drawer) {
+      drawer = document.createElement('div');
+      drawer.id = 'cart-drawer';
+      drawer.className = 'fixed inset-0 z-50 hidden';
+      drawer.innerHTML = `
+        <div class="fixed inset-0 bg-inverse-surface/40 dark:bg-black/60 backdrop-blur-sm transition-opacity opacity-0 duration-300" id="cart-backdrop"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+          <div class="w-screen max-w-md bg-surface dark:bg-[#1e191c] text-on-surface dark:text-[#f3efe9] border-l border-outline-variant/30 dark:border-stone-800 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out" id="cart-panel">
+            <div class="p-6 border-b border-outline-variant/20 dark:border-stone-800 flex items-center justify-between">
+              <h3 class="font-headline-sm text-primary dark:text-[#fed65b] font-semibold text-xl flex items-center gap-2">
+                <span class="material-symbols-outlined">shopping_bag</span>Your Cart
+              </h3>
+              <button class="text-on-surface-variant dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] p-2 rounded-xl transition-colors cursor-pointer" id="close-cart" title="Close Cart">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            <div class="px-6 py-3 bg-surface-container-low dark:bg-[#252024] border-b border-outline-variant/20 dark:border-stone-800">
+              <div class="flex justify-between items-center text-xs text-on-surface-variant dark:text-stone-300 mb-1">
+                <span class="font-medium text-primary dark:text-[#fed65b] flex items-center gap-1"><span class="material-symbols-outlined text-xs">local_shipping</span>Free Heritage Shipping</span>
+                <span class="text-[11px] font-bold text-secondary dark:text-amber-400">Orders over ₹5,000</span>
+              </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container"></div>
+            <div class="p-6 border-t border-outline-variant/20 dark:border-stone-800 bg-surface-container-lowest dark:bg-[#151214] space-y-4">
+              <div class="space-y-1.5 text-xs text-on-surface-variant dark:text-stone-300">
+                <div class="flex justify-between text-base font-serif font-bold text-primary dark:text-[#fed65b]">
+                  <span>Subtotal</span>
+                  <span id="cart-subtotal">₹0</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant dark:text-stone-400">Direct artisan living wages calculated at checkout. Complimentary nationwide insured delivery.</p>
+              </div>
+              <button class="w-full bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-surface-tint dark:hover:bg-amber-300 transition-all flex items-center justify-center gap-2 shadow-lg proceed-checkout-btn cursor-pointer" id="checkout-btn">
+                <span>Proceed to Checkout</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(drawer);
+
+      const closeBtn = drawer.querySelector('#close-cart');
+      const backdrop = drawer.querySelector('#cart-backdrop');
+      if (closeBtn) closeBtn.onclick = closeCart;
+      if (backdrop) backdrop.onclick = closeCart;
+
+      const checkoutBtn = drawer.querySelector('#checkout-btn');
+      if (checkoutBtn) checkoutBtn.onclick = (e) => { e.preventDefault(); openCheckout(); };
+    }
+    return drawer;
+  }
+
   // Open Cart Drawer
   function openCart() {
+    ensureCartDrawerExists();
     const drawer = document.getElementById('cart-drawer');
     const backdrop = document.getElementById('cart-backdrop');
     const panel = document.getElementById('cart-panel');
@@ -193,7 +249,11 @@ const HWC_Cart = (function() {
     const badges = document.querySelectorAll('#cart-badge, .cart-count-badge');
     badges.forEach(badge => {
       badge.textContent = summary.count;
-      badge.style.display = summary.count > 0 ? 'inline-flex' : 'none';
+      if (summary.count > 0) {
+        badge.style.setProperty('display', 'inline-flex', 'important');
+      } else {
+        badge.style.setProperty('display', 'none', 'important');
+      }
     });
 
     // 2. Update Subtotal & Total
@@ -496,27 +556,36 @@ const HWC_Cart = (function() {
   }
 
   function init() {
-    updateCartUI();
+    ensureCartDrawerExists();
     setupCheckoutModal();
+    updateCartUI();
 
-    document.querySelectorAll('#open-cart-btn, .open-cart-trigger').forEach(btn => {
-      btn.onclick = (e) => {
+    // Universal delegated click listener for cart triggers anywhere in document
+    document.addEventListener('click', (e) => {
+      const openBtn = e.target.closest('#open-cart-btn, .open-cart-trigger');
+      if (openBtn) {
         e.preventDefault();
         openCart();
-      };
-    });
+        return;
+      }
 
-    const closeBtn = document.getElementById('close-cart');
-    const backdrop = document.getElementById('cart-backdrop');
-    if (closeBtn) closeBtn.onclick = closeCart;
-    if (backdrop) backdrop.onclick = closeCart;
+      const closeBtn = e.target.closest('#close-cart, .close-cart-trigger');
+      if (closeBtn) {
+        e.preventDefault();
+        closeCart();
+        return;
+      }
 
-    document.querySelectorAll('#checkout-btn, .proceed-checkout-btn').forEach(btn => {
-      btn.onclick = (e) => {
+      const chkBtn = e.target.closest('#checkout-btn, .proceed-checkout-btn');
+      if (chkBtn) {
         e.preventDefault();
         openCheckout();
-      };
+        return;
+      }
     });
+
+    const backdrop = document.getElementById('cart-backdrop');
+    if (backdrop) backdrop.onclick = closeCart;
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {

@@ -137,6 +137,22 @@ const HWC_Shared = (function() {
         link.classList.add('text-on-surface', 'dark:text-[#f3efe9]');
       }
     });
+
+    // Footer Navigation Links Highlighting
+    document.querySelectorAll('footer a').forEach(link => {
+      const href = (link.getAttribute('href') || '').split('#')[0].toLowerCase();
+      const isFooterActive = (href === current) || 
+                             (current === 'home-2.html' && (href === 'home-2.html' || href === 'index-2.html')) ||
+                             (current === 'index.html' && (href === 'index.html' || href === '/'));
+      if (isFooterActive) {
+        link.classList.add('text-primary', 'dark:text-[#fed65b]', 'font-bold');
+        link.classList.remove('text-on-surface-variant', 'dark:text-stone-300');
+        const chevron = link.querySelector('.material-symbols-outlined');
+        if (chevron) {
+          chevron.classList.add('text-primary', 'dark:text-[#fed65b]', 'font-bold');
+        }
+      }
+    });
   }
 
   // 3. Theme Toggle (Dark / Light)

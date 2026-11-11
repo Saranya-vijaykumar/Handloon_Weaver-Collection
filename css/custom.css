@@ -560,10 +560,32 @@ html.dark .metric-ribbon span.uppercase {
 
 /* Cart live badge must have bright white text on red background */
 #cart-badge {
+  position: absolute !important;
+  top: -5px !important;
+  right: -5px !important;
+  background-color: #c51b24 !important;
   color: #ffffff !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  padding: 0 4px !important;
+  border-radius: 9999px !important;
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 11px !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25) !important;
+  z-index: 50 !important;
+  pointer-events: none !important;
+}
+
+#cart-badge[style*="display: none"],
+#cart-badge.hidden,
+#cart-badge:empty {
+  display: none !important;
 }
 
 
@@ -1274,6 +1296,62 @@ html.dark section:not(.bg-primary):not(.bg-primary-container) span.dark\:text-\[
   font-size: 11px !important;
   letter-spacing: 0.1em !important;
 }
+
+/* 5. Sticky Navigation Bar & Header Positioning Guarantee */
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+}
+
+/* 6. Header Action Buttons Uniform Alignment & Geometry */
+.open-search-trigger,
+#theme-toggle,
+#open-cart-btn {
+  height: 38px !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+}
+
+#dir-toggle {
+  height: 38px !important;
+  min-width: 48px !important;
+  padding: 0 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+}
+
+#mobile-menu-btn {
+  height: 38px !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+}
+
+/* 7. Text Selection Color Enhancement */
+::selection {
+  background-color: #ffd9df !important;
+  color: #4a1525 !important;
+}
+html.dark ::selection {
+  background-color: #fed65b !important;
+  color: #240a00 !important;
+}
+
 
 
 

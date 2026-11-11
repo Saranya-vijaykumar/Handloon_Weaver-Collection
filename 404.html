@@ -147,7 +147,7 @@
       <!-- Cart Button with Live Badge -->
       <button id="open-cart-btn" class="relative bg-surface-container-high text-on-surface p-1.5 sm:p-2 xl:p-2.5 rounded-lg sm:rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center border border-outline-variant/30 cursor-pointer" title="View Cart" aria-label="Cart">
         <span class="material-symbols-outlined text-base sm:text-lg xl:text-xl">shopping_bag</span>
-        <span id="cart-badge" class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center font-bold hidden shadow-sm">0</span>
+        <span id="cart-badge" class="absolute -top-1 -right-1 bg-[#c51b24] text-white text-[10px] min-w-[18px] h-[18px] px-1 rounded-full flex items-center justify-center font-bold shadow-sm" style="display: none;">0</span>
       </button>
 
       <!-- Mobile Hamburger Button (Fully visible, 100% accessible on mobile) -->
@@ -197,7 +197,54 @@
   </main>
 
   <!-- Unified Footer -->
-  <footer class="w-full bg-surface-container-low dark:bg-[#191518] py-space-xl border-t border-outline-variant/20 dark:border-stone-800 text-on-surface dark:text-[#f3efe9]">
+  
+<!-- Slide-over Cart Drawer -->
+<div class="fixed inset-0 z-50 hidden" id="cart-drawer">
+  <div class="fixed inset-0 bg-inverse-surface/40 dark:bg-black/60 backdrop-blur-sm transition-opacity opacity-0 duration-300" id="cart-backdrop"></div>
+  <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+    <div class="w-screen max-w-md bg-surface dark:bg-[#1e191c] text-on-surface dark:text-[#f3efe9] border-l border-outline-variant/30 dark:border-stone-800 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out" id="cart-panel">
+      <!-- Cart Drawer Header -->
+      <div class="p-6 border-b border-outline-variant/20 dark:border-stone-800 flex items-center justify-between">
+        <h3 class="font-headline-sm text-primary dark:text-[#fed65b] font-semibold text-xl flex items-center gap-2">
+          <span class="material-symbols-outlined">shopping_bag</span>Your Cart
+        </h3>
+        <button class="text-on-surface-variant dark:text-stone-300 hover:text-primary dark:hover:text-[#fed65b] p-2 rounded-xl transition-colors cursor-pointer" id="close-cart" title="Close Cart">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <!-- Free Shipping Tracker -->
+      <div class="px-6 py-3 bg-surface-container-low dark:bg-[#252024] border-b border-outline-variant/20 dark:border-stone-800">
+        <div class="flex justify-between items-center text-xs text-on-surface-variant dark:text-stone-300 mb-1">
+          <span class="font-medium text-primary dark:text-[#fed65b] flex items-center gap-1"><span class="material-symbols-outlined text-xs">local_shipping</span>Free Heritage Shipping</span>
+          <span class="text-[11px] font-bold text-secondary dark:text-amber-400">Orders over ₹5,000</span>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container">
+        <!-- Managed dynamically by HWC_Cart.updateCartUI() -->
+      </div>
+
+      <!-- Cart Footer / Summary -->
+      <div class="p-6 border-t border-outline-variant/20 dark:border-stone-800 bg-surface-container-lowest dark:bg-[#151214] space-y-4">
+        <div class="space-y-1.5 text-xs text-on-surface-variant dark:text-stone-300">
+          <div class="flex justify-between text-base font-serif font-bold text-primary dark:text-[#fed65b]">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">₹0</span>
+          </div>
+          <p class="text-[11px] text-on-surface-variant dark:text-stone-400">Direct artisan living wages calculated at checkout. Complimentary nationwide insured delivery.</p>
+        </div>
+        <button class="w-full bg-primary text-on-primary dark:bg-[#fed65b] dark:text-[#241a00] py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-surface-tint dark:hover:bg-amber-300 transition-all flex items-center justify-center gap-2 shadow-lg proceed-checkout-btn cursor-pointer" id="checkout-btn">
+          <span>Proceed to Checkout</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="w-full bg-surface-container-low dark:bg-[#191518] py-space-xl border-t border-outline-variant/20 dark:border-stone-800 text-on-surface dark:text-[#f3efe9]">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-10 sm:gap-12 mb-12">
     <!-- Col 1: Brand & Contact Info -->
     <div class="space-y-4">

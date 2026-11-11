@@ -315,7 +315,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/prod-5-main.jpg",
-      "images/products/prod-5-detail.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDScTilwUzca-MWOQtUCSBnYfcKH2ApQPSnHF_14Y9O2D5Qb6Vqc7jzref0fdH8wl6aTuRkA7L7BC2NfTiftfHYj_kRogFBZ8rUTGh4DqnWEhRp8BDdSvn9DrHuOcDY7t1_dYlBbZ159Iy-yIbHYI1-wUKHEtF1H1mnMIbTQIIDccdJyTJFkTwmIlT3Tt09rPJw6saSbF44pFDMOw1d0P6-nvSLlPxtypzSE0NDRSk"
     ],
     description: "Crisp, airy organic flax linen with a tactile slub texture. Pre-washed with natural river stone tumble for supreme tactile softness against summer skin.",
     specs: {
@@ -348,7 +348,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/prod-6-main.jpg",
-      "images/products/prod-6-detail.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB9bDLpyOuXsyQzZQtGO8JQPShW8kq5cN0-JbZEApnl_CzN3H_5r3mmHH3MJ3xKRcQY6PTaRxY1pk9g79v6SCL0wz58AHBwONKiZtFMiQIwb8VJFYe82bXYmvX9Q4UN92ZMN8b4R7hbSIVGQyt3H1SngH3f9N8Jzwr3uhJvHAH1muZI--839qMpifYCRygYtmaFRJSk5nimuvdT0rCM5IVQzzIocmbPHOAJki-viQ0"
     ],
     description: "Thick, warm, and authentic nomadic wool blanket spun on traditional takli drop spindles by women pastoralists in Spiti Valley. Features raw undyed yarn tones in charcoal and oatmeal.",
     specs: {
@@ -414,7 +414,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/prod-8-main.jpg",
-      "images/products/prod-8-detail.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAWv8sWQhIx6zYx2U0WtGfJmwhuP--y2Lu4MahcDwkIpMJJkkyIFkljgWLTXjdP9iauvoJrJ376MuBTUgsywBTnAwhRGY0hp6WlnvDPJRcfTyYARVk6B0ehVYBG3mN3ImUsi4FfRAE-JBaMhZd_RaE0MYVwfnO_v5GrS5mS4zGWQSwdmXXvs8aMZ6o_gqVmtAJhQq747hGVqR5XfOwf56LWcWwaAERMlxe-EvNN3-A"
     ],
     description: "A translucent royal sapphire dupatta with shimmering gold bootis sprinkled across lightweight silk warp, finished with delicate scalloped gold fringes.",
     specs: {
@@ -446,8 +446,8 @@ const HWC_PRODUCTS = [
       quote: "Every throw of the wooden shuttle is an act of devotion to our ancestors' patience."
     },
     images: [
-      "images/products/prod-1-main.jpg",
-      "images/products/prod-1-detail.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDvxPukrgYxO6kSZ_Q_bgLyIT-cni9yr6_ANgFwfd-OjOFYeCAufJTlg8wv716I27GYK-Yu0cyGK2Byd5_PgHAPrNdz0iIYwSxUKoyaEUHsLpCUVjMr4yXthlFXKa6Dy3fwcV6ZCtgxOmYqAg4iswRE4TGc_8njpFPRP0QZt0qRGHHFfb0jcNcsg1rh07gs-wybsGgr_g4Pwhr3uGLZU-O-NSS2tCYH_8xK53DxkO4",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCiLZRpgDSbzToAX4aZEJcnQH3O807rDr-aIkXMgidG0JRfirlkIwt49ds6ImRLJmFjZKX0OmWmZgKIf5VKUhNAxxfwgeKDFnIwGnAd5WslgvfXqiI_1w7i0cgwWo_LVzS1lZCKxuiOAAKtYWP9wr5xhTiZ5R3klw4uT14__IZYCGjqpedGe5FgvKRyNwVAGyH1tSlViMpr97pvBXqPk1N5gUuhyN87ca6_Y3U3Kaw"
     ],
     description: "An imperial Banarasi Kinkhab masterpiece with full warp gold tissue inlay and intricate scrolling floral jaal inspired by historic royal wardrobes.",
     specs: {
@@ -479,8 +479,8 @@ const HWC_PRODUCTS = [
       quote: "Every throw of the wooden shuttle is an act of devotion to our ancestors' patience."
     },
     images: [
-      "images/products/prod-7-main.jpg",
-      "images/products/prod-7-detail.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDTZSwQNYgTtZMTzBSTlepsJBJoMCBmJn1OPdncxn_YZuxPDNL1oVnRXhKeVco4ZhQloZZgIJLzrXLiQdZYKj5Ctm6fmP31U26FzRXcezRqTiuRnMwwF0QL80OLZTv7iTL5q5756nthVfqw9GoR7koqMGsguIXkueUkoumIYflDj8EWKkRmB0NNiPradDZLi32vozt3Xj1b4SS_ynXyws7YN6opK9GjZ9Fw1_J9zrA",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB0-g8432NRDAf0NXcnJDYfr5AY1HmqSc6dlzGAOAS4zCzXfWg-Aixhu8FGtC778gaqzk8irvOFyxaZL_EP-tByRRDz1biualfGt26I2Zs_kC0aoZYtJ9uPu2nEi5L7T4Qo9R6-BTrZ940Jk9fIFTrIAc7LowwgkP-WdGXU005oDDUyFXtRVFiilNyx-HEV8gYFMV9201fr4G9mWIsSzkmy5swrDlh4Zyt5RORhEd0"
     ],
     description: "Historic Shikargah iconography woven with pure gilded silver threads depicting flora and fauna of the sacred Gangetic forests.",
     specs: {
@@ -512,8 +512,8 @@ const HWC_PRODUCTS = [
       quote: "Our needlework carries the stories of Bengal's rivers, monsoon clouds, and rural village songs."
     },
     images: [
-      "images/products/prod-4-main.jpg",
-      "images/products/prod-4-detail.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAKjDYxUHx9p8Fg54bd08m0usrqJiZ1eMZjUklYpZrdfki7nnsqgA9ZZgdQVoovT9w_4DFQy6kabbeRojDPmDhKCGIXJpW5sWs_kEcwkkjAHgj5U8CtLzKsexKihkODlORaMlBKBa26TmGCj7ZhxqvR3rKHl_xbC8tpgqrIEpoxl2QBn8luMsVeptUd8jkQ90eqTrcMaR5IdnKS5QWT45F8H7eo3MmrBBHbAvz5enM",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB2BiwxPLU7AivxibnMsYWqqkCt4gGcJkfhjZDtpZ4DU8CcgpN_2nRgkxkaPBbOKk-ChIoZ8NTtEQZ2nHx4nrfIeAWvE3c273goweqsxPAYnDutJ-UBvrwSupifFkwQS0JJYyN7QwSikfelnCHDOkc_F6AYiT7zKoKoNpTuai3qnGMK6FzeW97UdXmCHE8LSqkXpQr9mfJ-TvDPOsJACRvBqntZDfmviLkMocXgRYo"
     ],
     description: "Intricately embroidered handspun indigo cotton saree layered with thousands of fine running stitches depicting rural Bengal village folklore and floral creepers.",
     specs: {
@@ -546,7 +546,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/kanchipuram-temple-silk.jpg",
-      "images/products/kanchipuram-temple-silk.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA65WCNdBSLy1PC1fdqU5NBuImYm2cuLjwxuYrDP1t-GO_5dCBNYuL2jlSQLLSTaWdTIDlPttTASmxDdTqJR3kAz0EFuDGrkdaIb-u3ubmSziHRALLgLpDpol5p4bep_gngEzDVbZXgpjH_28qrOsLDuc2xHCSEVoERC66p_7CO7Laxa4lW_nT3vb9dKQIqgHnVRakzPUZsb5vNTzNAxfUtB5BIcLN-HxHum8dd0Ng"
     ],
     description: "An authentic heirloom Kanchipuram pure mulberry silk saree in majestic deep emerald green, enriched with pure gold zari interlocking Korvai temple borders and traditional petni pallu detailing. Woven synchronously by two master artisans on heavy pit looms.",
     specs: {
@@ -579,7 +579,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/chanderi-silk-dupatta.jpg",
-      "images/products/chanderi-silk-dupatta.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuADf-zEnCuP504stW4WxYAlQ_twD7VuiRr_StJVZhwxjzSs90vKNG_IpTsiYyQULsX9-PW-O3GNlodUMMGkziOXJQa-tIPcC41d-jFo4Xd-uzbLIIqNbAOQsymc7OWv2vnUcrBenAm8vZLhW1h2GhcfTW7-Z7V-WbdPArGj0bdox1ot6zQVMyYyvPXoERgHVb1pbCbk_kDVJfvY3Xf3Vx0nNHCvlj3Ya9snHL3leBE"
     ],
     description: "A weightless handspun Chanderi dupatta in natural ivory silk-cotton, sprinkled with delicate pure gold zari coin bootis and finished with an antique maroon zari border and hand-tied tassels. Woven on traditional frame looms.",
     specs: {
@@ -612,7 +612,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/patan-patola-silk.jpg",
-      "images/products/patan-patola-silk.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDtdJUXfkugkVMmnVUYskCdFAJTgAJlsMap-6rdMak1zViOyo6iP7orBTjNb9-NdG_OT3Pqcc3MrTujwh27QaZ34p0BtqIVZCsvI0QZ00jJ1V4ZgV3cMVl9e8ITrpd5iQLVsbytv5299sy6WueeZ9xb79vzoc9sMG2TyJhrkzyGl22pgxEf6MM9hfbGUk71Z1gOR1nsvsXy9qm0RrdpQ4n8ofzk4Ls-TR5606tcYos"
     ],
     description: "An extraordinary masterwork of Patan Patola double ikat weaving featuring the historic Navratna (nine jewels) geometric medallions. Both warp and weft silk yarns are resist-dyed before weaving so the motifs emerge identically on both faces of the cloth.",
     specs: {
@@ -645,7 +645,7 @@ const HWC_PRODUCTS = [
     },
     images: [
       "images/products/maheshwari-silk-cotton.jpg",
-      "images/products/maheshwari-silk-cotton.jpg"
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCjwGU3uPnRBdYJGJbsGmoGS_6iZ5DVwurPNapB1cVglICM0cPAgcyGVdPx2iY_MjV-iY2eLUfRy3WW4S7moSITHvyF-Xxey69DB-aGfEoVeLzA3L_0uPChnshlUX5PGcQc6y6SYt8rWMfnxIEnZb73V0iAlfeHcKCPsiVxuxeTjDJfq0Pz3a9vakspUtLuUBSDGlWtn3YpDlcEQF9Xz-mHUgNoNyc7JDuRkoua3lc"
     ],
     description: "A gossamer-light Maheshwari saree in lustrous mulberry silk warp and fine combed cotton weft, distinguished by its authentic reversible 'Bugdi' temple border and delicate geometric checks inspired by historic Narmada ghat carvings.",
     specs: {
