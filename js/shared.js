@@ -823,169 +823,14 @@ const HWC_Shared = (function() {
     });
   }
 
-  // 10. Zari Gold Sparkle Effects (Cursor Trail & Click Burst)
+  // 10. Zari Gold Sparkle Effects (Disabled per user request: mouse hover effect removed)
   function setupSparkEffects() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const sparkChars = ['✦', '✧', '⋆', '•', '✵', '✨'];
-    const sparkColors = ['#fed65b', '#e6b800', '#ffd700', '#d4af37', '#ffffff', '#f5b041'];
-
-    let lastX = 0;
-    let lastY = 0;
-    let lastTime = 0;
-
-    function createSpark(x, y, dx, dy, size, color, char) {
-      const spark = document.createElement('span');
-      spark.className = 'hwc-spark-particle';
-      spark.textContent = char || sparkChars[Math.floor(Math.random() * sparkChars.length)];
-      spark.style.left = x + 'px';
-      spark.style.top = y + 'px';
-      spark.style.color = color || sparkColors[Math.floor(Math.random() * sparkColors.length)];
-      spark.style.fontSize = (size || Math.floor(Math.random() * 8 + 11)) + 'px';
-      spark.style.setProperty('--dx', (dx !== undefined ? dx : (Math.random() * 26 - 13)) + 'px');
-      spark.style.setProperty('--dy', (dy !== undefined ? dy : (Math.random() * 26 - 13)) + 'px');
-      spark.style.setProperty('--rot', (Math.random() * 180 - 90) + 'deg');
-      document.body.appendChild(spark);
-
-      setTimeout(() => {
-        if (spark.parentNode) spark.remove();
-      }, 850);
-    }
-
-    // Cursor / Touch Trail (Throttled)
-    function onPointerMove(e) {
-      const now = performance.now();
-      if (now - lastTime < 32) return; // 30fps throttle
-
-      const x = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
-      const y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
-      if (!x && !y) return;
-
-      const dist = Math.hypot(x - lastX, y - lastY);
-      if (dist < 14) return;
-
-      lastX = x;
-      lastY = y;
-      lastTime = now;
-
-      createSpark(x, y);
-    }
-
-    window.addEventListener('mousemove', onPointerMove, { passive: true });
-    window.addEventListener('touchmove', onPointerMove, { passive: true });
-
-    // Click / Tap Spark Burst
-    function onPointerDown(e) {
-      const x = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
-      const y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
-      if (!x && !y) return;
-
-      const count = 10;
-      for (let i = 0; i < count; i++) {
-        const angle = (i / count) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
-        const speed = Math.random() * 32 + 18;
-        const dx = Math.cos(angle) * speed;
-        const dy = Math.sin(angle) * speed;
-        const size = Math.floor(Math.random() * 9 + 12);
-        createSpark(x, y, dx, dy, size);
-      }
-    }
-
-    window.addEventListener('pointerdown', onPointerDown, { passive: true });
+    return;
   }
 
-  // 11. Ambient Floating Zari Silk Dust Canvas
+  // 11. Ambient Floating Zari Silk Dust Canvas (Disabled per user request)
   function setupAmbientZariCanvas() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const hero = document.querySelector('section.relative, main > section:first-of-type, .hero-section');
-    if (!hero) return;
-
-    if (hero.querySelector('#hwc-zari-sparkles-canvas')) return;
-
-    const compStyle = window.getComputedStyle(hero);
-    if (compStyle.position === 'static') {
-      hero.style.position = 'relative';
-    }
-
-    const canvas = document.createElement('canvas');
-    canvas.id = 'hwc-zari-sparkles-canvas';
-    hero.appendChild(canvas);
-
-    const ctx = canvas.getContext('2d');
-    let width = (canvas.width = hero.offsetWidth);
-    let height = (canvas.height = hero.offsetHeight);
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = hero.offsetWidth;
-      height = canvas.height = hero.offsetHeight;
-    });
-
-    const particles = [];
-    const particleCount = 38;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: Math.random() * 2.2 + 0.8,
-        speedY: Math.random() * 0.45 + 0.2,
-        speedX: (Math.random() - 0.5) * 0.3,
-        alpha: Math.random() * 0.6 + 0.2,
-        alphaSpeed: Math.random() * 0.02 + 0.01,
-        color: Math.random() > 0.3 ? '#fed65b' : '#d4af37'
-      });
-    }
-
-    let isPaused = false;
-    window.addEventListener('scroll', () => {
-      isPaused = window.scrollY > hero.offsetHeight + 100;
-    }, { passive: true });
-
-    document.addEventListener('visibilitychange', () => {
-      isPaused = document.hidden || window.scrollY > hero.offsetHeight + 100;
-    });
-
-    function animate() {
-      if (!isPaused) {
-        ctx.clearRect(0, 0, width, height);
-
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
-          p.y -= p.speedY;
-          p.x += p.speedX;
-          p.alpha += p.alphaSpeed;
-
-          if (p.alpha > 0.85 || p.alpha < 0.15) {
-            p.alphaSpeed = -p.alphaSpeed;
-          }
-
-          if (p.y < -10) {
-            p.y = height + 10;
-            p.x = Math.random() * width;
-          }
-          if (p.x < -10) p.x = width + 10;
-          if (p.x > width + 10) p.x = -10;
-
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = p.color;
-          ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
-          ctx.shadowBlur = p.size * 3;
-          ctx.shadowColor = '#fed65b';
-          ctx.fill();
-          ctx.restore();
-        }
-      }
-      requestAnimationFrame(animate);
-    }
-
-    requestAnimationFrame(animate);
+    return;
   }
 
   // 12. Universal Scroll-Driven Waterfall Reveal
@@ -1273,8 +1118,6 @@ const HWC_Shared = (function() {
     setupPolicyLinks();
     setupProductCardNavigation();
     setupFaqAccordions();
-    setupSparkEffects();
-    setupAmbientZariCanvas();
     setupScrollAnimations();
     setupMetricCounters();
     setupVideoTriggers();
