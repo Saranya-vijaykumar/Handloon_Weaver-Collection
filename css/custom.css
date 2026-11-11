@@ -154,15 +154,29 @@ html.dark header {
   }
 }
 
-/* Elegant responsive spacing for laptops (1024px to 1279px) */
+/* Elegant responsive spacing for laptops (1024px to 1279px) - Prevents cramping and guarantees zero overlap */
 @media (min-width: 1024px) and (max-width: 1279px) {
+  header > div > a:first-child,
+  header .header-inner > a:first-child {
+    font-size: 1.125rem !important;
+    margin-right: 0.5rem !important;
+  }
+  header > div > a:first-child .material-symbols-outlined,
+  header .header-inner > a:first-child .material-symbols-outlined {
+    font-size: 1.35rem !important;
+  }
+  header > div > div:last-child,
+  header .header-inner > div:last-child {
+    gap: 0.35rem !important;
+    margin-left: 0.5rem !important;
+  }
   #desktop-main-nav {
-    gap: 0.65rem !important;
+    gap: 0.5rem !important;
   }
   #desktop-main-nav .nav-item {
-    font-size: 12.5px !important;
+    font-size: 12px !important;
     letter-spacing: 0.01em !important;
-    padding: 0.25rem 0.35rem !important;
+    padding: 0.2rem 0.25rem !important;
   }
 }
 
