@@ -126,6 +126,7 @@ html.dark header {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
+    width: 100% !important;
   }
 
   /* Left Anchor: Brand Logo */
@@ -134,6 +135,7 @@ html.dark header {
     position: relative !important;
     z-index: 20 !important;
     flex-shrink: 0 !important;
+    margin-right: 0.75rem !important;
   }
 
   /* Right Anchor: Utility Action Buttons */
@@ -142,57 +144,60 @@ html.dark header {
     position: relative !important;
     z-index: 20 !important;
     flex-shrink: 0 !important;
+    margin-left: 0.75rem !important;
   }
 
-  /* Center: Absolute dead-center on header & screen */
+  /* Center: In-flow flexbox centered navigation - Guaranteed zero overlap with logo */
   #desktop-main-nav {
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 1 1 auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     margin: 0 !important;
     white-space: nowrap !important;
-    z-index: 30 !important;
+    z-index: 20 !important;
     pointer-events: auto !important;
+    min-width: 0 !important;
   }
 }
 
-/* Elegant spacing for laptops (1024px to 1279px) */
+/* Elegant responsive spacing for laptops (1024px to 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   #desktop-main-nav {
-    gap: 1.15rem !important;
+    gap: 0.65rem !important;
   }
   #desktop-main-nav .nav-item {
-    font-size: 13.5px !important;
-    letter-spacing: 0.02em !important;
-    padding: 0.35rem 0.45rem !important;
+    font-size: 12.5px !important;
+    letter-spacing: 0.01em !important;
+    padding: 0.25rem 0.35rem !important;
   }
 }
 
 /* Spacious luxury navigation for standard desktops (1280px to 1535px) */
 @media (min-width: 1280px) and (max-width: 1535px) {
   #desktop-main-nav {
-    gap: 1.85rem !important;
+    gap: 1.25rem !important;
   }
   #desktop-main-nav .nav-item {
-    font-size: 14.5px !important;
-    letter-spacing: 0.03em !important;
-    padding: 0.4rem 0.65rem !important;
+    font-size: 13.5px !important;
+    letter-spacing: 0.02em !important;
+    padding: 0.35rem 0.5rem !important;
   }
 }
 
 /* Extra spacious luxury navigation for wide screens (1536px+) */
 @media (min-width: 1536px) {
   #desktop-main-nav {
-    gap: 2.5rem !important;
+    gap: 2rem !important;
   }
   #desktop-main-nav .nav-item {
-    font-size: 15px !important;
-    letter-spacing: 0.035em !important;
-    padding: 0.45rem 0.85rem !important;
+    font-size: 14.5px !important;
+    letter-spacing: 0.03em !important;
+    padding: 0.4rem 0.75rem !important;
   }
 }
 
