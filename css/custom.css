@@ -854,17 +854,19 @@ html.dark textarea::placeholder {
 
 /* 1. Page Entrance Fade */
 body {
-  animation: hwcPageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: hwcPageFadeIn 0.4s ease-out;
+  transform: none !important;
+  filter: none !important;
+  perspective: none !important;
+  contain: none !important;
 }
 
 @keyframes hwcPageFadeIn {
   from {
-    opacity: 0.88;
-    transform: translateY(3px);
+    opacity: 0.9;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -1331,15 +1333,17 @@ header {
   border-radius: 10px !important;
 }
 
-#mobile-menu-btn {
-  height: 38px !important;
-  width: 38px !important;
-  min-width: 38px !important;
+/* Hamburger Menu Removed Per User Request */
+#mobile-menu-btn,
+.mobile-menu-trigger {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
   padding: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 10px !important;
+  margin: 0 !important;
+  border: 0 !important;
 }
 
 /* 7. Text Selection Color Enhancement */
@@ -1357,3 +1361,34 @@ html.dark ::selection {
 
 
 
+
+
+/* =========================================================
+   Consistent Subpage Hero Section Height Guarantee (Item 2)
+   Ensures all non-home pages have mathematically identical
+   hero banner heights and balanced vertical centering
+   ========================================================= */
+.subpage-hero {
+  min-height: 440px !important;
+  max-height: 440px !important;
+  height: 440px !important;
+  padding-top: 104px !important;
+  padding-bottom: 36px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 640px) {
+  .subpage-hero {
+    min-height: 400px !important;
+    max-height: 400px !important;
+    height: 400px !important;
+    padding-top: 92px !important;
+    padding-bottom: 24px !important;
+  }
+}
